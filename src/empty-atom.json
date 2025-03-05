@@ -23,7 +23,7 @@
     "gradient": "",
     "leading_icon": "",
     "size": "",
-    "sub_variant": "only_text",
+    "sub_variant": "only_text | leading_icon | trailing_icon | icon_text_icon | only_icon",
     "text_color": "",
     "trailing_icon": "",
     "typography": ""

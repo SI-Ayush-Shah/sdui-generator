@@ -15,6 +15,7 @@ import SchemaViewer from "./SchemaViewer";
 import { TokenProvider } from "../contexts/TokenContext";
 import json from "../sdui-schema.json";
 import PageBuilder from "./builders/PageBuilder";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NAVIGATION_ITEMS = [
   { id: "pages", label: "Pages", icon: "document" },
@@ -24,45 +25,53 @@ const NAVIGATION_ITEMS = [
   { id: "atoms", label: "Atoms", icon: "atom" },
 ];
 
-const JsonBuilder = ({ existingJson }) => {
-  const [mode, setMode] = useState("edit"); // 'edit' or 'view'
-  const [jsonData, setJsonData] = useState(
-    existingJson || {
-      data: {
-        components: {
-          template: [],
-          organism: json.data.components.organism,
-          molecule: json.data.components.molecule,
-          atom: json.data.components.atom,
-        },
-        tokens: json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"],
-        version: 1.01,
+const JsonBuilder = ({ defaultSection = "pages" }) => {
+  const navigate = useNavigate();
+  const { pageId, templateId, organismId, moleculeId, atomId } = useParams();
+  const [mode, setMode] = useState("edit");
+  const [jsonData, setJsonData] = useState({
+    data: {
+      components: {
+        template: [],
+        organism: json.data.components.organism,
+        molecule: json.data.components.molecule,
+        atom: json.data.components.atom,
       },
-      meta: {
-        status: 200,
-        timestamp: new Date().toISOString(),
-        request_id: crypto.randomUUID(),
-        execution_time_ms: 0,
-        app_version: "1.0.0",
-      },
-    }
-  );
+      tokens: json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"],
+      version: 1.01,
+    },
+    meta: {
+      status: 200,
+      timestamp: new Date().toISOString(),
+      request_id: crypto.randomUUID(),
+      execution_time_ms: 0,
+      app_version: "1.0.0",
+    },
+  });
 
-  const [activeSection, setActiveSection] = useState("pages");
   const [selectedPage, setSelectedPage] = useState(null);
 
   useEffect(() => {
-    if (!existingJson) {
+    if (!defaultSection) {
       const savedData = loadFromLocalStorage("sdui-schema");
       if (savedData) {
         setJsonData(savedData);
       }
     }
-  }, [existingJson]);
+  }, [defaultSection]);
 
   useEffect(() => {
     saveToLocalStorage("sdui-schema", jsonData);
   }, [jsonData]);
+
+  useEffect(() => {
+    // Load specific item based on ID if provided
+    if (pageId) {
+      const page = jsonData.pages?.find((p) => p.id === pageId);
+      if (page) setSelectedPage(page);
+    }
+    // Similar for other types...
+  }, [pageId, templateId, organismId, moleculeId, atomId]);
 
   const handleAddComponent = (type, component) => {
     setJsonData((prev) => ({
@@ -110,6 +119,7 @@ const JsonBuilder = ({ existingJson }) => {
       ...prev,
       pages: [...(prev.pages || []), page],
     }));
+    navigate(`/pages/${page.id}`);
   };
 
   const handleUpdatePage = (index, page) => {
@@ -120,7 +130,7 @@ const JsonBuilder = ({ existingJson }) => {
   };
 
   const renderContent = () => {
-    switch (activeSection) {
+    switch (defaultSection) {
       case "pages":
         return (
           <div className="grid grid-cols-12 gap-6">
@@ -163,6 +173,73 @@ const JsonBuilder = ({ existingJson }) => {
             <div className="col-span-4">{/* Template Preview */}</div>
           </div>
         );
+      case "atoms":
+        return (
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-8">
+              <AtomBuilder
+                onAdd={(atom) => handleAddComponent("atom", atom)}
+                existingAtoms={jsonData.data.components.atom || []}
+                onUpdate={(index, atom) =>
+                  handleUpdateComponent("atom", index, atom)
+                }
+              />
+            </div>
+            <div className="col-span-4">
+              <div className="bg-white rounded-lg shadow">
+                <div className="p-4 border-b border-gray-200">
+                  <h3 className="text-lg font-medium">Atoms List</h3>
+                </div>
+                <div className="p-4">
+                  <div className="space-y-2">
+                    {jsonData.data.components.atom.map((atom, index) => (
+                      <div
+                        key={atom.id}
+                        className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                      >
+                        <div>
+                          <span className="text-sm font-medium text-gray-900">
+                            {atom.name}
+                          </span>
+                          <span className="ml-2 text-xs text-gray-500">
+                            {atom.atom_type}
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => handleEdit("atom", atom)}
+                            className="text-sm text-indigo-600 hover:text-indigo-900"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => {
+                              setJsonData((prev) => ({
+                                ...prev,
+                                data: {
+                                  ...prev.data,
+                                  components: {
+                                    ...prev.data.components,
+                                    atom: prev.data.components.atom.filter(
+                                      (a) => a.id !== atom.id
+                                    ),
+                                  },
+                                },
+                              }));
+                            }}
+                            className="text-sm text-red-600 hover:text-red-900"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
       // ... cases for other sections
     }
   };
@@ -172,10 +249,7 @@ const JsonBuilder = ({ existingJson }) => {
       <div className="min-h-screen bg-gray-50">
         <nav className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between h-16 items-center">
-              <h1 className="text-2xl font-bold text-gray-900">
-                SDUI Schema Builder
-              </h1>
+            <div className="flex justify-end h-16 items-center">
               <div className="flex items-center space-x-4">
                 <div className="flex rounded-md shadow-sm" role="group">
                   <button
@@ -209,62 +283,7 @@ const JsonBuilder = ({ existingJson }) => {
             </div>
           </div>
         </nav>
-        <div className="flex h-[calc(100vh-4rem)]">
-          <div className="w-64 bg-white border-r border-gray-200">
-            <div className="p-4">
-              <h2 className="text-lg font-medium text-gray-900">Navigation</h2>
-            </div>
-            <nav className="space-y-1">
-              {NAVIGATION_ITEMS.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`w-full flex items-center px-4 py-2 text-sm font-medium ${
-                    activeSection === item.id
-                      ? "bg-indigo-50 text-indigo-600"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  }`}
-                >
-                  <span className="mr-3">
-                    {/* Icon component based on item.icon */}
-                  </span>
-                  {item.label}
-                </button>
-              ))}
-            </nav>
-            {activeSection === "pages" && (
-              <div className="p-4 border-t border-gray-200">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-sm font-medium text-gray-900">Pages</h3>
-                  <button
-                    onClick={() => setSelectedPage(null)}
-                    className="text-sm text-indigo-600 hover:text-indigo-900"
-                  >
-                    + New Page
-                  </button>
-                </div>
-                <div className="space-y-1">
-                  {jsonData.pages?.map((page) => (
-                    <button
-                      key={page.id}
-                      onClick={() => setSelectedPage(page)}
-                      className={`w-full text-left px-3 py-2 text-sm rounded-md ${
-                        selectedPage?.id === page.id
-                          ? "bg-indigo-50 text-indigo-600"
-                          : "text-gray-600 hover:bg-gray-50"
-                      }`}
-                    >
-                      {page.screen_name || page.id}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          <div className="flex-1 overflow-auto">
-            <main className="p-8">{renderContent()}</main>
-          </div>
-        </div>
+        <div className="p-8">{renderContent()}</div>
       </div>
     </TokenProvider>
   );
