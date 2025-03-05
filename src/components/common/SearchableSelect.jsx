@@ -15,9 +15,16 @@ const SearchableSelect = ({
   const wrapperRef = useRef(null);
   const searchInputRef = useRef(null);
 
-  const selectedOption = options.find(
-    (opt) => opt.value === value || opt === value
-  );
+  // Debug log to see what's coming in
+
+  const selectedOption = isColor
+    ? options.find((opt) => {
+        // Debug log to see each comparison
+        return opt.value === value || opt === value;
+      })
+    : options.find((opt) =>
+        typeof opt === "object" ? opt.value === value : opt === value
+      );
 
   const groupedOptions = isColor
     ? options.reduce((acc, option) => {

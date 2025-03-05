@@ -1,16 +1,27 @@
+import json from "../sdui-schema.json";
 export const ATOM_TYPES = [
   {
     value: "button",
     label: "Button",
-    defaultProps: {
-      variant: "primary",
-      size: "medium",
-      label: "Button Text",
-      isDisabled: false,
-      isFullWidth: false,
-    },
+    defaultProps: {},
   },
-  // ... other atom types
+  {
+    value: "badge",
+    label: "Badge",
+    defaultProps: {},
+  },
+
+  {
+    value: "img",
+    label: "Img",
+    defaultProps: {},
+  },
+
+  {
+    value: "text",
+    label: "Text",
+    defaultProps: {},
+  },
 ];
 
 export const BUTTON_SUB_VARIANTS = [
@@ -39,4 +50,16 @@ export const TYPOGRAPHY_OPTIONS = [
   // ... other typography options
 ];
 
-export const SIZES = ["small", "medium", "large"]; 
+export const SIZES = ["small", "medium", "large"];
+export const RATIO_OPTIONS = [
+  "1:1",
+  "16:9",
+  "4:3",
+  "3:4",
+  "9:16",
+  "1:2",
+  "2:1",
+];
+export const GRADIENT_OPTIONS = Object.keys(
+  json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"].gradient.light
+);

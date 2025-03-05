@@ -500,9 +500,9 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
               return (
                 <Img
                   src={`https://stg-washington-freedom.sportz.io/static-assets/waf-images/3e/4d/f6/${
-                    atom.ratio?.split(":")[0] || "1"
+                    atom.ratio?.split(":")[0] || "16"
                   }-${
-                    atom.ratio?.split(":")[1] || "1"
+                    atom.ratio?.split(":")[1] || "9"
                   }/W62UAhQg2I.jpg?v=1.04&w=1920`}
                   {...atom}
                 />

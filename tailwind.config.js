@@ -6,15 +6,12 @@ import {
 } from "@sikit/theme";
 let tailwindConfig;
 try {
-  // console.log('tag122---', cssOutput);
   tailwindConfig = generateTailwindConfigFromJson(
     config.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"]
   );
-  // console.log(JSON.stringify(tailwindConfig));
 } catch (err) {
   console.log("something went wrong", err);
 }
-// console.log(tailwindConfig);
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -115,9 +112,6 @@ module.exports = {
       pattern: /rounded-(br|bl|tr|tl)-(\d+(\.\d+)?|\[.*?\])/,
     },
   ],
-  // extend: {
-  //   colors: tailwindConfig.theme.colors,
-  //   ...tailwindConfig.theme.extend,
-  // },
+
   ...tailwindConfig,
 };

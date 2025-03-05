@@ -9271,22 +9271,262 @@
         "theme_name": "theme1",
         "gradient": {
           "light": {
-            "gradient_nue_horiz_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_nue_horiz_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_nue_vert_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_nue_vert_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_horiz_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_horiz_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_vert_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_vert_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_sec_horiz_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_sec_horiz_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_sec_vert_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_sec_vert_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_sec_horiz_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_sec_horiz_2_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_sec_vert_1_light": "undefined(undefineddeg, undefined)",
-            "gradient_prim_sec_vert_2_light": "undefined(undefineddeg, undefined)"
+            "gradient_nue_horiz_1_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#000000",
+                  "opacity": 0,
+                  "percent": 0
+                },
+                {
+                  "color": "#000000",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_nue_horiz_2_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#000000",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#000000",
+                  "opacity": 0,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_nue_vert_1_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#000000",
+                  "opacity": 0,
+                  "percent": 0
+                },
+                {
+                  "color": "#000000",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_nue_vert_2_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#000000",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#000000",
+                  "opacity": 0,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_horiz_1_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#BD0010",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#F43D48",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_horiz_2_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#F43D48",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#BD0010",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_vert_1_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#F43D48",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#BD0010",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_vert_2_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#BD0010",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#F43D48",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_sec_horiz_1_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#2A4578",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_sec_horiz_2_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#2A4578",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_sec_vert_1_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#2A4578",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_sec_vert_2_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#2A4578",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_sec_horiz_1_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#EA0A2C",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_sec_horiz_2_light": {
+              "type": "linear-gradient",
+              "degree": 90,
+              "stops": [
+                {
+                  "color": "#EA0A2C",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_sec_vert_1_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#EA0A2C",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            },
+            "gradient_prim_sec_vert_2_light": {
+              "type": "linear-gradient",
+              "degree": 180,
+              "stops": [
+                {
+                  "color": "#0D1D41",
+                  "opacity": 100,
+                  "percent": 0
+                },
+                {
+                  "color": "#EA0A2C",
+                  "opacity": 100,
+                  "percent": 100
+                }
+              ]
+            }
           }
         },
         "color": {
