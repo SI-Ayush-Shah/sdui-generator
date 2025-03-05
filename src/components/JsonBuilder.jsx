@@ -28,6 +28,8 @@ import {
   FiImage,
 } from "react-icons/fi";
 import EditAtomModal from "./modals/EditAtomModal";
+import { updateSduiSchema } from "../utils/fileOperations";
+import { toast } from "react-hot-toast";
 
 const NAVIGATION_ITEMS = [
   { id: "pages", label: "Pages", icon: "document" },
@@ -45,11 +47,11 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     data: {
       components: {
         template: [],
-        organism: json.data.components.organism,
-        molecule: json.data.components.molecule,
-        atom: json.data.components.atom,
+        organism: json.data.components.organism || [],
+        molecule: json.data.components.molecule || [],
+        atom: json.data.components.atom || [],
       },
-      tokens: json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"],
+      tokens: json.data.tokens,
       version: 1.01,
     },
     meta: {
@@ -86,24 +88,34 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     // Similar for other types...
   }, [pageId, templateId, organismId, moleculeId, atomId]);
 
-  const handleAddComponent = (type, component) => {
-    setJsonData((prev) => {
+  const handleAddComponent = async (type, component) => {
+    try {
+      // Check if an atom with this ID already exists
+      if (
+        type === "atom" &&
+        jsonData.data.components.atom.some((a) => a.id === component.id)
+      ) {
+        toast.error("An atom with this ID already exists");
+        return;
+      }
+
       const newData = {
-        ...prev,
+        ...jsonData,
         data: {
-          ...prev.data,
+          ...jsonData.data,
           components: {
-            ...prev.data.components,
-            [type]: [...(prev.data.components[type] || []), component],
+            ...jsonData.data.components,
+            [type]: [...(jsonData.data.components[type] || []), component],
           },
         },
       };
 
-      // Save to localStorage after adding
-      saveToLocalStorage("sdui-schema", newData);
-
-      return newData;
-    });
+      await updateSduiSchema(newData);
+      setJsonData(newData);
+      toast.success("Component added successfully");
+    } catch (error) {
+      toast.error("Failed to add component");
+    }
   };
 
   const handleUpdateComponent = (type, index, component) => {
@@ -143,19 +155,37 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     }));
   };
 
-  const handleUpdateAtom = (updatedAtom) => {
-    setJsonData((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        components: {
-          ...prev.data.components,
-          atom: prev.data.components.atom.map((a) =>
-            a.id === updatedAtom.id ? updatedAtom : a
-          ),
+  const handleUpdateAtom = async (updatedAtom) => {
+    try {
+      // Check if this atom already exists (excluding the one being updated)
+      const duplicateExists = jsonData.data.components.atom.some(
+        (a) => a.id === updatedAtom.id && a !== editingAtom
+      );
+
+      if (duplicateExists) {
+        toast.error("An atom with this ID already exists");
+        return;
+      }
+
+      const newData = {
+        ...jsonData,
+        data: {
+          ...jsonData.data,
+          components: {
+            ...jsonData.data.components,
+            atom: jsonData.data.components.atom.map((a) =>
+              a.id === updatedAtom.id ? updatedAtom : a
+            ),
+          },
         },
-      },
-    }));
+      };
+
+      await updateSduiSchema(newData);
+      setJsonData(newData);
+      toast.success("Atom updated successfully");
+    } catch (error) {
+      toast.error("Failed to update atom");
+    }
   };
 
   const renderContent = () => {
@@ -438,6 +468,10 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
             const order = ATOM_FILTERS.findIndex((f) => f.id === a.atom_type);
             return order - ATOM_FILTERS.findIndex((f) => f.id === b.atom_type);
           })
+          .filter(
+            (atom, index, self) =>
+              index === self.findIndex((a) => a.id === atom.id)
+          )
           .filter((atom) => {
             if (!atom) return false;
 
