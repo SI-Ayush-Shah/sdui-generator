@@ -1,0 +1,3431 @@
+{
+    "id": "page_homepage",
+    "page_type": "home",
+    "device": "mobile",
+    "screen_name": "Home",
+    "force_back": "",
+    "theme": {
+      "main_theme": "40b949f1-5800-4025-8395-ed22bd52ccc6",
+      "micro_theme": ""
+    },
+    "meta": {
+      "language": "en",
+      "keywords": "",
+      "meta_desc": "Rajasthan Royals (RR), an IPL 2008 winner and CLT20 2013 runners up team. Get RR match updates, IPL news, videos, photos, merchandise, players information & more here.",
+      "browser_title": "Rajasthan Royals",
+      "canonical_url": "https://stg-rr.sportz.io/",
+      "json_ld_data": {
+        "schemas": [
+          "{\"url\":\"https://www.rajasthanroyals.com/\",\"logo\":\" https://www.rajasthanroyals.com/static-assets/images/svg/logo.svg?v=5.11\",\"name\":\"Rajasthan Royals\",\"@type\":\"Organization\",\"sameAs\":[\"https://www.facebook.com/RajasthanRoyals/\",\"https://twitter.com/rajasthanroyals\",\"https://www.instagram.com/rajasthanroyals/?hl=en\",\"https://www.youtube.com/channel/UCkpgyRmcNy-aZFLUkKkWK4w\",\"https://www.linkedin.com/company/rajasthanroyals\",\"https://en.wikipedia.org/wiki/Rajasthan_Royals\",\"https://play.google.com/store/apps/details?id=com.rajasthanroyals.app\"],\"@context\":\"https://schema.org\",\"alternateName\":\"RR\"}",
+          "{\"url\":\"https://www.rajasthanroyals.com/\",\"logo\":\"https://www.rajasthanroyals.com/static-assets/images/cssimages/static/rr-new.png?v=5.32\",\"name\":\"Rajasthan Royals\",\"@type\":\"SportsTeam\",\"sameAs\":[\"https://twitter.com/rajasthanroyals\",\"https://www.instagram.com/rajasthanroyals/?hl=en\",\"https://www.facebook.com/RajasthanRoyals/\",\"https://www.linkedin.com/company/rajasthanroyals\",\"https://www.youtube.com/channel/UCkpgyRmcNy-aZFLUkKkWK4w\"],\"@context\":\"https://schema.org\"}"
+        ]
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "Rajasthan Royals - IPL 2025 Team - RR Match Score, Squad, News & More",
+        "description": "Rajasthan Royals (RR), an IPL 2008 winner and CLT20 2013 runners up team. Get RR match updates, IPL news, videos, photos, merchandise, players information & more here.",
+        "image": "https://stg-rr.sportz.io/static-assets/images/default-social-share.jpeg?v=1.42",
+        "url": "https://stg-rr.sportz.io/"
+      },
+      "og": {
+        "site_name": "Rajasthan Royals",
+        "type": "website",
+        "title": "Rajasthan Royals - IPL 2025 Team - RR Match Score, Squad, News & More",
+        "content": "Rajasthan Royals (RR), an IPL 2008 winner and CLT20 2013 runners up team. Get RR match updates, IPL news, videos, photos, merchandise, players information & more here.",
+        "url": "https://stg-rr.sportz.io/",
+        "image": "https://stg-rr.sportz.io/static-assets/images/default-social-share.jpeg?v=1.42",
+        "image_alt": "Rajasthan Royals (RR), an IPL 2008 winner and CLT20 2013 runners up team. Get RR match updates, IPL news, videos, photos, merchandise, players information & more here."
+      },
+      "essentials": {
+        "charset": "utf-8",
+        "viewport": "width=device-width, initial-scale=1,maximum-scale=1,viewport-fit=cover"
+      },
+      "csp": {
+        "content": "default-src 'self';"
+      },
+      "app": {
+        "fb_app_id": "291064039479137",
+        "apple_itunes_app": "app-id=1460354209",
+        "ios_url": "https://stg-rr.sportz.io/",
+        "app_store_id": "1460354209",
+        "ios_app_name": "Rajasthan Royals",
+        "android_url": "https://stg-rr.sportz.io/",
+        "android_package": "com.rajasthanroyals.app",
+        "android_app_name": "Rajasthan Royals"
+      },
+      "icons_and_manifest": {
+        "apple_touch_icon": {
+          "sizes": "180x180",
+          "href": "/static-assets/favicons/apple-touch-icon.png?v=1.42"
+        },
+        "icon": [
+          {
+            "rel": "icon",
+            "type": "image/png",
+            "sizes": "16x16",
+            "href": "/static-assets/favicons/favicon-16x16.png?v=1.42"
+          },
+          {
+            "rel": "icon",
+            "type": "image/png",
+            "sizes": "32x32",
+            "href": "/static-assets/favicons/favicon-32x32.png?v=1.42"
+          }
+        ],
+        "manifest": "/static-assets/favicons/site.webmanifest?v=1.42",
+        "mask_icon": {
+          "href": "/static-assets/favicons/safari-pinned-tab.svg?v=1.42",
+          "color": "#e50695"
+        },
+        "shortcut_icon": {
+          "href": "/static-assets/favicons/favicon.ico?v=1.42"
+        }
+      },
+      "tags": []
+    },
+    "templates": [
+      {
+        "id": "86528b7c-7d7d-4ef9-ab51-e0a655e94ea7",
+        "template_type": "showcase",
+        "content_type": "showcase",
+        "properties": {
+          "is_full_width": true,
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "section_gap": true,
+          "layout_type": "carousel_listing"
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "",
+          "padding": {
+            "top": "",
+            "right": "",
+            "bottom": "spacing_6",
+            "left": ""
+          }
+        },
+        "data": {
+          "title": "Showcase",
+          "sub_title": "",
+          "cta": {
+            "view_more": []
+          },
+          "toggle": {},
+          "filters": {},
+          "items": [
+            {
+              "asset_id": 581,
+              "title": "Road to the IPL 2024 final - LSG’s full list of fixtures out!",
+              "desc": "xyz",
+              "detail_url": "http://stg-lsg.sportz.io/news/road-to-the-ipl-2024-final---lsgs-full-list-of-fixtures-out",
+              "thumbnail_image": "http://stg-lsg.sportz.io/static-assets/waf-images/6a/e4/d8/2-3/wPKnE9TT2j.jpg",
+              "created_date": "2024-12-05T15:00+00:00",
+              "published_date": "2024-12-05T15:00+00:00",
+              "author": "Admin",
+              "duration": "",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "2024",
+                  "canonical": "/lsg/seasons/seasonthree",
+                  "is_linkable": false
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "news",
+                  "is_linkable": false
+                }
+              }
+            },
+            {
+              "asset_id": 1281,
+              "title": "Lucknow, you rocked the LSG 10k 🏃",
+              "desc": "<p>Thousands came out today morning to run for their city, our city. 🫡<br /><br />Thank you, Lucknow, for making the first ever #LSG10K an incredible experience 😍💙</p>",
+              "detail_url": "http://stg-lsg.sportz.io/videos/lucknow-you-rocked-the-lsg-10k",
+              "thumbnail_image": "http://stg-lsg.sportz.io/static-assets/waf-images/6e/6f/33/2-3/85ABkheswh.jpg",
+              "created_date": "2024-12-05T15:00+00:00",
+              "published_date": "2024-12-05T15:00+00:00",
+              "author": "WebTeam",
+              "duration": "",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Events",
+                  "canonical": "/lsg/categories/events",
+                  "is_linkable": false
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "videos",
+                  "is_linkable": false
+                }
+              }
+            },
+            {
+              "asset_id": 541,
+              "title": "Lucknow’s Gazab Andaz makes LSG 10K a giant success",
+              "desc": "The inaugural LSG 10K Lucknow run saw over 2,500 participants take part on 17th March.",
+              "detail_url": "http://stg-lsg.sportz.io/news/lucknows-gazab-andaz-makes-lsg-10k-a-giant-success",
+              "thumbnail_image": "http://stg-lsg.sportz.io/static-assets/waf-images/f0/5a/8b/2-3/dp1RLLB0QH.JPG",
+              "created_date": "2024-12-05T15:00+00:00",
+              "published_date": "2024-12-05T15:00+00:00",
+              "author": "Admin",
+              "duration": "",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "2024",
+                  "canonical": "/lsg/seasons/seasonthree",
+                  "is_linkable": false
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "news",
+                  "is_linkable": false
+                }
+              }
+            }
+          ],
+          "pagination": {
+            "pagination_type": "",
+            "load_more_count": "",
+            "label": "",
+            "api": ""
+          }
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "5dc6080e-44c8-438e-91af-b25c7321703e",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ],
+              "carousel": {
+                "slides_per_view": 1.2,
+                "nav_arrows": {
+                  "visibility": false,
+                  "variant": "1",
+                  "sub_variant": "nearby",
+                  "position": "bottom_trailing",
+                  "enabled_color": "button_filled_primary_background_default",
+                  "disabled_color": "button_filled_secondary_text_default"
+                },
+                "nav_indicator": {
+                  "visibility": true,
+                  "enabled_color": "background_sec_surface",
+                  "disabled_color": "background_invert_surface",
+                  "variant": "1",
+                  "sub_variant": "rounded",
+                  "stack": "h",
+                  "position": "bottom",
+                  "offset": -16
+                },
+                "space_between": "10",
+                "autoplay": true,
+                "autoplay_interval": 5000,
+                "loop": true,
+                "direction": "horizontal",
+                "free_mode": true
+              }
+            },
+            "injection": {},
+            "preview": {
+              "items": [],
+              "carousel": {}
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "7b76512b-6cd5-4029-8925-3b2808f445678",
+        "template_type": "fixtures",
+        "content_type": "fixtures",
+        "properties": {
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "layout_type": "horizontal_listing",
+          "is_full_width": false
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_4",
+          "padding": {
+            "top": "",
+            "right": "spacing_4",
+            "bottom": "spacing_6",
+            "left": "spacing_4"
+          }
+        },
+        "data": {
+          "title": "Fixtures & Results",
+          "cta": {
+            "view_more": [
+              {
+                "type": "link",
+                "label": "VIEW MORE",
+                "url": "/fixtures-results"
+              }
+            ]
+          },
+          "api": {
+            "fixtures": "https://dev-fanxp.sportz.io/content-engine/v1/resources?platform=web&deviceType=mobile&type=poll&template=fixtures"
+          },
+          "polling_interval": 17,
+          "filters": {},
+          "items": [
+            {
+              "league_id": "35",
+              "championship_id": "",
+              "parent_series_id": "403",
+              "comp_type_id": "103",
+              "event_is_daynight": "false",
+              "result_code": "W",
+              "event_state": "R",
+              "event_islinkable": "true",
+              "match_id": "250559",
+              "event_coverage_level_id": "6",
+              "event_day": "",
+              "event_priority": "",
+              "league_code": "womens_youth_international",
+              "championship_name": "",
+              "game_id": "awuswl01292025250559",
+              "series_start_date": "2025-01-18",
+              "tour_id": "6965",
+              "participants": [
+                {
+                  "name": "Australia Women Under-19",
+                  "name_eng": "Australia Women Under-19",
+                  "short_name": "AUS-WU19",
+                  "short_name_eng": "AUS-WU19",
+                  "id": "1900",
+                  "value": "87/8 (20.0)",
+                  "now": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/1900.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "87/8",
+                      "overs": "(20.0)"
+                    }
+                  ]
+                },
+                {
+                  "name": "Sri Lanka Women Under-19",
+                  "name_eng": "Sri Lanka Women Under-19",
+                  "short_name": "SL-WU19",
+                  "short_name_eng": "SL-WU19",
+                  "id": "3285",
+                  "value": "99/8 (20.0)",
+                  "highlight": "true",
+                  "firstup": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3285.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "99/8",
+                      "overs": "(20.0)"
+                    }
+                  ]
+                }
+              ],
+              "end_date": "2025-01-29T16:00+05:30",
+              "venue_gmt_offset": "+08:00",
+              "winning_margin": "12 runs",
+              "short_event_status": "SL-WU19 beat AUS-WU19 by 12 runs",
+              "event_name": "Super Six - Match 12",
+              "tour_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "sport": "cricket",
+              "series_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "event_session": "",
+              "event_thisover": "2,2,1,1,1,w",
+              "event_format": "youth_t20i",
+              "start_date": "2025-01-29T12:00+05:30",
+              "event_stage": "super_six",
+              "event_status": "Match Ended",
+              "series_id": "8126",
+              "event_status_id": "114",
+              "result_sub_code": "",
+              "venue_id": "1939",
+              "series_end_date": "2025-02-02",
+              "event_sub_status": "Sri Lanka Women Under-19 beat Australia Women Under-19 by 12 runs",
+              "event_livecoverage": "true",
+              "event_duration_left": "",
+              "event_coverage_level": "Live Scorecard",
+              "venue_name": "YSD-UKM Cricket Oval, Bangi",
+              "event_interval": "2",
+              "event_group": "GROUP 1",
+              "has_standings": "true",
+              "parent_series_name": "ICC Women's Under-19 T20 World Cup",
+              "matchcenter_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "highlights_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "tickets_url": "",
+              "display_status": "Result"
+            },
+            {
+              "league_id": "35",
+              "championship_id": "",
+              "parent_series_id": "403",
+              "comp_type_id": "103",
+              "event_is_daynight": "false",
+              "result_code": "W",
+              "event_state": "R",
+              "event_islinkable": "true",
+              "match_id": "250560",
+              "event_coverage_level_id": "6",
+              "event_day": "",
+              "event_priority": "",
+              "league_code": "womens_youth_international",
+              "championship_name": "",
+              "game_id": "swwawu01312025250560",
+              "series_start_date": "2025-01-18",
+              "tour_id": "6965",
+              "participants": [
+                {
+                  "name": "South Africa Women Under-19",
+                  "name_eng": "South Africa Women Under-19",
+                  "short_name": "SA-WU19",
+                  "short_name_eng": "SA-WU19",
+                  "id": "3187",
+                  "value": "106/5 (18.1)",
+                  "highlight": "true",
+                  "now": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3187.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "106/5",
+                      "overs": "(18.1)"
+                    }
+                  ]
+                },
+                {
+                  "name": "Australia Women Under-19",
+                  "name_eng": "Australia Women Under-19",
+                  "short_name": "AUS-WU19",
+                  "short_name_eng": "AUS-WU19",
+                  "id": "1900",
+                  "value": "105/8 (20.0)",
+                  "firstup": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/1900.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "105/8",
+                      "overs": "(20.0)"
+                    }
+                  ]
+                }
+              ],
+              "end_date": "2025-01-31T12:00+05:30",
+              "venue_gmt_offset": "+08:00",
+              "winning_margin": "5 wickets",
+              "short_event_status": "SA-WU19 beat AUS-WU19 by 5 wickets",
+              "event_name": "1st Semi-Final",
+              "tour_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "sport": "cricket",
+              "series_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "event_session": "",
+              "event_thisover": "1",
+              "event_format": "youth_t20i",
+              "start_date": "2025-01-31T08:00+05:30",
+              "event_stage": "semi_final",
+              "event_status": "Match Ended",
+              "series_id": "8126",
+              "event_status_id": "114",
+              "result_sub_code": "",
+              "venue_id": "205",
+              "series_end_date": "2025-02-02",
+              "event_sub_status": "South Africa Women Under-19 beat Australia Women Under-19 by 5 wickets",
+              "event_livecoverage": "true",
+              "event_duration_left": "",
+              "event_coverage_level": "Live Scorecard",
+              "venue_name": "Bayuemas Oval, Kuala Lumpur",
+              "event_interval": "2",
+              "event_group": "",
+              "has_standings": "true",
+              "parent_series_name": "ICC Women's Under-19 T20 World Cup",
+              "matchcenter_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "highlights_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "tickets_url": "",
+              "display_status": "Result"
+            },
+            {
+              "league_id": "35",
+              "championship_id": "",
+              "parent_series_id": "403",
+              "comp_type_id": "103",
+              "event_is_daynight": "false",
+              "result_code": "W",
+              "event_state": "R",
+              "event_islinkable": "true",
+              "match_id": "250561",
+              "event_coverage_level_id": "6",
+              "event_day": "",
+              "event_priority": "",
+              "league_code": "womens_youth_international",
+              "championship_name": "",
+              "game_id": "iuuewu01312025250561",
+              "series_start_date": "2025-01-18",
+              "tour_id": "6965",
+              "participants": [
+                {
+                  "name": "India Women Under-19",
+                  "name_eng": "India Women Under-19",
+                  "short_name": "IND-WU19",
+                  "short_name_eng": "IND-WU19",
+                  "id": "3293",
+                  "value": "117/1 (15.0)",
+                  "highlight": "true",
+                  "now": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3293.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "117/1",
+                      "overs": "(15.0)"
+                    }
+                  ]
+                },
+                {
+                  "name": "England Women Under-19",
+                  "name_eng": "England Women Under-19",
+                  "short_name": "ENG-WU19",
+                  "short_name_eng": "ENG-WU19",
+                  "id": "3286",
+                  "value": "113/8 (20.0)",
+                  "firstup": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3286.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "113/8",
+                      "overs": "(20.0)"
+                    }
+                  ]
+                }
+              ],
+              "end_date": "2025-01-31T16:00+05:30",
+              "venue_gmt_offset": "+08:00",
+              "winning_margin": "9 wickets",
+              "short_event_status": "IND-WU19 beat ENG-WU19 by 9 wickets",
+              "event_name": "2nd Semi-Final",
+              "tour_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "sport": "cricket",
+              "series_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "event_session": "",
+              "event_thisover": "4,4,0,1,1,4",
+              "event_format": "youth_t20i",
+              "start_date": "2025-01-31T12:00+05:30",
+              "event_stage": "semi_final",
+              "event_status": "Match Ended",
+              "series_id": "8126",
+              "event_status_id": "114",
+              "result_sub_code": "",
+              "venue_id": "205",
+              "series_end_date": "2025-02-02",
+              "event_sub_status": "India Women Under-19 beat England Women Under-19 by 9 wickets",
+              "event_livecoverage": "true",
+              "event_duration_left": "",
+              "event_coverage_level": "Live Scorecard",
+              "venue_name": "Bayuemas Oval, Kuala Lumpur",
+              "event_interval": "2",
+              "event_group": "",
+              "has_standings": "true",
+              "parent_series_name": "ICC Women's Under-19 T20 World Cup",
+              "matchcenter_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "highlights_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "tickets_url": "",
+              "display_status": "Result"
+            },
+            {
+              "league_id": "35",
+              "championship_id": "",
+              "parent_series_id": "403",
+              "comp_type_id": "103",
+              "event_is_daynight": "false",
+              "result_code": "W",
+              "event_state": "R",
+              "event_islinkable": "true",
+              "match_id": "250562",
+              "event_coverage_level_id": "6",
+              "event_day": "",
+              "event_priority": "",
+              "league_code": "womens_youth_international",
+              "championship_name": "",
+              "game_id": "swwiuu02022025250562",
+              "series_start_date": "2025-01-18",
+              "tour_id": "6965",
+              "participants": [
+                {
+                  "name": "South Africa Women Under-19",
+                  "name_eng": "South Africa Women Under-19",
+                  "short_name": "SA-WU19",
+                  "short_name_eng": "SA-WU19",
+                  "id": "3187",
+                  "value": "82 (20.0)",
+                  "firstup": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3187.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "82",
+                      "overs": "(20.0)"
+                    }
+                  ]
+                },
+                {
+                  "name": "India Women Under-19",
+                  "name_eng": "India Women Under-19",
+                  "short_name": "IND-WU19",
+                  "short_name_eng": "IND-WU19",
+                  "id": "3293",
+                  "value": "84/1 (11.2)",
+                  "highlight": "true",
+                  "now": "true",
+                  "players_involved": [],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/3293.png?v=30.5512345",
+                  "innings": [
+                    {
+                      "score": "84/1",
+                      "overs": "(11.2)"
+                    }
+                  ]
+                }
+              ],
+              "end_date": "2025-02-02T16:00+05:30",
+              "venue_gmt_offset": "+08:00",
+              "winning_margin": "9 wickets",
+              "short_event_status": "IND-WU19 beat SA-WU19 by 9 wickets",
+              "event_name": "Final",
+              "tour_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "sport": "cricket",
+              "series_name": "ICC Women's Under-19 T20 World Cup, 2025",
+              "event_session": "",
+              "event_thisover": "0,4",
+              "event_format": "youth_t20i",
+              "start_date": "2025-02-02T12:00+05:30",
+              "event_stage": "final",
+              "event_status": "Match Ended",
+              "series_id": "8126",
+              "event_status_id": "114",
+              "result_sub_code": "",
+              "venue_id": "205",
+              "series_end_date": "2025-02-02",
+              "event_sub_status": "India Women Under-19 beat South Africa Women Under-19 by 9 wickets",
+              "event_livecoverage": "true",
+              "event_duration_left": "",
+              "event_coverage_level": "Live Scorecard",
+              "venue_name": "Bayuemas Oval, Kuala Lumpur",
+              "event_interval": "2",
+              "event_group": "",
+              "has_standings": "true",
+              "parent_series_name": "ICC Women's Under-19 T20 World Cup",
+              "matchcenter_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "highlights_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "tickets_url": "",
+              "display_status": "Result"
+            },
+            {
+              "league_id": "2",
+              "parent_series_id": "14",
+              "event_is_daynight": "true",
+              "event_state": "R",
+              "display_status": "Result",
+              "result_code": "W",
+              "event_islinkable": "true",
+              "event_coverage_level_id": "8",
+              "event_priority": "1",
+              "event_day": "",
+              "league_code": "ipl",
+              "game_id": "mikp10182020197723",
+              "series_start_date": "2020-09-19",
+              "participants": [
+                {
+                  "name": "Mumbai Indians",
+                  "short_name": "MI",
+                  "short_name_eng": "MI",
+                  "id": "1111",
+                  "value": "176/6 (20.0) & 5/1(1.0), 11/1(1.0)",
+                  "players_involved": [],
+                  "innings": [
+                    {
+                      "score": "176/6",
+                      "overs": "(20.0)"
+                    },
+                    {
+                      "score": "5/1",
+                      "overs": "(1.0)"
+                    },
+                    {
+                      "score": "11/1",
+                      "overs": "(1.0)"
+                    }
+                  ],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/1111.png?v=30.5512345"
+                },
+                {
+                  "name": "Kings XI Punjab",
+                  "short_name": "KXIP",
+                  "short_name_eng": "KXIP",
+                  "id": "1107",
+                  "value": "176/6 (20.0) & 5/2 (1.0), 15/0 (0.4)",
+                  "players_involved": [],
+                  "highlight": "true",
+                  "innings": [
+                    {
+                      "score": "176/6",
+                      "overs": "(20.0)"
+                    },
+                    {
+                      "score": "5/2",
+                      "overs": "(1.0)"
+                    },
+                    {
+                      "score": "15/0",
+                      "overs": "(0.4)"
+                    }
+                  ],
+                  "logo": "https://staging.wisden.com/static-assets/images/teams/1107.png?v=30.5512345"
+                }
+              ],
+              "tour_id": "1667",
+              "venue_gmt_offset": "+04:00",
+              "end_date": "2020-10-18T23:30+05:30",
+              "winning_margin": "2 wickets",
+              "sport": "cricket",
+              "event_session": "",
+              "event_name": "Match 36",
+              "tour_name": "Indian Premier League, 2020",
+              "series_name": "Indian Premier League, 2020",
+              "event_format": "t20",
+              "start_date": "2020-10-18T19:30+05:30",
+              "event_thisover": "1,4,1,0,1,1w",
+              "event_stage": "league",
+              "series_id": "3978",
+              "event_status": "Match Ended",
+              "event_status_id": "114",
+              "result_sub_code": "Super Over",
+              "series_end_date": "2020-11-10",
+              "venue_id": "449",
+              "event_livecoverage": "true",
+              "event_sub_status": "Kings XI Punjab tied with Mumbai Indians (Kings XI Punjab win Super Over by 2 wickets)",
+              "event_duration_left": "",
+              "event_coverage_level": "Live Scorecard, Ball-by-Ball and Commentary",
+              "venue_name": "Dubai International Cricket Stadium, Dubai",
+              "event_group": "",
+              "parent_series_name": "Indian Premier League",
+              "matchcenter_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "highlights_url": "https://stg-spz.sportz.io/static-assets/wnm-client-config/sdui-store-new/homepage_data.json",
+              "tickets_url": ""
+            }
+          ]
+        },
+        "api": {
+          "fixtures": "https://dev-fanxp.sportz.io/content-engine/v1/resources?platform=web&deviceType=mobile&type=poll&template=fixtures"
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_2",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_2",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "f2d96a7b-1d22-48a1-88f7-940f3610438e",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0,
+                    "width": 0
+                  }
+                }
+              ]
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": "spacing_3"
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "7b76512b-6cd5-4029-8925-3b2808f445678",
+        "template_type": "squad",
+        "content_type": "squad",
+        "properties": {
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "layout_type": "carousel_listing",
+          "is_full_width": false
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_5",
+          "padding": {
+            "top": "",
+            "right": "",
+            "bottom": "",
+            "left": ""
+          }
+        },
+        "data": {
+          "title": "LSG Squad",
+          "cta": {
+            "view_more": [
+              {
+                "type": "link",
+                "label": "VIEW MORE",
+                "url": "/team"
+              }
+            ]
+          },
+          "items": [
+            {
+              "data": {
+                "id": "5313",
+                "name": "David Miller",
+                "first_name": "David",
+                "last_name": "Miller",
+                "skill_id": "1",
+                "skill": "Batsman",
+                "role": "Batter",
+                "nationality_id": "7",
+                "nationality": "South Africa",
+                "national_team_id": "7",
+                "national_team": "South Africa",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75&w=343",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "9" },
+                  { "label": "Runs", "value": "210" },
+                  { "label": "Highest Score", "value": "55" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "65152",
+                "name": "Himmat Singh",
+                "first_name": "Himmat",
+                "last_name": "Singh",
+                "skill_id": "1",
+                "skill": "Batsman",
+                "role": "Batter",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1421",
+                "national_team": "India Under-23",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Runs", "value": "-" },
+                  { "label": "Highest Score", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "65618",
+                "name": "Matthew Breetzke",
+                "first_name": "Matthew",
+                "last_name": "Breetzke",
+                "skill_id": "1",
+                "skill": "Batsman",
+                "role": "Batter",
+                "nationality_id": "7",
+                "nationality": "South Africa",
+                "national_team_id": "7",
+                "national_team": "South Africa",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Runs", "value": "-" },
+                  { "label": "Highest Score", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "69656",
+                "name": "Ayush Badoni",
+                "first_name": "Ayush",
+                "last_name": "Badoni",
+                "skill_id": "1",
+                "skill": "Batsman",
+                "role": "Batter",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1163",
+                "national_team": "India Under-19",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "14" },
+                  { "label": "Runs", "value": "235" },
+                  { "label": "Highest Score", "value": "55" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "71260",
+                "name": "Abdul Samad",
+                "first_name": "Abdul",
+                "last_name": "Samad",
+                "skill_id": "1",
+                "skill": "Batsman",
+                "role": "Batter",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "16" },
+                  { "label": "Runs", "value": "182" },
+                  { "label": "Highest Score", "value": "37" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+  
+            {
+              "data": {
+                "id": "68182",
+                "name": "Mohsin Khan",
+                "first_name": "Mohsin",
+                "last_name": "Khan",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "10" },
+                  { "label": "Wickets", "value": "10" },
+                  { "label": "Best Bowling Figures", "value": "2/29" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "67476",
+                "name": "M Siddharth",
+                "first_name": "M",
+                "last_name": "Siddharth",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "3" },
+                  { "label": "Wickets", "value": "1" },
+                  { "label": "Best Bowling Figures", "value": "1/21" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "64511",
+                "name": "Avesh Khan",
+                "first_name": "Avesh",
+                "last_name": "Khan",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "16" },
+                  { "label": "Wickets", "value": "19" },
+                  { "label": "Best Bowling Figures", "value": "3/27" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "70376",
+                "name": "Akash Singh",
+                "first_name": "Akash",
+                "last_name": "Singh",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1163",
+                "national_team": "India Under-19",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Wickets", "value": "-" },
+                  { "label": "Best Bowling Figures", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "71288",
+                "name": "Ravi Bishnoi",
+                "first_name": "Ravi",
+                "last_name": "Bishnoi",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "14" },
+                  { "label": "Wickets", "value": "10" },
+                  { "label": "Best Bowling Figures", "value": "2/25" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "71447",
+                "name": "Akash Deep",
+                "first_name": "Akash",
+                "last_name": "Deep",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "1" },
+                  { "label": "Wickets", "value": "1" },
+                  { "label": "Best Bowling Figures", "value": "1/55" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "90501",
+                "name": "Mayank Yadav",
+                "first_name": "Mayank",
+                "last_name": "Yadav",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "4" },
+                  { "label": "Wickets", "value": "7" },
+                  { "label": "Best Bowling Figures", "value": "3/14" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "100570",
+                "name": "Prince Yadav",
+                "first_name": "Prince",
+                "last_name": "Yadav",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Wickets", "value": "-" },
+                  { "label": "Best Bowling Figures", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "100574",
+                "name": "Digvesh Singh",
+                "first_name": "Digvesh",
+                "last_name": "Singh",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Wickets", "value": "-" },
+                  { "label": "Best Bowling Figures", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "101907",
+                "name": "Shamar Joseph",
+                "first_name": "Shamar",
+                "last_name": "Joseph",
+                "skill_id": "2",
+                "skill": "Bowler",
+                "role": "Bowler",
+                "nationality_id": "9",
+                "nationality": "West Indies",
+                "national_team_id": "9",
+                "national_team": "West Indies",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "1" },
+                  { "label": "Wickets", "value": "0" },
+                  { "label": "Best Bowling Figures", "value": "0/47" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+  
+            {
+              "data": {
+                "id": "68003",
+                "name": "Aryan Juyal",
+                "first_name": "Aryan",
+                "last_name": "Juyal",
+                "skill_id": "4",
+                "skill": "Wicket-Keeper",
+                "role": "Wicket Keeper",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1163",
+                "national_team": "India Under-19",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Runs", "value": "-" },
+                  { "label": "Stumpings", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "65756",
+                "name": "Rishabh Pant",
+                "first_name": "Rishabh",
+                "last_name": "Pant",
+                "skill_id": "4",
+                "skill": "Wicket-Keeper",
+                "role": "Wicket Keeper",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": true,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "13" },
+                  { "label": "Runs", "value": "446" },
+                  { "label": "Stumpings", "value": "5" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "63726",
+                "name": "Nicholas Pooran",
+                "first_name": "Nicholas",
+                "last_name": "Pooran",
+                "skill_id": "4",
+                "skill": "Wicket-Keeper",
+                "role": "Wicket Keeper",
+                "nationality_id": "9",
+                "nationality": "West Indies",
+                "national_team_id": "9",
+                "national_team": "West Indies",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "14" },
+                  { "label": "Runs", "value": "499" },
+                  { "label": "Stumpings", "value": "0" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "64219",
+                "name": "Aiden Markram",
+                "first_name": "Aiden",
+                "last_name": "Markram",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "7",
+                "nationality": "South Africa",
+                "national_team_id": "7",
+                "national_team": "South Africa",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "11" },
+                  { "label": "Runs", "value": "220" },
+                  { "label": "Wickets", "value": "0" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "10094",
+                "name": "Mitchell Marsh",
+                "first_name": "Mitchell",
+                "last_name": "Marsh",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "1",
+                "nationality": "Australia",
+                "national_team_id": "1",
+                "national_team": "Australia",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": true,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "4" },
+                  { "label": "Runs", "value": "61" },
+                  { "label": "Wickets", "value": "1" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "58223",
+                "name": "Shahbaz Ahmed",
+                "first_name": "Shahbaz",
+                "last_name": "Ahmed",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "4",
+                "national_team": "India",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "16" },
+                  { "label": "Runs", "value": "215" },
+                  { "label": "Wickets", "value": "7" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "71152",
+                "name": "Rajvardhan Hangargekar",
+                "first_name": "Rajvardhan",
+                "last_name": "Hangargekar",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1163",
+                "national_team": "India Under-19",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Runs", "value": "-" },
+                  { "label": "Wickets", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "71367",
+                "name": "Yuvraj Chaudhary",
+                "first_name": "Yuvraj",
+                "last_name": "Chaudhary",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": null,
+                "national_team": null,
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "-" },
+                  { "label": "Runs", "value": "-" },
+                  { "label": "Wickets", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            },
+            {
+              "data": {
+                "id": "88542",
+                "name": "Arshin Kulkarni",
+                "first_name": "Arshin",
+                "last_name": "Kulkarni",
+                "skill_id": "3",
+                "skill": "All-Rounder",
+                "role": "All Rounder",
+                "nationality_id": "4",
+                "nationality": "India",
+                "national_team_id": "1163",
+                "national_team": "India Under-19",
+                "is_captain": false,
+                "is_vice_captain": false,
+                "is_overseas": false,
+                "type": "player",
+                "detail_url": "https://stg-sg.sportz.io/team/rishabh-pant-65756-profile",
+                "profile_image": "https://stg-sg.sportz.io/static-assets/images/players/65756.png?v=13.75",
+                "skill_icon": "",
+                "stats": [
+                  { "label": "Matches", "value": "2" },
+                  { "label": "Runs", "value": "9" },
+                  { "label": "Wickets", "value": "-" }
+                ]
+              },
+              "organism": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+              "type": "player"
+            }
+          ]
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_2",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_2_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "260b15e6-dcd6-4e46-a846-8b7ad121e009",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ],
+              "carousel": {
+                "slides_per_view": 1.4,
+                "nav_arrows": {
+                  "visibility": false,
+                  "variant": "1",
+                  "sub_variant": "nearby",
+                  "position": "bottom_trailing",
+                  "enabled_color": "button_filled_primary_background_default",
+                  "disabled_color": "button_filled_secondary_text_default"
+                },
+                "nav_indicator": {
+                  "visibility": false,
+                  "enabled_color": "background_sec_surface",
+                  "disabled_color": "background_invert_surface",
+                  "variant": "1",
+                  "sub_variant": "rounded",
+                  "stack": "h",
+                  "position": "bottom",
+                  "offset": -16
+                },
+                "space_between": "10",
+                "autoplay": false,
+                "autoplay_interval": 0,
+                "loop": false,
+                "direction": "horizontal",
+                "free_mode": true
+              }
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_5",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": "spacing_3"
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "88528b7c-7d7d-4ef9-ab51-e0a655e94ea7",
+        "template_type": "news",
+        "content_type": "news",
+        "properties": {
+          "is_full_width": false,
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "section_gap": true,
+          "layout_type": "vertical_listing"
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_4",
+          "padding": {
+            "top": "",
+            "right": "spacing_4",
+            "bottom": "spacing_8",
+            "left": "spacing_4"
+          }
+        },
+        "data": {
+          "title": "News",
+          "sub_title": "",
+          "cta": {
+            "view_more": [
+              {
+                "type": "link",
+                "label": "VIEW MORE",
+                "url": "/fixtures-results"
+              }
+            ]
+          },
+          "toggle": {},
+          "filters": {},
+          "items": [
+            {
+              "asset_id": 3,
+              "title": "LSG 10K Lucknow: Run with LSG, Run for a Greener Lucknow - how to register and FAQs",
+              "desc": "Lucknow, it’s time to put on these running shoes again - for your city, for your team, for a greener tomorrow!",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "created_date": "2024-02-28T15:00+00:00",
+              "published_date": "2024-02-28T15:00+00:00",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/a5/af/e3/16-9/ONWPKJdqVL.png?v=1.08&w=500",
+              "author": "Abhishek Mukherjee",
+              "duration": "4 mins read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Features",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525221,
+              "title": "Powerhouse Super Giants Jolt Sunrisers!",
+              "desc": "The first Test match of England's home summer began on July 10 against the West Indies: here are the weather updates and rain forecast for the remaining four days.",
+              "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/38/93/cd/4-3/R22YyQzTCA.jpg?v=1.08&w=400",
+              "created_date": "2025-02-28T15:00+00:00",
+              "published_date": "2025-02-28T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 mins read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "News",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "West Indies in England",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525201,
+              "title": "Stoinis, bowlers combine to lead LSG to a crucial win over MI",
+              "desc": "Lucknow Super Giants clinched a last-over thriller against five-time champions Mumbai Indians at the BRSABV Ekana Stadium on Tuesday to exponentially boost their chances of making it to the Indian Premier League (IPL) 2023 playoffs.",
+              "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/95/c8/0b/4-3/XuNSa3Kw0D.jpg?v=1.08&w=400",
+              "created_date": "2025-02-08T15:00+00:00",
+              "published_date": "2025-02-08T15:00+00:00",
+              "author": "Harry P",
+              "duration": "2 mins read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "BTS",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 4,
+              "title": "Super Giants Look To Seal The Playoff Spot Against Knight Riders",
+              "desc": "The math is simple. A win for Lucknow Super Giants over two-time champions Kolkata Knight Riders would be enough to seal a place in the Indian Premier League (IPL) 2023 playoffs. A loss and it would leave them at the mercy of others for a top-four finish.",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/87/65/fd/4-3/m5NCwr7Ltv.jpg?v=1.08&w=400",
+              "created_date": "2025-02-08T15:00+00:00",
+              "published_date": "2025-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "3 mins read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Preview",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 5,
+              "title": "Super Giants Pip Knight Riders To March Into IPL Playoffs",
+              "desc": "Kolkata Knight Riders’ Rinku Singh battled hard but a Nicholas Pooran storm before the choke applied by Lucknow Super Giants’ spinners helped LSG clinch the thriller by one run and make it to the back-to-back playoffs in the Indian Premier League (IPL).",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/97/af/07/4-3/SL61Vrduxo.jpg?v=1.08&w=400",
+              "created_date": "2025-02-08T15:00+00:00",
+              "published_date": "2025-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "1 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Report",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "News",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            }
+          ],
+          "pagination_bckp": {
+            "pagination_type": "infinite",
+            "load_more_count": "10",
+            "label": "Load More",
+            "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+          }
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_3",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "b81214ba-53ca-43de-8059-62fd359a8b5c",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                }
+              ],
+              "page_items": []
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "88528b7c-7d7d-4ef9-ab51-e0a655e94ea8",
+        "template_type": "news",
+        "content_type": "news",
+        "properties": {
+          "is_full_width": false,
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "section_gap": true,
+          "layout_type": "vertical_listing"
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_4",
+          "padding": {
+            "top": "",
+            "right": "spacing_4",
+            "bottom": "spacing_8",
+            "left": "spacing_4"
+          }
+        },
+        "data": {
+          "title": "Photos",
+          "sub_title": "",
+          "cta": {
+            "view_more": [
+              {
+                "type": "link",
+                "label": "VIEW MORE",
+                "url": "/fixtures-results"
+              }
+            ]
+          },
+          "toggle": {},
+          "filters": {},
+          "items": [
+            {
+              "asset_id": 3,
+              "title": "Low-scoring cliff hanger at BRSABV Ekana",
+              "desc": "Low-scoring cliff hanger at BRSABV Ekana",
+              "detail_url": "https://staging.wisden.com/t20-world-cup-2024/news/why-india-will-wont-win-t20-world-cup-2024-cricket-news-today",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/4d/1a/f5/16-9/OUBmyBXbVh.jpg?v=13.75&w=500",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Abhishek Mukherjee",
+              "duration": "2 min read",
+              "asset_count": 9,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "BTS",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Photos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525221,
+              "title": "Whopping win in Mohali",
+              "desc": "Whopping win in Mohali",
+              "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/84/99/51/4-3/OqUj4KqlIF.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Training",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Photos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525201,
+              "title": "A tight finish against RCB",
+              "desc": "A tight finish against RCB",
+              "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/c9/fb/cf/4-3/lUaZmJWoCU.jpg?v=13.75&w=400",
+              "created_date": "2024-12-03T15:00+00:00",
+              "published_date": "2024-12-03T15:00+00:00",
+              "author": "Harry P",
+              "duration": "2 min read",
+              "asset_count": 10,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Events",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Photos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 4,
+              "title": "Super Giants share spoils",
+              "desc": "Super Giants share spoils",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/5c/97/b3/4-3/WEMipRwrzT.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Training",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Photos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 5,
+              "title": "Super Giants go down to the Titans",
+              "desc": "Super Giants go down to the Titans",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/08/f7/75/4-3/a3B61cMaJx.jpg?v=13.75&w=400",
+              "created_date": "2024-12-03T15:00+00:00",
+              "published_date": "2024-12-03T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "BTS",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Photos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            }
+          ],
+          "pagination_bckp": {
+            "pagination_type": "infinite",
+            "load_more_count": "10",
+            "label": "Load More",
+            "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+          }
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_3",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7e64e632-fef2-44a0-96d1-2153894fa1ef",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                }
+              ],
+              "page_items": []
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "88528b7c-7d7d-4ef9-ab51-e0a655e94ea9",
+        "template_type": "videos",
+        "content_type": "videos",
+        "properties": {
+          "is_full_width": false,
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "section_gap": true,
+          "layout_type": "vertical_listing"
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_4",
+          "padding": {
+            "top": "",
+            "right": "spacing_4",
+            "bottom": "spacing_8",
+            "left": "spacing_4"
+          }
+        },
+        "data": {
+          "title": "Videos",
+          "sub_title": "",
+          "cta": {
+            "view_more": [
+              {
+                "type": "link",
+                "label": "VIEW MORE",
+                "url": "/fixtures-results"
+              }
+            ]
+          },
+          "toggle": {},
+          "filters": {},
+          "items": [
+            {
+              "asset_id": 3,
+              "title": "Lucknow, you rocked the LSG 10k 🏃",
+              "desc": "Lucknow, you rocked the LSG 10k 🏃",
+              "detail_url": "https://staging.wisden.com/t20-world-cup-2024/news/why-india-will-wont-win-t20-world-cup-2024-cricket-news-today",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/6e/6f/33/16-9/85ABkheswh.jpg?v=13.75&w=500",
+              "created_date": "2024-03-22T15:00+00:00",
+              "published_date": "2024-03-22T15:00+00:00",
+              "author": "Abhishek Mukherjee",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Events",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525221,
+              "title": "LSG Training Session Unfiltered",
+              "desc": "LSG Training Session Unfiltered",
+              "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/cf/7e/59/4-3/Gb7KliTlIO.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Training",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 525201,
+              "title": "Getting Match Ready",
+              "desc": "Getting Match Ready",
+              "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/0f/70/16/4-3/jPLNPJeoU0.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Harry P",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Events",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 4,
+              "title": "Dekho! Dekho Vo Aa Gaya",
+              "desc": "Dekho! Dekho Vo Aa Gaya",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/45/53/bb/4-3/GkfoJrnkMI.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "Match",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            },
+            {
+              "asset_id": 5,
+              "title": "LSG Brigade ki Bebaak Awaaz | Firki Kumar Lucknawi",
+              "desc": "LSG Brigade ki Bebaak Awaaz | Firki Kumar Lucknawi",
+              "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+              "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/34/fc/8b/4-3/Nl4YEBJ8kr.jpg?v=13.75&w=400",
+              "created_date": "2024-02-08T15:00+00:00",
+              "published_date": "2024-02-08T15:00+00:00",
+              "author": "Naman Agarwal",
+              "duration": "2 min read",
+              "asset_count": 0,
+              "asset_type_id": 1,
+              "entities": {
+                "primary": {
+                  "name": "BTS",
+                  "canonical": "https://stg-rr.sportz.io/news",
+                  "is_linkable": true
+                },
+                "secondary": {
+                  "name": "Videos",
+                  "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                  "is_linkable": true
+                }
+              }
+            }
+          ],
+          "pagination_bckp": {
+            "pagination_type": "infinite",
+            "load_more_count": "10",
+            "label": "Load More",
+            "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+          }
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "spacing_3",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "0575bf30-7117-4639-b1a5-b3ff799e9aad",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                },
+                {
+                  "component_type": "organism",
+                  "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                }
+              ],
+              "page_items": []
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      },
+      {
+        "id": "88528b7c-7d7d-5df9-ab51-e0a655e94ea7",
+        "template_type": "multi_template",
+        "content_type": "multi_template",
+        "properties": {
+          "is_full_width": true,
+          "stack": "v",
+          "column_span": 4,
+          "row_span": 0,
+          "section_gap": true,
+          "layout_type": "tab_layout"
+        },
+        "styles": {
+          "background_color": "",
+          "background_image": "",
+          "gap": "spacing_4",
+          "padding": {
+            "top": "",
+            "right": "spacing_4",
+            "bottom": "spacing_8",
+            "left": "spacing_4"
+          }
+        },
+        "data": {
+          "title": "Latest Updates",
+          "sub_title": "",
+          "cta": {
+            "view_more": []
+          },
+          "toggle": {},
+          "tabs": [
+            {
+              "tab_display_name": "News",
+              "is_active": true,
+              "child_template_id": "88528b7c-7d7d-5ff9-ab51-e0a655e94ea7"
+            },
+            {
+              "tab_display_name": "Photos",
+              "is_active": false,
+              "child_template_id": "88528b7c-7d7d-5gf9-ab51-e0a655e94ea7"
+            },
+            {
+              "tab_display_name": "Videos",
+              "is_active": false,
+              "child_template_id": "88528b7c-7d7d-5hf9-ab51-e0a655e94ea7"
+            }
+          ],
+          "filters": {},
+          "items": [],
+          "child_templates": [
+            {
+              "id": "88528b7c-7d7d-5ff9-ab51-e0a655e94ea7",
+              "template_type": "news",
+              "content_type": "news",
+              "properties": {
+                "is_full_width": false,
+                "stack": "v",
+                "column_span": 4,
+                "row_span": 0,
+                "section_gap": true,
+                "layout_type": "vertical_listing"
+              },
+              "styles": {
+                "background_color": "",
+                "background_image": "",
+                "gap": "spacing_4",
+                "padding": {
+                  "top": "",
+                  "right": "spacing_4",
+                  "bottom": "spacing_8",
+                  "left": "spacing_4"
+                }
+              },
+              "data": {
+                "title": "News",
+                "sub_title": "",
+                "cta": {
+                  "view_more": [
+                    {
+                      "type": "link",
+                      "label": "VIEW MORE",
+                      "url": "/fixtures-results"
+                    }
+                  ]
+                },
+                "toggle": {},
+                "filters": {},
+                "items": [
+                  {
+                    "asset_id": 3,
+                    "title": "LSG 10K Lucknow: Run with LSG, Run for a Greener Lucknow - how to register and FAQs",
+                    "desc": "Lucknow, it’s time to put on these running shoes again - for your city, for your team, for a greener tomorrow!",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "created_date": "2024-02-28T15:00+00:00",
+                    "published_date": "2024-02-28T15:00+00:00",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/a5/af/e3/16-9/ONWPKJdqVL.png?v=1.08&w=500",
+                    "author": "Abhishek Mukherjee",
+                    "duration": "4 mins read",
+                    "asset_count": 0,
+                    "asset_type_id": 1,
+                    "entities": {
+                      "primary": {
+                        "name": "Features",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "News",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525221,
+                    "title": "Powerhouse Super Giants Jolt Sunrisers!",
+                    "desc": "The first Test match of England's home summer began on July 10 against the West Indies: here are the weather updates and rain forecast for the remaining four days.",
+                    "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/38/93/cd/4-3/R22YyQzTCA.jpg?v=1.08&w=400",
+                    "created_date": "2025-02-28T15:00+00:00",
+                    "published_date": "2025-02-28T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "2 mins read",
+                    "asset_count": 0,
+                    "asset_type_id": 1,
+                    "entities": {
+                      "primary": {
+                        "name": "News",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "West Indies in England",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525201,
+                    "title": "Stoinis, bowlers combine to lead LSG to a crucial win over MI",
+                    "desc": "Lucknow Super Giants clinched a last-over thriller against five-time champions Mumbai Indians at the BRSABV Ekana Stadium on Tuesday to exponentially boost their chances of making it to the Indian Premier League (IPL) 2023 playoffs.",
+                    "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/95/c8/0b/4-3/XuNSa3Kw0D.jpg?v=1.08&w=400",
+                    "created_date": "2025-02-08T15:00+00:00",
+                    "published_date": "2025-02-08T15:00+00:00",
+                    "author": "Harry P",
+                    "duration": "2 mins read",
+                    "asset_count": 0,
+                    "asset_type_id": 1,
+                    "entities": {
+                      "primary": {
+                        "name": "BTS",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "News",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 4,
+                    "title": "Super Giants Look To Seal The Playoff Spot Against Knight Riders",
+                    "desc": "The math is simple. A win for Lucknow Super Giants over two-time champions Kolkata Knight Riders would be enough to seal a place in the Indian Premier League (IPL) 2023 playoffs. A loss and it would leave them at the mercy of others for a top-four finish.",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/87/65/fd/4-3/m5NCwr7Ltv.jpg?v=1.08&w=400",
+                    "created_date": "2025-02-08T15:00+00:00",
+                    "published_date": "2025-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "3 mins read",
+                    "asset_count": 0,
+                    "asset_type_id": 1,
+                    "entities": {
+                      "primary": {
+                        "name": "Preview",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "News",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 5,
+                    "title": "Super Giants Pip Knight Riders To March Into IPL Playoffs",
+                    "desc": "Kolkata Knight Riders’ Rinku Singh battled hard but a Nicholas Pooran storm before the choke applied by Lucknow Super Giants’ spinners helped LSG clinch the thriller by one run and make it to the back-to-back playoffs in the Indian Premier League (IPL).",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/97/af/07/4-3/SL61Vrduxo.jpg?v=1.08&w=400",
+                    "created_date": "2025-02-08T15:00+00:00",
+                    "published_date": "2025-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "1 min read",
+                    "asset_count": 0,
+                    "asset_type_id": 1,
+                    "entities": {
+                      "primary": {
+                        "name": "Report",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "News",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  }
+                ],
+                "pagination_bckp": {
+                  "pagination_type": "infinite",
+                  "load_more_count": "10",
+                  "label": "Load More",
+                  "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+                }
+              },
+              "composition": {
+                "header": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                },
+                "body": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "spacing_3",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": [
+                      {
+                        "component_type": "organism",
+                        "id": "b81214ba-53ca-43de-8059-62fd359a8b5c",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "1b979559-883e-45ab-98c2-64e8635d0635",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      }
+                    ],
+                    "page_items": []
+                  }
+                },
+                "footer": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                }
+              }
+            },
+            {
+              "id": "88528b7c-7d7d-5gf9-ab51-e0a655e94ea7",
+              "template_type": "photos",
+              "content_type": "photos",
+              "properties": {
+                "is_full_width": false,
+                "stack": "v",
+                "column_span": 4,
+                "row_span": 0,
+                "section_gap": true,
+                "layout_type": "vertical_listing"
+              },
+              "styles": {
+                "background_color": "",
+                "background_image": "",
+                "gap": "spacing_4",
+                "padding": {
+                  "top": "",
+                  "right": "spacing_4",
+                  "bottom": "spacing_8",
+                  "left": "spacing_4"
+                }
+              },
+              "data": {
+                "title": "Photos",
+                "sub_title": "",
+                "cta": {
+                  "view_more": [
+                    {
+                      "type": "link",
+                      "label": "VIEW MORE",
+                      "url": "/fixtures-results"
+                    }
+                  ]
+                },
+                "toggle": {},
+                "filters": {},
+                "items": [
+                  {
+                    "asset_id": 3,
+                    "title": "Low-scoring cliff hanger at BRSABV Ekana",
+                    "desc": "Low-scoring cliff hanger at BRSABV Ekana",
+                    "detail_url": "https://staging.wisden.com/t20-world-cup-2024/news/why-india-will-wont-win-t20-world-cup-2024-cricket-news-today",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/4d/1a/f5/16-9/OUBmyBXbVh.jpg?v=13.75&w=500",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Abhishek Mukherjee",
+                    "duration": "2 min read",
+                    "asset_count": 9,
+                    "asset_type_id": 2,
+                    "entities": {
+                      "primary": {
+                        "name": "BTS",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Photos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525221,
+                    "title": "Whopping win in Mohali",
+                    "desc": "Whopping win in Mohali",
+                    "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/84/99/51/4-3/OqUj4KqlIF.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "2 min read",
+                    "asset_count": 0,
+                    "asset_type_id": 2,
+                    "entities": {
+                      "primary": {
+                        "name": "Training",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Photos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525201,
+                    "title": "A tight finish against RCB",
+                    "desc": "A tight finish against RCB",
+                    "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/c9/fb/cf/4-3/lUaZmJWoCU.jpg?v=13.75&w=400",
+                    "created_date": "2024-12-03T15:00+00:00",
+                    "published_date": "2024-12-03T15:00+00:00",
+                    "author": "Harry P",
+                    "duration": "2 min read",
+                    "asset_count": 10,
+                    "asset_type_id": 2,
+                    "entities": {
+                      "primary": {
+                        "name": "Events",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Photos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 4,
+                    "title": "Super Giants share spoils",
+                    "desc": "Super Giants share spoils",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/5c/97/b3/4-3/WEMipRwrzT.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "2 min read",
+                    "asset_count": 0,
+                    "asset_type_id": 2,
+                    "entities": {
+                      "primary": {
+                        "name": "Training",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Photos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 5,
+                    "title": "Super Giants go down to the Titans",
+                    "desc": "Super Giants go down to the Titans",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/08/f7/75/4-3/a3B61cMaJx.jpg?v=13.75&w=400",
+                    "created_date": "2024-12-03T15:00+00:00",
+                    "published_date": "2024-12-03T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "2 min read",
+                    "asset_count": 0,
+                    "asset_type_id": 2,
+                    "entities": {
+                      "primary": {
+                        "name": "BTS",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Photos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  }
+                ],
+                "pagination_bckp": {
+                  "pagination_type": "infinite",
+                  "load_more_count": "10",
+                  "label": "Load More",
+                  "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+                }
+              },
+              "composition": {
+                "header": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                },
+                "body": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "spacing_3",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": [
+                      {
+                        "component_type": "organism",
+                        "id": "7e64e632-fef2-44a0-96d1-2153894fa1ef",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "7f1cecaa-a103-41b2-b8d8-59514ac816ef",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      }
+                    ],
+                    "page_items": []
+                  }
+                },
+                "footer": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                }
+              }
+            },
+            {
+              "id": "88528b7c-7d7d-5hf9-ab51-e0a655e94ea7",
+              "template_type": "videos",
+              "content_type": "videos",
+              "properties": {
+                "is_full_width": false,
+                "stack": "v",
+                "column_span": 4,
+                "row_span": 0,
+                "section_gap": true,
+                "layout_type": "vertical_listing"
+              },
+              "styles": {
+                "background_color": "",
+                "background_image": "",
+                "gap": "spacing_4",
+                "padding": {
+                  "top": "",
+                  "right": "spacing_4",
+                  "bottom": "spacing_8",
+                  "left": "spacing_4"
+                }
+              },
+              "data": {
+                "title": "Videos",
+                "sub_title": "",
+                "cta": {
+                  "view_more": [
+                    {
+                      "type": "link",
+                      "label": "VIEW MORE",
+                      "url": "/fixtures-results"
+                    }
+                  ]
+                },
+                "toggle": {},
+                "filters": {},
+                "items": [
+                  {
+                    "asset_id": 3,
+                    "title": "Lucknow, you rocked the LSG 10k 🏃",
+                    "desc": "Lucknow, you rocked the LSG 10k 🏃",
+                    "detail_url": "https://staging.wisden.com/t20-world-cup-2024/news/why-india-will-wont-win-t20-world-cup-2024-cricket-news-today",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/6e/6f/33/16-9/85ABkheswh.jpg?v=13.75&w=500",
+                    "created_date": "2024-03-22T15:00+00:00",
+                    "published_date": "2024-03-22T15:00+00:00",
+                    "author": "Abhishek Mukherjee",
+                    "duration": "01:00",
+                    "asset_count": 0,
+                    "asset_type_id": 4,
+                    "entities": {
+                      "primary": {
+                        "name": "Events",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Videos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525221,
+                    "title": "LSG Training Session Unfiltered",
+                    "desc": "LSG Training Session Unfiltered",
+                    "detail_url": "https://staging.wisden.com/cricket-news/who-is-next-in-line-for-australias-ageing-test-team",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/cf/7e/59/4-3/Gb7KliTlIO.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "05:00",
+                    "asset_count": 0,
+                    "asset_type_id": 4,
+                    "entities": {
+                      "primary": {
+                        "name": "Training",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Videos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 525201,
+                    "title": "Getting Match Ready",
+                    "desc": "Getting Match Ready",
+                    "detail_url": "https://staging.wisden.com/cricket-news/predicted-xi-adelaide-test-india-vs-australia",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/0f/70/16/4-3/jPLNPJeoU0.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Harry P",
+                    "duration": "04:00",
+                    "asset_count": 0,
+                    "asset_type_id": 4,
+                    "entities": {
+                      "primary": {
+                        "name": "Events",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Videos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 4,
+                    "title": "Dekho! Dekho Vo Aa Gaya",
+                    "desc": "Dekho! Dekho Vo Aa Gaya",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/45/53/bb/4-3/GkfoJrnkMI.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "03:30",
+                    "asset_count": 0,
+                    "asset_type_id": 4,
+                    "entities": {
+                      "primary": {
+                        "name": "Match",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Videos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  },
+                  {
+                    "asset_id": 5,
+                    "title": "LSG Brigade ki Bebaak Awaaz | Firki Kumar Lucknawi",
+                    "desc": "LSG Brigade ki Bebaak Awaaz | Firki Kumar Lucknawi",
+                    "detail_url": "https://stg-rr.sportz.io/latest-news/wanindu-hasaranga-joins-rajasthan-royals-ipl",
+                    "thumbnail_image": "https://stg-sg.sportz.io/static-assets/waf-images/34/fc/8b/4-3/Nl4YEBJ8kr.jpg?v=13.75&w=400",
+                    "created_date": "2024-02-08T15:00+00:00",
+                    "published_date": "2024-02-08T15:00+00:00",
+                    "author": "Naman Agarwal",
+                    "duration": "02:30",
+                    "asset_count": 0,
+                    "asset_type_id": 4,
+                    "entities": {
+                      "primary": {
+                        "name": "BTS",
+                        "canonical": "https://stg-rr.sportz.io/news",
+                        "is_linkable": true
+                      },
+                      "secondary": {
+                        "name": "Videos",
+                        "canonical": "https://stg-rr.sportz.io/player/rohit-sharma-1234",
+                        "is_linkable": true
+                      }
+                    }
+                  }
+                ],
+                "pagination_bckp": {
+                  "pagination_type": "infinite",
+                  "load_more_count": "10",
+                  "label": "Load More",
+                  "api": "https://dev-fanxp.sportz.io/content-engine/v2/resources?platform=web&deviceType=mobile&type=paginate&template=article&page={{PAGE}}&limit={{COUNT}}"
+                }
+              },
+              "composition": {
+                "header": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                },
+                "body": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "spacing_3",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": [
+                      {
+                        "component_type": "organism",
+                        "id": "0575bf30-7117-4639-b1a5-b3ff799e9aad",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      },
+                      {
+                        "component_type": "organism",
+                        "id": "c9b3f7c4-6ee1-4f2f-be11-b6da4c08105d",
+                        "properties": {
+                          "column_span": 4,
+                          "row_span": 1
+                        }
+                      }
+                    ],
+                    "page_items": []
+                  }
+                },
+                "footer": {
+                  "styles": {
+                    "background_color": "",
+                    "background_image": "",
+                    "gap": "",
+                    "padding": {
+                      "top": "",
+                      "right": "",
+                      "bottom": "",
+                      "left": ""
+                    }
+                  },
+                  "organisms": {
+                    "items": []
+                  }
+                }
+              }
+            }
+          ],
+          "pagination": {
+            "pagination_type": "",
+            "load_more_count": "",
+            "label": "",
+            "api": ""
+          }
+        },
+        "composition": {
+          "header": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [
+                {
+                  "component_type": "organism",
+                  "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+                  "visibility": true,
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 0
+                  }
+                }
+              ]
+            }
+          },
+          "body": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": [],
+              "pagination_items": [],
+              "tabs": [
+                {
+                  "component_type": "organism",
+                  "id": "e8b5ff40-a28d-4b9b-998d-1a4ef875faaa",
+                  "properties": {
+                    "column_span": 4,
+                    "row_span": 1
+                  }
+                }
+              ]
+            }
+          },
+          "footer": {
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "gap": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "organisms": {
+              "items": []
+            }
+          }
+        }
+      }
+    ]
+  }
+  

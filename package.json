@@ -7,21 +7,34 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "co:login": "aws codeartifact login --tool npm --domain si-packages --domain-owner 572143828798 --repository si-artifact-repo-use1 --region us-east-1 --profile sportz"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tailwindcss/vite": "^4.0.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "@sikit/article": "^16.0.31",
+    "@sikit/cricket-fixtures": "^17.0.2",
+    "@sikit/network-manager": "^6.0.40",
+    "@sikit/players": "^0.0.30",
+    "@sikit/section-name": "^8.0.4",
+    "@sikit/showcase": "^7.0.4",
+    "@sikit/theme": "^10.0.4",
+    "@sikit/ui": "^11.1.0",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.9",
     "vite": "^6.2.0"
   }
 }

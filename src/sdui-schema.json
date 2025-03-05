@@ -1,0 +1,5766 @@
+{
+    "data": {
+      "components": {
+        "organism": [
+          {
+            "id": "7b76512b-6cd5-4029-8925-3b2808f49697",
+            "name": "organism_web_showcase",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": ""
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "d2b45ce9-27c1-4624-9adb-5a731e74cf19"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "bc36f871-2309-4241-93d4-3860ff6a2acf"
+              }
+            ]
+          },
+          {
+            "id": "bc36f871-2309-4241-93d4-3860ff6a2acf",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "is_full_width": false
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "full_width": true,
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "spacing_15",
+                "left": ""
+              },
+              "gap": "spacing_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": ""
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "9a1e3d61-3702-40e0-a7d7-9ac65ae660b7"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "77eece38-4f86-48da-9824-b2ad97ba54bd"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "c3b8997d-3d47-42d8-8d6a-6b0423c4938f"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "9de9684b-f018-4b17-9936-d192b22b0c0c"
+              }
+            ]
+          },
+          {
+            "id": "9a1e3d61-3702-40e0-a7d7-9ac65ae660b7",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "h",
+              "is_full_width": false
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": ""
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "2302d29b-221c-4351-b007-d16c72e171cd"
+              }
+            ]
+          },
+          {
+            "id": "78a9671c-bf85-48d9-8aa8-3500296810f5",
+            "name": "organism_web_section_header",
+            "properties": { "stack": "", "position": "" },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "2453d543-829d-4cb0-a333-e97642857b1e"
+              }
+            ]
+          },
+          {
+            "id": "618ab6af-42c2-48ca-bd2c-90af648da863",
+            "name": "organism_web_cricket_fixturecard",
+            "properties": { "stack": "v", "position": "" },
+            "styles": {
+              "background_color": "background_main_surface",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "1",
+              "border_radius": "",
+              "border_color": "border_main_default",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "4231725c-168b-4c89-b2f5-5a56d5d6e608"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "b31c943f-869d-4533-b474-c06c49b67ba7"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "b11965e1-e866-467f-99c2-ca18fdc6517c"
+              }
+            ]
+          },
+          {
+            "id": "4a38561e-cc22-4f22-90d5-c672b19fabc7",
+            "name": "organism_web_cricket_fixturecard_head_left",
+            "properties": { "stack": "v", "position": "" },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "full_width": "true",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "spacing_2",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "e00f1f8f-e836-47ca-8d44-3bba4611298d"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "298fb26b-f764-42d5-8ce2-60fac34c7b33"
+              }
+            ]
+          },
+          {
+            "id": "4231725c-168b-4c89-b2f5-5a56d5d6e608",
+            "name": "organism_web_cricket_fixturecard_head",
+            "properties": { "stack": "h", "position": "" },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_3",
+                "right": "spacing_3",
+                "bottom": "spacing_3",
+                "left": "spacing_3"
+              },
+              "gap": "spacing_2",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "4a38561e-cc22-4f22-90d5-c672b19fabc7"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "a1db893d-ff84-451f-8264-7112b7e790ad"
+              }
+            ]
+          },
+          {
+            "id": "b11965e1-e866-467f-99c2-ca18fdc6517c",
+            "name": "organism_web_cricket_fixturecard_footer",
+            "properties": { "stack": "v", "position": "" },
+            "styles": {
+              "background_color": "background_main_card",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_3",
+                "right": "spacing_3",
+                "bottom": "spacing_3",
+                "left": "spacing_3"
+              },
+              "gap": "spacing_2_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "5f064bd9-129c-4e21-b9da-98b68fc05eef"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "4d0212ab-7f9e-4da5-844b-63f30878f2d4"
+              }
+            ]
+          },
+          {
+            "id": "fed3e32c-3d22-43ad-bf87-41f528c8eba2",
+            "name": "organism_footer_action",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "5a0cbd81-e1ae-4920-962b-c8d7de0683c2"
+              }
+            ]
+          },
+          {
+            "id": "a5456185-1deb-4a76-b9be-841ff7b05966",
+            "name": "organism_article_thumbnail",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "full_width": "true",
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "39946bfc-f999-4cdd-9f42-8fa4a3e68a06"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "a6d38bcd-bc07-45d1-911d-da0042e5bd18"
+              }
+            ]
+          },
+          {
+            "id": "14b57e41-a8bc-4db7-bbae-45407c63993d",
+            "name": "organism_article_thumbnail",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "gap-spacing_3",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "e6ddc5db-bbaa-4ce4-b87e-53bf68ecc61c"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "a6d38bcd-bc07-45d1-911d-da0042e5bd18"
+              }
+            ]
+          },
+          {
+            "id": "87b136ea-a0f5-41bd-b45c-8cf101e12654",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_3",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "2b0556b0-a18e-4902-931b-eff9c3491823"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "e2e51df9-9123-4cb1-a8f5-af157289fe10"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "5c27df20-16ba-42ea-956a-72d8625486bf"
+              }
+            ]
+          },
+          {
+            "id": "4df0542c-307c-44d7-a17d-f9cfcbef28b5",
+            "name": "organism_article_news",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "a5456185-1deb-4a76-b9be-841ff7b05966"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "87b136ea-a0f5-41bd-b45c-8cf101e12654"
+              }
+            ]
+          },
+          {
+            "id": "17a390fa-5b91-4e03-b6a8-2ff32472eb5f",
+            "name": "organism_article_news",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "14b57e41-a8bc-4db7-bbae-45407c63993d"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "87b136ea-a0f5-41bd-b45c-8cf101e12654"
+              }
+            ]
+          },
+  
+          {
+            "id": "bf8dbc92-3608-47a4-888c-02a734af7063",
+            "name": "organism_mweb_section_header",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "9acef4c3-2fb3-4328-866e-b287e370ac6b",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "c3f33baa-6c40-4ea6-b666-5150aa41ce77",
+            "name": "organism_squad_card",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "4caf32a5-52b1-4c53-966d-94241dd6e2fc",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "13fe600b-542e-45d6-ad83-6d838727f339",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "262f78d7-d0b0-4b00-a1fb-91472bc7ce1e",
+            "name": "organism_squad_card_inner",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_center"
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "28abd269-0075-4b8d-95ce-0833e16308af",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "3a194439-6ace-4a98-8173-96e8e132baa5",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4caf32a5-52b1-4c53-966d-94241dd6e2fc",
+            "name": "organism_player_squad_card",
+            "properties": {
+              "stack": "z",
+              "position": "top_right"
+            },
+            "styles": {
+              "full_width": "true",
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "262f78d7-d0b0-4b00-a1fb-91472bc7ce1e",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "154f7b8a-2c4f-4a5b-8895-340f01643365",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "d88a753e-8f28-4844-b237-9d431ac51d31",
+            "name": "organism_footer_action",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_img": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "fe84aff1-26ae-4f0e-ad6d-349450dbc292",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "8eca5955-fe8f-4130-a346-7d08e8e2a147",
+            "name": "photos_header",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_img": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "94e7c5c0-c520-40cc-a6e4-e9941771ebb6",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4139f418-80a0-467c-9d11-54bda209e1ba",
+            "name": "photos_body_organim_one",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "1784ed9f-938c-4d79-aa35-0ed485b9f302",
+                "visibility": true
+              },
+              {
+                "component_type": "organism",
+                "id": "3eb0d4b7-7e4f-4588-915c-52282bbeccf0",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4139f418-80a0-467c-9d11-54bda209e1ba-second",
+            "name": "photos_body_organim_one",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "1784ed9f-938c-4d79-aa35-0ed485b9f302-second",
+                "visibility": true
+              },
+              {
+                "component_type": "organism",
+                "id": "3eb0d4b7-7e4f-4588-915c-52282bbeccf0-second",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "1784ed9f-938c-4d79-aa35-0ed485b9f302",
+            "name": "organism_article_thumbnail_amey",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "db3d6d88-4d79-4109-b182-1cf8867d9cb6",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "1aede1b8-b0e2-410a-bca3-47fae7592947",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "1784ed9f-938c-4d79-aa35-0ed485b9f302-second",
+            "name": "organism_article_thumbnail_amey",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "db3d6d88-4d79-4109-b182-1cf8867d9cb6",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "1aede1b8-b0e2-410a-bca3-47fae7592947",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4838febc-3df1-49a8-82b9-001482b42396-amey",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3_5",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "spacing_5",
+                "left": "spacing_5",
+                "right": "spacing_5",
+                "top": "spacing_5"
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "5dd3097e-b89c-470f-a332-bb6ebc87c402",
+                "visibility": true
+              },
+              {
+                "component_type": "organism",
+                "id": "5dd3097e-b89c-470f-a332-bb6ebc87c402",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4838febc-3df1-49a8-82b9-001482b42396",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3_5",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "spacing_5",
+                "left": "spacing_5",
+                "right": "spacing_5",
+                "top": "spacing_5"
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "f2643b85-45f2-46fb-823e-ca54f83ebd74",
+                "visibility": true
+              },
+              {
+                "component_type": "molecule",
+                "id": "a876ab4f-3f97-4120-ab34-918454916697",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "4139f418-80a0-467c-9d11-54bda209e1ba-wrapper",
+            "name": "organism_player_lower_grid",
+            "properties": {
+              "stack": "h",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_img": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "",
+                "left": "",
+                "right": "",
+                "top": ""
+              }
+            },
+            "composition": [
+              {
+                "component_type": "organism",
+                "id": "4139f418-80a0-467c-9d11-54bda209e1ba-second",
+                "properties": {
+                  "column_span": 2,
+                  "row_span": 0
+                }
+              },
+              {
+                "component_type": "organism",
+                "id": "4139f418-80a0-467c-9d11-54bda209e1ba-second",
+                "properties": {
+                  "column_span": 2,
+                  "row_span": 0
+                }
+              }
+            ]
+          },
+          {
+            "id": "5dd3097e-b89c-470f-a332-bb6ebc87c402",
+            "name": "organism_article_thumbnail",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "a0165bd5-05df-42c9-b4e9-159a6049415f"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "1aede1b8-b0e2-410a-bca3-47fae7592947"
+              }
+            ]
+          },
+          {
+            "id": "2b0d2ac4-c6ec-4472-9ec2-c8e70b449950",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_5",
+                "right": "spacing_5",
+                "bottom": "spacing_5",
+                "left": "spacing_5"
+              },
+              "gap": "spacing_3_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "96df0deb-71a7-4f70-9faf-e598c8caf36b"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "ce0de3a3-e253-4a65-958f-20ba2fcb5340"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "b45a90fb-646e-431b-aaef-fadabbfaa26b"
+              }
+            ]
+          },
+          {
+            "id": "3eb0d4b7-7e4f-4588-915c-52282bbeccf0",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_5",
+                "right": "spacing_5",
+                "bottom": "spacing_5",
+                "left": "spacing_5"
+              },
+              "gap": "spacing_3_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "45437a56-dcae-465a-a417-8656e1d54ec6"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "da1ee8d9-f1b4-4884-8322-e478eed8c827"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "f556babf-cb44-4493-8de8-6235f0b95c80"
+              }
+            ]
+          },
+          {
+            "id": "3eb0d4b7-7e4f-4588-915c-52282bbeccf0-second",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_5",
+                "right": "spacing_5",
+                "bottom": "spacing_5",
+                "left": "spacing_5"
+              },
+              "gap": "spacing_3_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "45437a56-dcae-465a-a417-8656e1d54ec6"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "da1ee8d9-f1b4-4884-8322-e478eed8c827"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "f556babf-cb44-4493-8de8-6235f0b95c80"
+              }
+            ]
+          },
+          {
+            "id": "3370bae7-ce0c-4a87-b2e7-e46d0d969cd9",
+            "name": "organism_article_photo",
+            "properties": {
+              "stack": "z",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "5dd3097e-b89c-470f-a332-bb6ebc87c402"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "2b0d2ac4-c6ec-4472-9ec2-c8e70b449950"
+              }
+            ]
+          },
+          {
+            "id": "07c4c520-5c84-44c9-8cc0-5d99317d8ef3",
+            "name": "organism_footer_action_photos",
+            "properties": {
+              "stack": "",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "background_image": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "bottom": 0,
+                "left": 0,
+                "right": 0,
+                "top": 0
+              },
+              "padding": {
+                "bottom": "spacing_5",
+                "left": "spacing_5",
+                "right": "spacing_5",
+                "top": "spacing_5"
+              }
+            },
+            "composition": [
+              {
+                "component_type": "molecule",
+                "id": "600040fa-4969-48ae-af18-fea963300109",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "f6b46b22-bdbd-47b8-bf46-b65a09c6138c",
+            "name": "organism_web_section_header",
+            "properties": { "stack": "v", "position": "" },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "8ccaed6e-910b-41d7-9d21-ad4b0280fadf"
+              }
+            ]
+          },
+          {
+            "id": "e2715285-bac5-4d1e-9679-5d6c706aac65",
+            "name": "organism_mobile_showcase",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": ""
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "adc024f6-b4d1-47bb-909d-3fb4a215c20f"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "bc36f871-2309-4241-93d4-3860ff6a2acf"
+              }
+            ]
+          },
+          {
+            "id": "8ac6024c-c2bc-4236-b0c5-617dc4ab8239",
+            "name": "organism_article_photo",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "31de9908-25a6-444a-a8fd-5ee88d1609d6"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "2b0d2ac4-c6ec-4472-9ec2-c8e70b449950"
+              }
+            ]
+          },
+          {
+            "id": "2563f0ae-0e66-4c82-9c64-41598bc56504",
+            "name": "organism_article_photo",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "b555686a-2ccc-44c0-a5fe-0a4ae6df1698"
+              },
+              {
+                "visibility": true,
+                "component_type": "organism",
+                "id": "2b0d2ac4-c6ec-4472-9ec2-c8e70b449950"
+              }
+            ]
+          },
+          {
+            "id": "31de9908-25a6-444a-a8fd-5ee88d1609d6",
+            "name": "organism_article_thumbnail",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "8a39f4d3-cc65-486e-9b63-b0a930b42069"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "5d699cca-79f4-4b14-a985-7220fe3fb2ca"
+              }
+            ]
+          },
+          {
+            "id": "b555686a-2ccc-44c0-a5fe-0a4ae6df1698",
+            "name": "organism_article_thumbnail",
+            "properties": {
+              "stack": "z",
+              "position": "bottom_left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "6353ef4b-07a5-4593-b878-76a884753a56"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "5d699cca-79f4-4b14-a985-7220fe3fb2ca"
+              }
+            ]
+          },
+          {
+            "id": "2b0d2ac4-c6ec-4472-9ec2-c8e70b449950",
+            "name": "organism_article_content",
+            "properties": {
+              "stack": "v",
+              "position": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_4",
+                "right": "",
+                "bottom": "spacing_4",
+                "left": ""
+              },
+              "gap": "spacing_2",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "composition": [
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "76abec42-cb05-453a-bd80-a2bf639292e1"
+              },
+              {
+                "visibility": true,
+                "component_type": "molecule",
+                "id": "2ab2cb98-3f7a-4114-aa2b-f4c0036b4efd"
+              }
+            ]
+          }
+        ],
+        "molecule": [
+          {
+            "id": "d2b45ce9-27c1-4624-9adb-5a731e74cf19",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "variant": "1",
+              "sub_variant": "image",
+              "stack": "",
+              "play": false
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "3720faa9-b9d7-4652-adca-f5753cd6d118"
+              }
+            ]
+          },
+          {
+            "id": "77eece38-4f86-48da-9824-b2ad97ba54bd",
+            "name": "molecule_article_extension",
+            "properties": {
+              "variant": "1",
+              "sub_variant": "left",
+              "stack": "v"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_primary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "f59068c9-518b-40f0-9b39-e4545bf0bee6"
+              }
+            ]
+          },
+          {
+            "id": "9de9684b-f018-4b17-9936-d192b22b0c0c",
+            "name": "molecule_article_extension",
+            "properties": {
+              "variant": "1",
+              "sub_variant": "left",
+              "stack": "v"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_read_more",
+                "visibility": true,
+                "translation_key": "",
+                "id": "bc7b3177-ba8f-40e5-8311-c468ff2373c6"
+              }
+            ]
+          },
+          {
+            "id": "2453d543-829d-4cb0-a333-e97642857b1e",
+            "name": "molecule_section_header",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_2",
+                "right": "spacing_2",
+                "bottom": "spacing_2",
+                "left": "spacing_2"
+              },
+              "gap": "spacing_0",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "bd28514a-4774-4ec4-9ea5-7388d63f0e6f"
+              },
+              {
+                "name": "atom_section_title_small",
+                "visibility": true,
+                "translation_key": "",
+                "id": "0209cfdb-6565-4d87-8bad-cc1dc64b9eab"
+              },
+              {
+                "name": "button_view_more",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "e00f1f8f-e836-47ca-8d44-3bba4611298d",
+            "name": "molecule_fixturecard_meta_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "spacing_2_5",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_match",
+                "visibility": true,
+                "translation_key": "",
+                "id": "8876f1e2-d1cb-4621-bae2-05cebb95d699"
+              },
+              {
+                "name": "atom_date",
+                "visibility": true,
+                "translation_key": "",
+                "id": "93ecc207-6d3b-467c-8d44-2408dce98e44"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "298fb26b-f764-42d5-8ce2-60fac34c7b33",
+            "name": "molecule_fixturecard_matchinfo",
+            "properties": {
+              "stack": "v",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_venue",
+                "visibility": true,
+                "translation_key": "",
+                "id": "01e8a0fb-0d95-40f9-b059-aeedac722f6b"
+              },
+              {
+                "name": "atom_match_update",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "a1db893d-ff84-451f-8264-7112b7e790ad",
+            "name": "molecule_fixturecard_meta_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_status_live",
+                "visibility": true,
+                "translation_key": "",
+                "id": "b7b97fec-b308-43e6-ab51-ab3cc4bf2af9"
+              },
+              {
+                "name": "atom_status_recent",
+                "visibility": true,
+                "translation_key": "",
+                "id": "4cd263f1-ae87-4887-b4e4-55dfbe7c8e1e"
+              },
+              {
+                "name": "atom_status_upcoming",
+                "visibility": true,
+                "translation_key": "",
+                "id": "eb96b0e8-59ef-4656-8e5b-7700c2175279"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "b31c943f-869d-4533-b474-c06c49b67ba7",
+            "name": "molecule_fixturecard_scores_cricket",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "4",
+              "sub_variant": "timer"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_2",
+                "right": "spacing_3",
+                "bottom": "spacing_2",
+                "left": "spacing_3"
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_team_score",
+                "visibility": true,
+                "translation_key": "",
+                "id": "24a7cd40-4b9f-4820-ad0f-68734ae0bddf"
+              },
+              {
+                "name": "atom_team_name",
+                "visibility": true,
+                "translation_key": "",
+                "id": "8830c45f-d02b-4416-b691-f0b69004c7dd"
+              },
+              {
+                "name": "atom_team_overs",
+                "visibility": true,
+                "translation_key": "",
+                "id": "28df5c1a-efe8-47d0-86f3-012445bc07fa"
+              },
+              {
+                "name": "atom_versus",
+                "visibility": true,
+                "translation_key": "",
+                "id": "4fad26f3-cd76-4c8b-a7b2-a323f0409555"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "5f064bd9-129c-4e21-b9da-98b68fc05eef",
+            "name": "molecule_fixturecard_matchinfo",
+            "properties": {
+              "stack": "v",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_venue",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              },
+              {
+                "name": "atom_match_update",
+                "visibility": true,
+                "translation_key": "",
+                "id": "08d13644-b88c-454c-86d5-11028729e8f8"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "4d0212ab-7f9e-4da5-844b-63f30878f2d4",
+            "name": "molecule_fixturecard_action_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": { "top": "", "right": "", "bottom": "", "left": "" },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_match_center",
+                "visibility": true,
+                "translation_key": "",
+                "id": "732c7905-6f40-466f-bfad-dcb7b67cb993"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "5a0cbd81-e1ae-4920-962b-c8d7de0683c2",
+            "name": "molecule_footer_action",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "gap": "spacing_2"
+            },
+            "atoms": [
+              {
+                "name": "button_view_more",
+                "visibility": true,
+                "translation_key": "",
+                "id": "418fea05-1457-49e7-a91c-79d762ded70e"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "39946bfc-f999-4cdd-9f42-8fa4a3e68a06",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "image"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "d937e562-0fbc-4e39-8bb1-7ab09af19f4f"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "e6ddc5db-bbaa-4ce4-b87e-53bf68ecc61c",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "image"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "c35a4ed6-8f1c-4b34-8a25-d060a801ce03"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "a6d38bcd-bc07-45d1-911d-da0042e5bd18",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_4",
+                "right": "spacing_4",
+                "bottom": "spacing_4",
+                "left": "spacing_4"
+              },
+              "gap": "spacing_3",
+              "shape": "rounded",
+              "border_width": 1,
+              "border_style": "solid",
+              "border_radius": {
+                "top_left": "radius_rounded",
+                "top_right": "radius_rounded",
+                "bottom_left": "radius_rounded",
+                "bottom_right": "radius_rounded"
+              },
+              "border_color": "border_main_nue",
+              "offset": {
+                "top": 0,
+                "bottom": 20,
+                "left": 20,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_primary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "e85c670d-6fb5-415a-938e-7346411d63c5"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "2302d29b-221c-4351-b007-d16c72e171cd",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_4",
+                "right": "spacing_4",
+                "bottom": "spacing_4",
+                "left": "spacing_4"
+              },
+              "gap": "spacing_3",
+              "shape": "rounded",
+              "border_width": 1,
+              "border_style": "solid",
+              "border_radius": {
+                "top_left": "radius_rounded",
+                "top_right": "radius_rounded",
+                "bottom_left": "radius_rounded",
+                "bottom_right": "radius_rounded"
+              },
+              "border_color": "border_main_nue",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_primary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "e85c670d-6fb5-415a-938e-7346411d63c5"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "2b0556b0-a18e-4902-931b-eff9c3491823",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "",
+              "sub_variant": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_4",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_secondary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "859155db-fbfd-402b-ade5-0d183a1ad804"
+              },
+              {
+                "name": "atom_date",
+                "visibility": true,
+                "translation_key": "",
+                "id": "859155db-fbfd-402b-ade5-0d183a1ad804"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "e2e51df9-9123-4cb1-a8f5-af157289fe10",
+            "name": "molecule_article_description",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "921632ca-56f1-4de9-a50d-4946a358b389"
+              },
+              {
+                "name": "description",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "ce0de3a3-e253-4a65-958f-20ba2fcb5340",
+            "name": "molecule_article_description",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "fe80601c-c43b-405d-b8dc-951bfaaa7bad"
+              },
+              {
+                "name": "description",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "da1ee8d9-f1b4-4884-8322-e478eed8c827",
+            "name": "molecule_article_description",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "4adec307-524c-487a-a617-870664d425a2"
+              },
+              {
+                "name": "description",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "c3b8997d-3d47-42d8-8d6a-6b0423c4938f",
+            "name": "molecule_article_description",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+  
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "04607445-bee7-4259-a5b4-436f80c0ee81"
+              },
+              {
+                "name": "description",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "5c27df20-16ba-42ea-956a-72d8625486bf",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_view_details",
+                "visibility": true,
+                "translation_key": "",
+                "id": "fc41feeb-7fdd-485c-9e5c-cfc2a2c7b5a2"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "b45a90fb-646e-431b-aaef-fadabbfaa26b",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_view_details",
+                "visibility": true,
+                "translation_key": "",
+                "id": "535c6f97-e241-484e-a3ae-3113b9b1ee44"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "f556babf-cb44-4493-8de8-6235f0b95c80",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_view_details",
+                "visibility": true,
+                "translation_key": "",
+                "id": "535c6f97-e241-484e-a3ae-3113b9b1ee44"
+              }
+            ],
+            "extended_props": {}
+          },
+  
+          {
+            "id": "9acef4c3-2fb3-4328-866e-b287e370ac6b",
+            "name": "molecule_section_header",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "center",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "1947d4a0-259d-4b15-bfc1-586b12606b6a",
+                "name": "atom_title",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "afaea523-0264-487f-a002-ce3a4ec4130f",
+                "name": "atom_section_title_small",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "",
+                "name": "button_view_more",
+                "translation_key": "",
+                "visibility": false
+              }
+            ]
+          },
+          {
+            "id": "fe84aff1-26ae-4f0e-ad6d-349450dbc292",
+            "name": "molecule_footer_action",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "center",
+              "variant": "1",
+              "view_detail": true,
+              "view_detail_2": false,
+              "show_divider": false
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "68c845f6-2d0d-473c-be3d-f3365acaefde",
+                "name": "button_view_more",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "94e7c5c0-c520-40cc-a6e4-e9941771ebb6",
+            "name": "molecule_section_header",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "center",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_0",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "spacing_2",
+                "right": "spacing_2",
+                "bottom": "spacing_2",
+                "left": "spacing_2"
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "bd28514a-4774-4ec4-9ea5-7388d63f0e6f"
+              },
+              {
+                "name": "atom_section_title_small",
+                "visibility": true,
+                "translation_key": "",
+                "id": "0209cfdb-6565-4d87-8bad-cc1dc64b9eab"
+              },
+              {
+                "name": "button_view_more",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ]
+          },
+          {
+            "id": "28abd269-0075-4b8d-95ce-0833e16308af",
+            "name": "molecule_player_thumbnail",
+            "properties": {
+              "stack": "",
+              "sub_variant": "",
+              "variant": ""
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "background_image": "https://stg-wf.sportz.io/static-assets/wac/background/squad-card.png",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "a12682dd-3b14-43da-8364-81c3e3c6eabf",
+                "name": "thumbnail",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "a0165bd5-05df-42c9-b4e9-159a6049415f",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "video"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "e99c1f12-3929-41d4-ae02-edd6b9a799f8"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "1aede1b8-b0e2-410a-bca3-47fae7592947",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "v",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_4",
+                "right": "spacing_4",
+                "bottom": "spacing_4",
+                "left": "spacing_4"
+              },
+              "gap": "",
+              "shape": "rounded",
+              "border_width": 1,
+              "border_style": "solid",
+              "border_radius": {
+                "top_left": "radius_rounded",
+                "top_right": "radius_rounded",
+                "bottom_left": "radius_rounded",
+                "bottom_right": "radius_rounded"
+              },
+              "border_color": "border_main_nue",
+              "offset": {
+                "top": 0,
+                "bottom": 20,
+                "left": 20,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_primary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "a0f8d34e-da61-4a52-be2f-7419500b9ad7"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "96df0deb-71a7-4f70-9faf-e598c8caf36b",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "",
+              "sub_variant": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_4",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_date",
+                "visibility": true,
+                "translation_key": "",
+                "id": "5ff64fab-89d9-41c7-8c0c-f57a7e4171bc"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "45437a56-dcae-465a-a417-8656e1d54ec6",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "",
+              "sub_variant": ""
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_4",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_date",
+                "visibility": true,
+                "translation_key": "",
+                "id": "5ff64fab-89d9-41c7-8c0c-f57a7e4171bc"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "154f7b8a-2c4f-4a5b-8895-340f01643365",
+            "name": "molecule_player_extension",
+            "properties": {
+              "stack": "v",
+              "sub_variant": "center",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_1",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "spacing_2",
+                "right": "spacing_2",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "5ff01546-d27d-43dc-9b65-dedfe4e503fd",
+                "name": "atom_captain",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "dd920c1f-e0cf-4f88-8d02-0c5c139bff8d",
+                "name": "atom_oversea",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "3a194439-6ace-4a98-8173-96e8e132baa5",
+            "name": "molecule_player_detail",
+            "properties": {
+              "stack": "v",
+              "sub_variant": "center",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_1",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "spacing_2_5",
+                "right": "spacing_2_5",
+                "bottom": "spacing_2_5",
+                "left": "spacing_2_5"
+              }
+            },
+            "atoms": [
+              {
+                "id": "10f3062f-4722-4189-8b4d-692e8931f75c",
+                "name": "atom_player_name",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "e19c68bf-38c5-4c6f-86cd-f5d11509623f",
+                "name": "atom_player_surname",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "496377eb-f296-4a4b-90d1-6362bdf59c08",
+                "name": "atom_skill",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "13fe600b-542e-45d6-ad83-6d838727f339",
+            "name": "molecule_player_data",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "center",
+              "variant": "1",
+              "show_match": true,
+              "show_runs": true,
+              "show_wickets": false,
+              "show_hs": true
+            },
+            "styles": {
+              "background_color": "background_prim_container",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "spacing_3",
+                "right": "",
+                "bottom": "spacing_3",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "b4c5d7ee-710e-4881-aa36-f9c46a334855",
+                "name": "atom_data",
+                "translation_key": "",
+                "visibility": true
+              },
+              {
+                "id": "89c15a97-8363-4c53-85b1-9ba33d3cdea0",
+                "name": "atom_title",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "8da5d57e-d7ee-41c9-a578-2031b8dbd258",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "left",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_1",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "bccfc3cf-ea1c-46a1-8179-62d44d918e72",
+                "name": "atom_primary_category",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "db3d6d88-4d79-4109-b182-1cf8867d9cb6",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "sub_variant": "",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "932d3e2f-a69c-4ee0-b857-bc5094e13955",
+                "name": "thumbnail",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "f2643b85-45f2-46fb-823e-ca54f83ebd74",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "left",
+              "variant": "1"
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "a8c1bd2c-2316-4943-9c49-c4f1d1667bfd",
+                "name": "atom_badges",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "8519f05d-3f10-4be7-9ef0-2a2a869774a3",
+            "name": "molecule_media_description",
+            "properties": {
+              "stack": "v",
+              "sub_variant": "left",
+              "variant": "1",
+              "title": true,
+              "description": false,
+              "subtitle": false
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_3",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "635bd1c7-10f2-4ba0-92a1-e1e49365cd03",
+                "name": "atom_text",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "a876ab4f-3f97-4120-ab34-918454916697",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "left",
+              "variant": "1",
+              "title": true,
+              "description": false,
+              "subtitle": false
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "spacing_1",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "573f0331-4234-49b5-aedb-919370867104",
+                "name": "atom_button",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "600040fa-4969-48ae-af18-fea963300109 ",
+            "name": "molecule_footer_action",
+            "properties": {
+              "stack": "h",
+              "sub_variant": "center",
+              "variant": "1",
+              "view_detail": true,
+              "view_detail_2": false,
+              "show_divider": false
+            },
+            "styles": {
+              "background_color": "",
+              "border_color": "",
+              "border_radius": {
+                "bottom_left": 0,
+                "bottom_right": 0,
+                "top_left": 0,
+                "top_right": 0
+              },
+              "border_width": "",
+              "gap": "",
+              "gradient": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              }
+            },
+            "atoms": [
+              {
+                "id": "cba57b42-4ab4-4252-bf9d-aeb4f1f9270a",
+                "name": "button_view_more",
+                "translation_key": "",
+                "visibility": true
+              }
+            ]
+          },
+          {
+            "id": "8ccaed6e-910b-41d7-9d21-ad4b0280fadf",
+            "name": "molecule_section_header",
+            "properties": {
+              "stack": "v",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "center"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_2",
+                "right": "spacing_2",
+                "bottom": "spacing_2",
+                "left": "spacing_2"
+              },
+              "gap": "spacing_0",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": { "top": 0, "bottom": 0, "left": 0, "right": 0 }
+            },
+            "atoms": [
+              {
+                "name": "atom_title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "bf292913-69b7-4140-84a8-1e5c1134590e"
+              },
+              {
+                "name": "atom_section_title_small",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              },
+              {
+                "name": "button_view_more",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "adc024f6-b4d1-47bb-909d-3fb4a215c20f",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "variant": "1",
+              "sub_variant": "image",
+              "stack": "",
+              "play": false
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "aaf6bfbd-6f96-4315-805e-52ba1cf3267f"
+              }
+            ]
+          },
+          {
+            "id": "8a39f4d3-cc65-486e-9b63-b0a930b42069",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "video"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "cc03cace-3f7d-4b5e-940a-38cd3b803428"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "6353ef4b-07a5-4593-b878-76a884753a56",
+            "name": "molecule_article_thumbnail",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "video"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "thumbnail",
+                "visibility": true,
+                "translation_key": "",
+                "id": "ce62f2b4-07b1-4237-bcbf-d7ead6264c44"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "5d699cca-79f4-4b14-a985-7220fe3fb2ca",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "v",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "spacing_4",
+                "right": "spacing_4",
+                "bottom": "spacing_4",
+                "left": "spacing_4"
+              },
+              "gap": "",
+              "shape": "rounded",
+              "border_width": 1,
+              "border_style": "solid",
+              "border_radius": {
+                "top_left": "radius_rounded",
+                "top_right": "radius_rounded",
+                "bottom_left": "radius_rounded",
+                "bottom_right": "radius_rounded"
+              },
+              "border_color": "border_main_nue",
+              "offset": {
+                "top": 0,
+                "bottom": 20,
+                "left": 20,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_primary_category",
+                "visibility": true,
+                "translation_key": "",
+                "id": "a0f8d34e-da61-4a52-be2f-7419500b9ad7"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "76abec42-cb05-453a-bd80-a2bf639292e1",
+            "name": "molecule_article_extension",
+            "properties": {
+              "stack": "h",
+              "position": "",
+              "variant": "",
+              "sub_variant": "",
+              "date_format": "MMM DD, YYYY"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "spacing_4",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "atom_date",
+                "visibility": true,
+                "translation_key": "",
+                "id": "224236f7-bd78-43f8-9969-c8ad51810355"
+              }
+            ],
+            "extended_props": {}
+          },
+          {
+            "id": "2ab2cb98-3f7a-4114-aa2b-f4c0036b4efd",
+            "name": "molecule_article_description",
+            "properties": {
+              "stack": "",
+              "position": "",
+              "variant": "1",
+              "sub_variant": "left"
+            },
+            "styles": {
+              "background_color": "",
+              "gradient": "",
+              "background_img": "",
+              "padding": {
+                "top": "",
+                "right": "",
+                "bottom": "",
+                "left": ""
+              },
+              "gap": "",
+              "border_width": "",
+              "border_radius": "",
+              "border_color": "",
+              "offset": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              }
+            },
+            "atoms": [
+              {
+                "name": "title",
+                "visibility": true,
+                "translation_key": "",
+                "id": "78f0b1db-3cb5-4c26-b14f-5a5d7b9376f5"
+              },
+              {
+                "name": "description",
+                "visibility": false,
+                "translation_key": "",
+                "id": ""
+              }
+            ],
+            "extended_props": {}
+          }
+        ],
+        "atom": [
+          {
+            "id": "123",
+            "name": "description",
+            "atom_type": "text",
+            "text_color": "",
+            "typography": "badge_sm",
+            "clamp": "2",
+            "gradient": "",
+            "align": "center"
+          },
+          {
+            "id": "3720faa9-b9d7-4652-adca-f5753cd6d118",
+            "atom_type": "image",
+            "ratio": "21:9",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "bd28514a-4774-4ec4-9ea5-7388d63f0e6f",
+            "name": "atom_title",
+            "atom_type": "text",
+            "text_color": "",
+            "typography": "badge_sm",
+            "clamp": "",
+            "gradient": "",
+            "align": "center"
+          },
+          {
+            "id": "0209cfdb-6565-4d87-8bad-cc1dc64b9eab",
+            "name": "atom_section_title_small",
+            "atom_type": "text",
+            "text_color": "text_main_sec",
+            "typography": "dp_2_black",
+            "clamp": "",
+            "gradient": "",
+            "align": "center"
+          },
+          {
+            "id": "8876f1e2-d1cb-4621-bae2-05cebb95d699",
+            "name": "atom_match",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "no_padding": true,
+            "text_color": "text_main_high",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "typography": "body_xs_bold",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "93ecc207-6d3b-467c-8d44-2408dce98e44",
+            "name": "atom_date",
+            "atom_type": "badge",
+            "no_padding": true,
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "text_main_high",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "typography": "body_xs_bold",
+            "clamp": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "01e8a0fb-0d95-40f9-b059-aeedac722f6b",
+            "name": "atom_venue",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_xs_medium",
+            "clamp": "2",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "b7b97fec-b308-43e6-ab51-ab3cc4bf2af9",
+            "name": "atom_status_live",
+            "atom_type": "badge",
+            "sub_variant": "leading_icon",
+            "background_color": "background_alert_success",
+            "text_color": "text_alert_on_success",
+            "typography": "body_xs_bold",
+            "size": "small",
+            "leading_icon": "icon_live",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "4cd263f1-ae87-4887-b4e4-55dfbe7c8e1e",
+            "name": "atom_status_recent",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "typography": "body_xs_bold",
+            "shape": "sharp",
+            "background_color": "background_alert_error",
+            "text_color": "text_alert_on_error",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "eb96b0e8-59ef-4656-8e5b-7700c2175279",
+            "name": "atom_status_upcoming",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "typography": "body_xs_bold",
+            "background_color": "background_alert_warning",
+            "text_color": "text_alert_on_warning",
+            "size": "small",
+            "shape": "sharp",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "24a7cd40-4b9f-4820-ad0f-68734ae0bddf",
+            "name": "atom_team_score",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_lg_bold",
+            "clamp": "",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "8830c45f-d02b-4416-b691-f0b69004c7dd",
+            "name": "atom_team_name",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_sm_medium",
+            "clamp": "",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "28df5c1a-efe8-47d0-86f3-012445bc07fa",
+            "name": "atom_team_overs",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_sm_medium",
+            "clamp": "",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "4fad26f3-cd76-4c8b-a7b2-a323f0409555",
+            "name": "atom_versus",
+            "atom_type": "text",
+            "text_color": "text_main_disable",
+            "typography": "xl_bold",
+            "clamp": "",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "08d13644-b88c-454c-86d5-11028729e8f8",
+            "name": "atom_match_update",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_sm_medium",
+            "clamp": "2",
+            "gradient": "",
+            "align": "center"
+          },
+          {
+            "id": "732c7905-6f40-466f-bfad-dcb7b67cb993",
+            "name": "atom_match_center",
+            "atom_type": "button",
+            "sub_variant": "only_text",
+            "background_color": "button_filled_style_1_surface_default",
+            "text_color": "button_filled_style_1_text_icon_default",
+            "size": "small",
+            "shape": "sharp",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "418fea05-1457-49e7-a91c-79d762ded70e",
+            "name": "button_view_more",
+            "atom_type": "button",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "button_outline_style_2_text_icon_default",
+            "size": "large",
+            "shape": "sharp",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "1",
+            "border_color": "button_outline_style_2_outline_default",
+            "gradient": ""
+          },
+          {
+            "id": "d937e562-0fbc-4e39-8bb1-7ab09af19f4f",
+            "name": "thumbnail",
+            "atom_type": "image",
+            "ratio": "2:3",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "c35a4ed6-8f1c-4b34-8a25-d060a801ce03",
+            "name": "thumbnail",
+            "atom_type": "image",
+            "ratio": "16:9",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "e85c670d-6fb5-415a-938e-7346411d63c5",
+            "name": "atom_primary_category",
+            "atom_type": "badge",
+            "sub_variant": "only_icon",
+            "background_color": "background_main_surface",
+            "text_color": "background_prim_surface",
+            "size": "medium",
+            "leading_icon": "icon_news",
+            "shape": "rounded",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "859155db-fbfd-402b-ade5-0d183a1ad804",
+            "name": "atom_secondary_cateogry",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": "",
+            "typography": "body_md_badge",
+            "no_padding": true
+          },
+          {
+            "id": "dbf0383f-7f4f-459a-a670-e706cc78f2f0",
+            "name": "atom_date",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": "",
+            "typography": "body_md_regular",
+            "no_padding": true
+          },
+          {
+            "id": "921632ca-56f1-4de9-a50d-4946a358b389",
+            "name": "title",
+            "atom_type": "text",
+            "text_color": "text_main_high",
+            "typography": "body_md_bold",
+            "clamp": "2",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "fe80601c-c43b-405d-b8dc-951bfaaa7bad",
+            "name": "title",
+            "atom_type": "text",
+            "text_color": "text_prim_high",
+            "typography": "body_md_bold",
+            "clamp": "3",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "78f0b1db-3cb5-4c26-b14f-5a5d7b9376f5",
+            "name": "title",
+            "atom_type": "text",
+            "text_color": "text_main_body",
+            "typography": "body_md_bold",
+            "clamp": "2",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "4adec307-524c-487a-a617-870664d425a2",
+            "name": "title",
+            "atom_type": "text",
+            "text_color": "text_prim_high",
+            "typography": "body_md_bold",
+            "clamp": "2",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "04607445-bee7-4259-a5b4-436f80c0ee81",
+            "name": "title",
+            "atom_type": "text",
+            "text_color": "text_invert_high",
+            "typography": "h2_bold",
+            "clamp": "2",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "80b81486-dd18-4587-97e2-15cc8ebf3305",
+            "name": "atom_view_details",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "",
+            "size": "medium",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "86e180b4-ed94-41f3-a538-97d1b75d04bf",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_disable",
+            "typography": "dp_3_black"
+          },
+          {
+            "id": "0dfdf3a8-dbe8-4dc9-9730-637ae09b3350",
+            "atom_type": "badge",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": true,
+            "size": "medium",
+            "sub_variant": "leading_icon",
+            "text_color": "",
+            "trailing_icon": "",
+            "typography": ""
+          },
+          {
+            "id": "f59068c9-518b-40f0-9b39-e4545bf0bee6",
+            "atom_type": "badge",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": true,
+            "size": "medium",
+            "sub_variant": "leading_icon",
+            "text_color": "text_sec_high",
+            "trailing_icon": "",
+            "typography": "body_md_badge"
+          },
+          {
+            "id": "2399a9a5-acd1-49cb-9f74-44803a21defc",
+            "atom_type": "badge",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": true,
+            "size": "medium",
+            "sub_variant": "only_text",
+            "text_color": "",
+            "trailing_icon": "",
+            "typography": ""
+          },
+          {
+            "id": "d7e5869c-0457-4530-8579-ee6e1917d2a7",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_low",
+            "typography": "body_xs_medium"
+          },
+          {
+            "id": "2200daf0-ec44-4d03-93f1-21a18857d653",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_alert_warning",
+            "typography": "body_sm_regular"
+          },
+          {
+            "id": "b572590f-92ac-495b-a036-a27c5d27245e",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_high",
+            "typography": "body_sm_medium"
+          },
+          {
+            "id": "68a4d5e8-4868-4ce5-9c30-48b64a3ac2af",
+            "atom_type": "image",
+            "appearance": "",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "play": false,
+            "ratio": ""
+          },
+          {
+            "id": "134c6c82-aac5-4dbc-8e8b-e18a1d7c799c",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_body",
+            "typography": "body_sm_Regular"
+          },
+          {
+            "id": "e43be06b-6ce1-45c8-8b9b-dca6f1549b34",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_heading",
+            "typography": "h3_Semibold"
+          },
+          {
+            "id": "1947d4a0-259d-4b15-bfc1-586b12606b6a",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_sec_high",
+            "align": "center",
+            "typography": "badge_sm"
+          },
+          {
+            "id": "afaea523-0264-487f-a002-ce3a4ec4130f",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "align": "center",
+            "text_color": "text_sec_high",
+            "typography": "dp_2_black"
+          },
+          {
+            "id": "5ff01546-d27d-43dc-9b65-dedfe4e503fd",
+            "atom_type": "badge",
+            "background_color": "background_prim_container",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": false,
+            "size": "large",
+            "sub_variant": "only_text",
+            "text_color": "text_prim_high",
+            "shape": "sharp",
+            "trailing_icon": "",
+            "typography": "body_md_bold"
+          },
+          {
+            "id": "dd920c1f-e0cf-4f88-8d02-0c5c139bff8d",
+            "atom_type": "badge",
+            "background_color": "background_main_surface",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "icon_oversea",
+            "no_padding": false,
+            "size": "small",
+            "sub_variant": "only_icon",
+            "shape": "sharp",
+            "text_color": "",
+            "trailing_icon": "",
+            "typography": ""
+          },
+          {
+            "id": "10f3062f-4722-4189-8b4d-692e8931f75c",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_invert_high",
+            "typography": "badge_md"
+          },
+          {
+            "id": "e19c68bf-38c5-4c6f-86cd-f5d11509623f",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_invert_high",
+            "typography": "badge_md"
+          },
+          {
+            "id": "496377eb-f296-4a4b-90d1-6362bdf59c08",
+            "atom_type": "badge",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": true,
+            "size": "large",
+            "sub_variant": "only_text",
+            "text_color": "text_invert_high",
+            "trailing_icon": "",
+            "typography": "badge_md"
+          },
+          {
+            "id": "a12682dd-3b14-43da-8364-81c3e3c6eabf",
+            "atom_type": "image",
+            "background_image": "",
+            "appearance": "",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "gradient_nue_vert_1_light",
+            "play": false,
+            "ratio": "1:1"
+          },
+          {
+            "id": "426caa65-efb2-4ada-9db9-311096e9d96d",
+            "atom_type": "image",
+            "appearance": "",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "play": false,
+            "ratio": ""
+          },
+          {
+            "id": "932d3e2f-a69c-4ee0-b857-bc5094e13955",
+            "atom_type": "image",
+            "appearance": "",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "play": false,
+            "ratio": "1:1"
+          },
+          {
+            "id": "a78c1c77-e260-4238-9c49-e9dc462472f9",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "body_xs_medium"
+          },
+          {
+            "id": "27a068c7-af9f-4027-81cd-cb05339c0203",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "h3_bold"
+          },
+          {
+            "id": "5a7931d0-37ab-4013-9ca8-366cfe466432",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "body_xs_medium"
+          },
+          {
+            "id": "b4c5d7ee-710e-4881-aa36-f9c46a334855",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "h3_bold"
+          },
+          {
+            "id": "dd8f777f-7215-413f-a8b2-39996bc90873",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "body_xs_medium"
+          },
+          {
+            "id": "89c15a97-8363-4c53-85b1-9ba33d3cdea0",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "body_xs_medium"
+          },
+          {
+            "id": "68c845f6-2d0d-473c-be3d-f3365acaefde",
+            "atom_type": "button",
+            "background_color": "",
+            "border_color": "button_outline_style_3_text_icon_default",
+            "border_radius": "",
+            "border_width": "1",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "shape": "sharp",
+            "size": "large",
+            "sub_variant": "only_text",
+            "text_color": "button_outline_style_3_text_icon_default",
+            "trailing_icon": "",
+            "typography": "button_lg"
+          },
+          {
+            "id": "fc41feeb-7fdd-485c-9e5c-cfc2a2c7b5a2",
+            "atom_type": "button",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "size": "",
+            "sub_variant": "only_text",
+            "text_color": "",
+            "trailing_icon": "",
+            "typography": "button_lg"
+          },
+          {
+            "id": "535c6f97-e241-484e-a3ae-3113b9b1ee44",
+            "atom_type": "button",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "size": "",
+            "sub_variant": "only_text",
+            "text_color": "text_prim_high",
+            "trailing_icon": "",
+            "typography": "button_lg"
+          },
+          {
+            "id": "bc7b3177-ba8f-40e5-8311-c468ff2373c6",
+            "atom_type": "button",
+            "background_color": "button_filled_style_1_surface_default",
+            "text_color": "button_filled_style_1_text_icon_default",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "shape": "sharp",
+            "text": "View more",
+            "size": "medium",
+            "sub_variant": "only_text",
+            "trailing_icon": "",
+            "typography": "button_lg"
+          },
+          {
+            "id": "8fc9896f-f7b2-4072-bdf5-e82030709669",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_high",
+            "typography": "body_sm_badge"
+          },
+          {
+            "id": "efe5ee52-9f94-4fa8-be72-5a3fd0bb6963",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_sec",
+            "typography": "dp_2_black"
+          },
+          {
+            "id": "f1c6fffb-7da4-4783-a42c-08cf9a05ac95",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_main_disable",
+            "typography": "dp_3_black"
+          },
+          {
+            "id": "e99c1f12-3929-41d4-ae02-edd6b9a799f8",
+            "name": "thumbnail",
+            "atom_type": "image",
+            "ratio": "2:3",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "cc03cace-3f7d-4b5e-940a-38cd3b803428",
+            "name": "thumbnail",
+            "atom_type": "image",
+            "ratio": "16:9",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "ce62f2b4-07b1-4237-bcbf-d7ead6264c44",
+            "name": "thumbnail",
+            "atom_type": "image",
+            "ratio": "16:9",
+            "gradient": "gradient_nue_vert_1_light"
+          },
+          {
+            "id": "a0f8d34e-da61-4a52-be2f-7419500b9ad7",
+            "name": "atom_primary_category",
+            "atom_type": "badge",
+            "sub_variant": "only_icon",
+            "background_color": "background_main_surface",
+            "text_color": "background_prim_surface",
+            "size": "large",
+            "leading_icon": "icon_photo",
+            "shape": "rounded",
+            "trailing_icon": "",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "5ff64fab-89d9-41c7-8c0c-f57a7e4171bc",
+            "name": "atom_secondary_cateogry",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "text_invert_high",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "typography": "body_md_badge",
+            "img": "",
+            "border_width": "",
+            "gradient": ""
+          },
+          {
+            "id": "224236f7-bd78-43f8-9969-c8ad51810355",
+            "name": "atom_date",
+            "atom_type": "badge",
+            "sub_variant": "only_text",
+            "background_color": "",
+            "text_color": "text_main_body",
+            "size": "small",
+            "leading_icon": "",
+            "trailing_icon": "",
+            "typography": "body_xs_badge",
+            "img": "",
+            "border_width": "",
+            "gradient": "",
+            "no_padding": true
+          },
+          {
+            "id": "a8c1bd2c-2316-4943-9c49-c4f1d1667bfd",
+            "atom_type": "badge",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "gradient": "",
+            "leading_icon": "",
+            "no_padding": true,
+            "size": "",
+            "sub_variant": "",
+            "text_color": "text_prim_high",
+            "trailing_icon": "",
+            "typography": "body_md_badge"
+          },
+          {
+            "id": "635bd1c7-10f2-4ba0-92a1-e1e49365cd03",
+            "atom_type": "text",
+            "clamp": 1,
+            "gradient": "",
+            "text_color": "text_prim_high",
+            "typography": "body_md_bold"
+          },
+          {
+            "id": "573f0331-4234-49b5-aedb-919370867104",
+            "atom_type": "button",
+            "background_color": "",
+            "border_color": "",
+            "border_radius": "",
+            "border_width": "",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "size": "",
+            "sub_variant": "only_text",
+            "text_color": "",
+            "trailing_icon": "",
+            "typography": ""
+          },
+          {
+            "id": "cba57b42-4ab4-4252-bf9d-aeb4f1f9270a",
+            "atom_type": "button",
+            "background_color": "",
+            "border_color": "button_outline_style_3_outline_default",
+            "border_radius": "",
+            "border_width": "1",
+            "full_width": false,
+            "gradient": "",
+            "leading_icon": "",
+            "size": "",
+            "sub_variant": "only_text",
+            "text_color": "button_outline_style_3_text_icon_default",
+            "trailing_icon": "",
+            "typography": "button_lg"
+          },
+          {
+            "id": "bf292913-69b7-4140-84a8-1e5c1134590e",
+            "name": "atom_title",
+            "atom_type": "text",
+            "text_color": "",
+            "typography": "h1_bold",
+            "clamp": "",
+            "gradient": "",
+            "align": "left"
+          },
+          {
+            "id": "aaf6bfbd-6f96-4315-805e-52ba1cf3267f",
+            "atom_type": "image",
+            "ratio": "2:3",
+            "gradient": "gradient_nue_vert_1_light"
+          }
+        ]
+      },
+      "tokens": {
+        "40b949f1-5800-4025-8395-ed22bd52ccc6": {
+          "theme_name": "theme1",
+          "gradient": {
+            "light": {
+              "gradient_nue_horiz_1_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#000000",
+                    "opacity": 0,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#000000",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_nue_horiz_2_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#000000",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#000000",
+                    "opacity": 0,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_nue_vert_1_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#000000",
+                    "opacity": 0,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#000000",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_nue_vert_2_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#000000",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#000000",
+                    "opacity": 0,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_horiz_1_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#BD0010",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#F43D48",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_horiz_2_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#F43D48",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#BD0010",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_vert_1_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#F43D48",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#BD0010",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_vert_2_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#BD0010",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#F43D48",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_sec_horiz_1_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#2A4578",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_sec_horiz_2_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#2A4578",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_sec_vert_1_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#2A4578",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_sec_vert_2_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#2A4578",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_sec_horiz_1_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#EA0A2C",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_sec_horiz_2_light": {
+                "type": "linear-gradient",
+                "degree": 90,
+                "stops": [
+                  {
+                    "color": "#EA0A2C",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_sec_vert_1_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#EA0A2C",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              },
+              "gradient_prim_sec_vert_2_light": {
+                "type": "linear-gradient",
+                "degree": 180,
+                "stops": [
+                  {
+                    "color": "#0D1D41",
+                    "opacity": 100,
+                    "percent": 0
+                  },
+                  {
+                    "color": "#EA0A2C",
+                    "opacity": 100,
+                    "percent": 100
+                  }
+                ]
+              }
+            }
+          },
+          "color": {
+            "light": {
+              "color_neu_00": "#ffffff",
+              "color_neu_50": "#f7f7fc",
+              "color_neu_100": "#ededf2",
+              "color_neu_200": "#e1e1e6",
+              "color_neu_300": "#cfcfd3",
+              "color_neu_400": "#aaaaae",
+              "color_neu_500": "#89898d",
+              "color_neu_600": "#626266",
+              "color_neu_700": "#4f4f53",
+              "color_neu_800": "#313135",
+              "color_neu_900": "#111115",
+              "color_neu_950": "#000000",
+              "color_sec_50": "#e5e7ed",
+              "color_sec_100": "#bcc4d5",
+              "color_sec_200": "#929eb8",
+              "color_sec_300": "#69799b",
+              "color_sec_400": "#4a5e89",
+              "color_sec_500": "#2a4578",
+              "color_sec_600": "#243e70",
+              "color_sec_700": "#1c3565",
+              "color_sec_800": "#162c58",
+              "color_sec_900": "#0d1d41",
+              "color_prim_50": "#ffe9ed",
+              "color_prim_100": "#ffc9d0",
+              "color_prim_200": "#f39296",
+              "color_prim_300": "#e9676d",
+              "color_prim_400": "#f43d48",
+              "color_prim_500": "#f91f2c",
+              "color_prim_600": "#ea0a2c",
+              "color_prim_700": "#d80026",
+              "color_prim_800": "#cb001e",
+              "color_prim_900": "#bd0010",
+              "color_error_50": "#fde8e8",
+              "color_error_100": "#f9b6b6",
+              "color_error_200": "#f69393",
+              "color_error_300": "#f26262",
+              "color_error_400": "#ef4343",
+              "color_error_500": "#eb1414",
+              "color_error_600": "#d61212",
+              "color_error_700": "#a70e0e",
+              "color_error_800": "#810b0b",
+              "color_error_900": "#630808",
+              "color_warning_50": "#fff1e6",
+              "color_warning_100": "#ffdcbd",
+              "color_warning_200": "#ffc694",
+              "color_warning_300": "#ffab61",
+              "color_warning_400": "#ff9a42",
+              "color_warning_500": "#ff7e0d",
+              "color_warning_600": "#de7112",
+              "color_warning_700": "#b35b0f",
+              "color_warning_800": "#8e480b",
+              "color_warning_900": "#6d3709",
+              "color_success_50": "#e8f3ee",
+              "color_success_100": "#b7daca",
+              "color_success_200": "#94c8b1",
+              "color_success_300": "#64af8d",
+              "color_success_400": "#459f77",
+              "color_success_500": "#178755",
+              "color_success_600": "#157b4d",
+              "color_success_700": "#10603c",
+              "color_success_800": "#0d4a2f",
+              "color_success_900": "#0a3924",
+              "background_main_surface": "#ffffff",
+              "border_main_default": "#e1e1e6",
+              "border_main_error": "#eb1414",
+              "border_main_warning": "#8e480b",
+              "border_main_success": "#178755",
+              "text_main_high": "#111115",
+              "text_main_medium": "#313135",
+              "background_main_container": "#f7f7fc",
+              "background_main_card": "#ededf2",
+              "text_main_low": "#4f4f53",
+              "text_main_disable": "#aaaaae",
+              "text_prim_high": "#ffffff",
+              "text_prim_medium": "#ffe9ed",
+              "text_prim_low": "#ffc9d0",
+              "text_prim_disable": "#f39296",
+              "background_prim_surface": "#d80026",
+              "background_prim_container": "#ea0a2c",
+              "background_prim_card": "#f43d48",
+              "background_sec_surface": "#0d1d41",
+              "background_sec_container": "#162c58",
+              "background_sec_card": "#243e70",
+              "text_sec_high": "#ffffff",
+              "text_sec_medium": "#ededf2",
+              "text_sec_low": "#e5e7ed",
+              "text_sec_disable": "#bcc4d5",
+              "text_invert_high": "#ffffff",
+              "text_invert_medium": "#e1e1e6",
+              "text_invert_low": "#cfcfd3",
+              "text_invert_disable": "#aaaaae",
+              "text_main_prim": "#bd0010",
+              "text_main_sec": "#0d1d41",
+              "border_main_prim": "#d80026",
+              "background_main_card_2": "#e1e1e6",
+              "background_alert_success": "#178755",
+              "background_alert_error": "#d61212",
+              "background_alert_warning": "#ff9a42",
+              "background_prim_card_2": "#e9676d",
+              "border_main_disable": "#ededf2",
+              "border_main_sec": "#243e70",
+              "background_sec_card_2": "#4a5e89",
+              "background_invert_surface": "#111115",
+              "background_invert_container": "#313135",
+              "background_invert_card": "#626266",
+              "background_invert_card_2": "#89898d",
+              "text_alert_on_warning": "#313135",
+              "text_alert_on_error": "#ffffff",
+              "text_alert_on_success": "#ffffff",
+              "border_main_invert": "#111115",
+              "border_main_nue": "#ffffff",
+              "button_filled_style_1_surface_default": "#f43d48",
+              "button_outline_style_1_outline_default": "#e1e1e6",
+              "button_filled_style_2_surface_default": "#243e70",
+              "button_filled_style_1_text_icon_disable": "#f39296",
+              "button_filled_style_2_text_icon_default": "#ededf2",
+              "button_filled_style_1_surface_hover": "#ea0a2c",
+              "button_filled_style_1_surface_disable": "#ffe9ed",
+              "button_filled_style_1_text_icon_hover": "#ffffff",
+              "button_filled_style_1_text_icon_default": "#ffe9ed",
+              "button_filled_style_2_surface_hover": "#0d1d41",
+              "button_filled_style_2_surface_disable": "#929eb8",
+              "button_filled_style_2_text_icon_disable": "#bcc4d5",
+              "button_filled_style_2_text_icon_hover": "#ffffff",
+              "button_outline_style_1_surface_hover": "#ea0a2c",
+              "button_outline_style_1_outline_disable": "#ededf2",
+              "button_outline_style_2_surface_hover": "#0d1d41",
+              "button_outline_style_1_text_icon_default": "#111115",
+              "button_outline_style_1_text_icon_hover": "#ffffff",
+              "button_outline_style_1_text_icon_ddisable": "#aaaaae",
+              "button_outline_style_2_text_icon_default": "#0d1d41",
+              "button_outline_style_2_text_icon_hover": "#ffffff",
+              "button_outline_style_2_text_icon_disable": "#aaaaae",
+              "button_no_padding_style_1_text_icon_default": "#4f4f53",
+              "button_no_padding_style_2_text_icon_default": "#ffe9ed",
+              "button_no_padding_style_1_text_icon_hover": "#111115",
+              "button_no_padding_style_1_text_icon_disable": "#aaaaae",
+              "button_no_padding_style_2_text_icon_hover": "#ffffff",
+              "button_no_padding_style_2_text_icon_disable": "#f39296",
+              "button_outline_style_2_outline_default": "#0d1d41",
+              "button_outline_style_3_outline_default": "#ffffff",
+              "button_outline_style_3_surface_hover": "#ea0a2c",
+              "button_outline_style_3_text_icon_default": "#ffffff",
+              "button_outline_style_3_text_icon_hover": "#ffffff",
+              "button_outline_style_3_text_icon_disable": "#bcc4d5",
+              "button_outline_style_3_outline_disable": "#aaaaae",
+              "button_outline_style_2_outline_disable": "#aaaaae"
+            }
+          },
+          "radius": {
+            "radius_none": 0,
+            "radius_xs": 2,
+            "radius_sm": 4,
+            "radius_md": 8,
+            "radius_lg": 12,
+            "radius_xl": 16,
+            "radius_2xl": 20,
+            "radius_3xl": 24,
+            "radius_rounded": 999
+          },
+          "spacing": {
+            "spacing_0": 0,
+            "spacing_1": 4,
+            "spacing_2": 8,
+            "spacing_3": 12,
+            "spacing_4": 16,
+            "spacing_5": 20,
+            "spacing_6": 24,
+            "spacing_7": 28,
+            "spacing_8": 32,
+            "spacing_9": 36,
+            "spacing_10": 40,
+            "spacing_11": 44,
+            "spacing_12": 48,
+            "spacing_13": 52,
+            "spacing_14": 56,
+            "spacing_15": 60,
+            "spacing_16": 64,
+            "spacing_17": 68,
+            "spacing_18": 72,
+            "spacing_19": 76,
+            "spacing_20": 80,
+            "spacing_21": 98,
+            "spacing_0_5": 2,
+            "spacing_1_5": 6,
+            "spacing_2_5": 10,
+            "spacing_3_5": 14
+          },
+          "opacity": {
+            "opacity_0": 0,
+            "opacity_10": 10,
+            "opacity_20": 20,
+            "opacity_30": 30,
+            "opacity_40": 40,
+            "opacity_50": 50,
+            "opacity_60": 60,
+            "opacity_70": 70,
+            "opacity_80": 80,
+            "opacity_90": 90,
+            "opacity_100": 100
+          },
+          "typography_desktop": {
+            "dp_1_black": {
+              "size": 78,
+              "line_height": 94,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_1_bold": {
+              "size": 78,
+              "line_height": 94,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_2_black": {
+              "size": 48,
+              "line_height": 58,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_2_bold": {
+              "size": 48,
+              "line_height": 58,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_3_black": {
+              "size": 44,
+              "line_height": 53,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_3_bold": {
+              "size": 44,
+              "line_height": 53,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_bold": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_medium": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "xl_regular": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h1_bold": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h1_medium": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h1_regular": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h2_bold": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h2_medium": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h2_regular": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h3_bold": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h3_medium": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h3_regular": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_lg_bold": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_lg_medium": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_lg_regular": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_md_bold": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_md_medium": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_md_regular": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_md_badge": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 5,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_sm_bold": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_sm_medium": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_sm_regular": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_xs_bold": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_xs_medium": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_xs_regular": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "button_lg": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_md": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_sm": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_lg": {
+              "size": 16,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_md": {
+              "size": 14,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_sm": {
+              "size": 12,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            }
+          },
+          "typography_tablet": {
+            "dp_1_black": {
+              "size": 78,
+              "line_height": 94,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_1_bold": {
+              "size": 78,
+              "line_height": 94,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_2_black": {
+              "size": 48,
+              "line_height": 58,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_2_bold": {
+              "size": 48,
+              "line_height": 58,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_3_black": {
+              "size": 44,
+              "line_height": 53,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_3_bold": {
+              "size": 44,
+              "line_height": 53,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_bold": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_medium": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "xl_regular": {
+              "size": 40,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h1_bold": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h1_medium": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h1_regular": {
+              "size": 32,
+              "line_height": 38,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h2_bold": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h2_medium": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h2_regular": {
+              "size": 28,
+              "line_height": 33,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h3_bold": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h3_medium": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h3_regular": {
+              "size": 24,
+              "line_height": 29,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_lg_bold": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_lg_medium": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_lg_regular": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_md_bold": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_md_medium": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_md_regular": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_sm_bold": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_sm_medium": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_sm_regular": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_xs_bold": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_xs_medium": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_xs_regular": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "button_lg": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_md": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_sm": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_lg": {
+              "size": 16,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_md": {
+              "size": 14,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_sm": {
+              "size": 12,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            }
+          },
+          "typography_mobile": {
+            "dp_1_black": {
+              "size": 60,
+              "line_height": 72,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_1_bold": {
+              "size": 60,
+              "line_height": 72,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_2_black": {
+              "size": 40,
+              "line_height": 48,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_2_bold": {
+              "size": 40,
+              "line_height": 48,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "dp_3_black": {
+              "size": 36,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 900,
+              "typeface": "Poppins"
+            },
+            "dp_3_bold": {
+              "size": 36,
+              "line_height": 43,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_bold": {
+              "size": 30,
+              "line_height": 36,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "xl_medium": {
+              "size": 30,
+              "line_height": 36,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "xl_regular": {
+              "size": 30,
+              "line_height": 36,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h1_bold": {
+              "size": 28,
+              "line_height": 34,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h1_medium": {
+              "size": 28,
+              "line_height": 34,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h1_regular": {
+              "size": 28,
+              "line_height": 34,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h2_bold": {
+              "size": 24,
+              "line_height": 28,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h2_medium": {
+              "size": 24,
+              "line_height": 28,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h2_regular": {
+              "size": 24,
+              "line_height": 28,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "h3_bold": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "h3_medium": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "h3_regular": {
+              "size": 20,
+              "line_height": 24,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_lg_bold": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_lg_medium": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_lg_regular": {
+              "size": 16,
+              "line_height": 19,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_md_bold": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_md_medium": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_md_regular": {
+              "size": 14,
+              "line_height": 17,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_sm_bold": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_sm_medium": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_sm_regular": {
+              "size": 12,
+              "line_height": 14,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "body_xs_bold": {
+              "size": 10,
+              "line_height": 12,
+              "letter_spacing": 0,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "body_xs_medium": {
+              "size": 10,
+              "line_height": 12,
+              "letter_spacing": 0,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "body_xs_regular": {
+              "size": 10,
+              "line_height": 12,
+              "letter_spacing": 0,
+              "weight": 400,
+              "typeface": "Poppins"
+            },
+            "button_lg": {
+              "size": 16,
+              "letter_spacing": 0,
+              "line_height": 19,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_md": {
+              "size": 14,
+              "letter_spacing": 0,
+              "line_height": 17,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "button_sm": {
+              "size": 12,
+              "letter_spacing": 0,
+              "line_height": 14,
+              "weight": 700,
+              "typeface": "Poppins"
+            },
+            "badge_lg": {
+              "size": 16,
+              "letter_spacing": 0,
+              "line_height": 19,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "badge_md": {
+              "size": 14,
+              "letter_spacing": 0,
+              "line_height": 17,
+              "weight": 500,
+              "typeface": "Poppins"
+            },
+            "badge_sm": {
+              "size": 12,
+              "letter_spacing": 0,
+              "line_height": 14,
+              "weight": 500,
+              "typeface": "Poppins"
+            }
+          },
+          "border": {
+            "border_weight_none": 0,
+            "border_weight_xs": 0.5,
+            "border_weight_sm": 1,
+            "border_weight_md": 1.5,
+            "border_weight_lg": 2,
+            "border_weight_xl": 2.5
+          },
+          "shadows": {},
+          "micro_theme": {}
+        }
+      },
+      "version": 1.01
+    },
+    "meta": {
+      "status": 200,
+      "timestamp": "2024-11-28T18:33:55+05:30",
+      "request_id": "a7f8b9e0-dc9f-11ec-9d64-0242ac120002",
+      "execution_time_ms": 123,
+      "app_version": "1.0.0"
+    }
+  }
+  
