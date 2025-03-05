@@ -25,12 +25,12 @@ const Layout = ({ jsonData }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background_main_default">
       {/* Top Navigation with title */}
-      <nav className="bg-white shadow-sm">
+      <nav className="bg-background_main_surface border-b border-border_main_default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-text_main_high">
               SDUI Schema Builder
             </h1>
           </div>
@@ -39,9 +39,9 @@ const Layout = ({ jsonData }) => {
 
       <div className="flex h-[calc(100vh-4rem)]">
         {/* Sidebar Navigation */}
-        <div className="w-64 bg-white border-r border-gray-200">
-          <div className="p-4">
-            <h2 className="text-lg font-medium text-gray-900">Navigation</h2>
+        <div className="w-64 bg-background_main_surface border-r border-border_main_default">
+          <div className="p-4 border-b border-border_main_default">
+            <h2 className="text-lg font-medium text-text_main_high">Navigation</h2>
           </div>
           <nav className="space-y-1">
             {NAVIGATION_ITEMS.map((item) => (
@@ -50,8 +50,8 @@ const Layout = ({ jsonData }) => {
                 onClick={() => navigate(item.path)}
                 className={`w-full flex items-center justify-between px-4 py-2 text-sm font-medium ${
                   currentSection === item.id
-                    ? 'bg-indigo-50 text-indigo-600'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                    ? 'bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default'
+                    : 'text-text_main_medium hover:bg-background_main_hover hover:text-text_main_high'
                 }`}
               >
                 <div className="flex items-center">
@@ -61,7 +61,7 @@ const Layout = ({ jsonData }) => {
                   {item.label}
                 </div>
                 {getItemCount(item.id) > 0 && (
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-button_filled_style_1_surface_default text-button_filled_style_1_text_default">
                     {getItemCount(item.id)}
                   </span>
                 )}
@@ -70,39 +70,23 @@ const Layout = ({ jsonData }) => {
           </nav>
 
           {/* Section-specific sidebar content */}
-          {currentSection === 'pages' && (
-            <div className="p-4 border-t border-gray-200">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-medium text-gray-900">Pages</h3>
-                <button
-                  onClick={() => navigate('/pages/new')}
-                  className="text-sm text-indigo-600 hover:text-indigo-900"
-                >
-                  + New Page
-                </button>
-              </div>
-              {/* Page list will be managed by JsonBuilder */}
+          <div className="p-4 border-t border-border_main_default bg-background_main_container">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-sm font-medium text-text_main_high">
+                {currentSection.charAt(0).toUpperCase() + currentSection.slice(1)}
+              </h3>
+              <button
+                onClick={() => navigate(`/${currentSection}/new`)}
+                className="w-full text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-2 rounded-md hover:bg-button_filled_style_3_surface_hover"
+              >
+                + New {currentSection.slice(0, -1)}
+              </button>
             </div>
-          )}
-
-          {currentSection === 'atoms' && (
-            <div className="p-4 border-t border-gray-200">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-medium text-gray-900">Atoms</h3>
-                <button
-                  onClick={() => navigate('/atoms/new')}
-                  className="text-sm text-indigo-600 hover:text-indigo-900"
-                >
-                  + New Atom
-                </button>
-              </div>
-              {/* Atom list will be managed by JsonBuilder */}
-            </div>
-          )}
+          </div>
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-auto bg-background_main_default p-6">
           <Outlet />
         </div>
       </div>

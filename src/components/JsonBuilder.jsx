@@ -16,6 +16,18 @@ import { TokenProvider } from "../contexts/TokenContext";
 import json from "../sdui-schema.json";
 import PageBuilder from "./builders/PageBuilder";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button, Text, Badge, Img } from "@sikit/ui";
+import {
+  FiEdit2,
+  FiTrash2,
+  FiSearch,
+  FiGrid,
+  FiMousePointer,
+  FiType,
+  FiTag,
+  FiImage,
+} from "react-icons/fi";
+import EditAtomModal from "./modals/EditAtomModal";
 
 const NAVIGATION_ITEMS = [
   { id: "pages", label: "Pages", icon: "document" },
@@ -50,6 +62,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
   });
 
   const [selectedPage, setSelectedPage] = useState(null);
+  const [editingAtom, setEditingAtom] = useState(null);
 
   useEffect(() => {
     if (!defaultSection) {
@@ -74,16 +87,23 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
   }, [pageId, templateId, organismId, moleculeId, atomId]);
 
   const handleAddComponent = (type, component) => {
-    setJsonData((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        components: {
-          ...prev.data.components,
-          [type]: [...prev.data.components[type], component],
+    setJsonData((prev) => {
+      const newData = {
+        ...prev,
+        data: {
+          ...prev.data,
+          components: {
+            ...prev.data.components,
+            [type]: [...(prev.data.components[type] || []), component],
+          },
         },
-      },
-    }));
+      };
+
+      // Save to localStorage after adding
+      saveToLocalStorage("sdui-schema", newData);
+
+      return newData;
+    });
   };
 
   const handleUpdateComponent = (type, index, component) => {
@@ -101,17 +121,11 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     }));
   };
 
-  const handleEdit = (type, component) => {
-    const index = jsonData.data.components[type].findIndex(
-      (item) => item.id === component.id
-    );
-    if (index !== -1) {
-      // Switch to edit mode and scroll to the component
-      setMode("edit");
-      const element = document.querySelector(`#${type}-section`);
-      element?.scrollIntoView({ behavior: "smooth" });
-      // You might want to add some visual indication of which component is being edited
+  const handleEdit = (type, item) => {
+    if (type === "atom") {
+      setEditingAtom(item);
     }
+    // ... handle other types
   };
 
   const handleAddPage = (page) => {
@@ -126,6 +140,21 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     setJsonData((prev) => ({
       ...prev,
       pages: prev.pages.map((item, i) => (i === index ? page : item)),
+    }));
+  };
+
+  const handleUpdateAtom = (updatedAtom) => {
+    setJsonData((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        components: {
+          ...prev.data.components,
+          atom: prev.data.components.atom.map((a) =>
+            a.id === updatedAtom.id ? updatedAtom : a
+          ),
+        },
+      },
     }));
   };
 
@@ -144,12 +173,48 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
               />
             </div>
             <div className="col-span-4">
-              <div className="bg-white rounded-lg shadow">
-                <div className="p-4 border-b border-gray-200">
-                  <h3 className="text-lg font-medium">Preview</h3>
+              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
+                <div className="p-4 border-b border-border_main_default bg-background_main_container">
+                  <h3 className="text-lg font-medium text-text_main_high">
+                    Pages List
+                  </h3>
                 </div>
-                <div className="p-4">
-                  {selectedPage && <PagePreview page={selectedPage} />}
+                <div className="p-4 bg-background_main_default">
+                  <div className="space-y-2">
+                    {jsonData.pages?.map((page, index) => (
+                      <div
+                        key={page.id}
+                        className="flex items-center justify-between p-3 bg-background_main_surface rounded-lg"
+                      >
+                        <div>
+                          <span className="text-sm font-medium text-text_main_high">
+                            {page.name}
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => handleEdit("pages", page)}
+                            className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => {
+                              setJsonData((prev) => ({
+                                ...prev,
+                                pages: prev.pages.filter(
+                                  (p) => p.id !== page.id
+                                ),
+                              }));
+                            }}
+                            className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,71 +235,377 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                 }
               />
             </div>
-            <div className="col-span-4">{/* Template Preview */}</div>
+            <div className="col-span-4">
+              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
+                <div className="p-4 border-b border-border_main_default bg-background_main_container">
+                  <h3 className="text-lg font-medium text-text_main_high">
+                    Templates List
+                  </h3>
+                </div>
+                <div className="p-4 bg-background_main_default">
+                  <div className="space-y-2">
+                    {jsonData.data.components.template.map(
+                      (template, index) => (
+                        <div
+                          key={template.id}
+                          className="flex items-center justify-between p-3 bg-background_main_surface rounded-lg"
+                        >
+                          <div>
+                            <span className="text-sm font-medium text-text_main_high">
+                              {template.name}
+                            </span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => handleEdit("template", template)}
+                              className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover"
+                            >
+                              Edit
+                            </button>
+                            <button
+                              onClick={() => {
+                                setJsonData((prev) => ({
+                                  ...prev,
+                                  data: {
+                                    ...prev.data,
+                                    components: {
+                                      ...prev.data.components,
+                                      template:
+                                        prev.data.components.template.filter(
+                                          (t) => t.id !== template.id
+                                        ),
+                                    },
+                                  },
+                                }));
+                              }}
+                              className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         );
-      case "atoms":
+      case "molecules":
+        const renderMoleculePreview = (molecule) => {
+          return (
+            <div className="w-full h-full p-4 border border-border_main_default rounded-lg bg-background_main_container">
+              <div className="flex flex-col gap-2">
+                {/* Molecule Type */}
+                <div className="text-xs font-medium text-text_main_high">
+                  Type: {molecule.name}
+                </div>
+
+                {/* Atoms Count */}
+                <div className="text-xs text-text_main_medium">
+                  Contains: {molecule.atoms.length} atoms
+                </div>
+
+                {/* Style Preview */}
+                {molecule.styles && (
+                  <div
+                    className="mt-2 p-2 rounded"
+                    style={{
+                      backgroundColor:
+                        molecule.styles.background_color || "transparent",
+                      borderColor:
+                        molecule.styles.border_color || "transparent",
+                      borderWidth: molecule.styles.border_width
+                        ? `${molecule.styles.border_width}px`
+                        : "0",
+                      borderStyle: molecule.styles.border_width
+                        ? "solid"
+                        : "none",
+                      gap: molecule.styles.gap || "0",
+                      padding: molecule.styles.padding
+                        ? `${molecule.styles.padding}px`
+                        : "0",
+                    }}
+                  >
+                    <div className="text-xs text-text_main_medium">
+                      Style Preview
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        };
+
         return (
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-8">
+              <MoleculeBuilder
+                onAdd={(molecule) => handleAddComponent("molecule", molecule)}
+                handleAddComponent={handleAddComponent}
+                existingMolecules={jsonData.data.components.molecule || []}
+                existingAtoms={jsonData.data.components.atom || []}
+                onUpdate={(index, molecule) =>
+                  handleUpdateComponent("molecule", index, molecule)
+                }
+              />
+            </div>
+            <div className="col-span-4">
+              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
+                <div className="p-4 border-b border-border_main_default bg-background_main_container">
+                  <h3 className="text-lg font-medium text-text_main_high">
+                    Molecules List
+                  </h3>
+                </div>
+                <div className="p-4 bg-background_main_default">
+                  <div className="grid gap-4">
+                    {jsonData.data.components.molecule.map((molecule) => (
+                      <div
+                        key={molecule.id}
+                        className="bg-background_main_surface rounded-lg border border-border_main_default overflow-hidden"
+                      >
+                        {/* Header with Type and ID */}
+                        <div className="p-4 border-b border-border_main_default bg-background_main_container">
+                          <div className="flex justify-between items-center">
+                            <div className="space-y-1">
+                              <span className="inline-block px-2 py-1 text-xs font-medium bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default rounded">
+                                {molecule.name}
+                              </span>
+                              <div className="text-xs text-text_main_medium">
+                                ID: {molecule.id}
+                              </div>
+                            </div>
+                            <div className="flex space-x-2">
+                              <button
+                                onClick={() => handleEdit("molecule", molecule)}
+                                className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover border border-border_main_default"
+                              >
+                                Edit
+                              </button>
+                              <button
+                                onClick={() => {
+                                  setJsonData((prev) => ({
+                                    ...prev,
+                                    data: {
+                                      ...prev.data,
+                                      components: {
+                                        ...prev.data.components,
+                                        molecule:
+                                          prev.data.components.molecule.filter(
+                                            (m) => m.id !== molecule.id
+                                          ),
+                                      },
+                                    },
+                                  }));
+                                }}
+                                className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Preview */}
+                        <div className="p-4 bg-background_main_surface">
+                          <div className="flex items-center justify-center min-h-[60px] bg-background_main_container rounded p-4">
+                            {renderMoleculePreview(molecule)}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case "atoms":
+        const [atomsFilter, setAtomsFilter] = useState("all");
+        const [searchQuery, setSearchQuery] = useState("");
+
+        const ATOM_FILTERS = [
+          { id: "all", label: "All Atoms", icon: FiGrid },
+          { id: "button", label: "Buttons", icon: FiMousePointer },
+          { id: "text", label: "Text", icon: FiType },
+          { id: "badge", label: "Badges", icon: FiTag },
+          { id: "image", label: "Images", icon: FiImage },
+        ];
+
+        const filteredAtoms = jsonData.data.components.atom
+          .sort((a, b) => {
+            const order = ATOM_FILTERS.findIndex((f) => f.id === a.atom_type);
+            return order - ATOM_FILTERS.findIndex((f) => f.id === b.atom_type);
+          })
+          .filter((atom) => {
+            if (!atom) return false;
+
+            const matchesType =
+              atomsFilter === "all" || atom.atom_type === atomsFilter;
+            const searchLower = searchQuery.toLowerCase();
+            const matchesSearch =
+              (atom.name?.toLowerCase() || "").includes(searchLower) ||
+              (atom.atom_type?.toLowerCase() || "").includes(searchLower) ||
+              (atom.id?.toLowerCase() || "").includes(searchLower);
+
+            return matchesType && matchesSearch;
+          });
+
+        const renderAtomPreview = (atom) => {
+          if (!atom || !atom.atom_type) return null;
+
+          switch (atom.atom_type) {
+            case "button":
+              return <Button {...atom} text="Button Text" />;
+            case "text":
+              return <Text {...atom}>Sample Text</Text>;
+            case "badge":
+              return <Badge {...atom} text="Badge Text" />;
+            case "image":
+              return (
+                <Img
+                  src={`https://stg-washington-freedom.sportz.io/static-assets/waf-images/3e/4d/f6/${
+                    atom.ratio?.split(":")[0] || "1"
+                  }-${
+                    atom.ratio?.split(":")[1] || "1"
+                  }/W62UAhQg2I.jpg?v=1.04&w=1920`}
+                  {...atom}
+                />
+              );
+            default:
+              return null;
+          }
+        };
+
+        return (
+          <div className="flex flex-col h-full space-y-6">
+            {/* Create Atom Section */}
+            <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
               <AtomBuilder
                 onAdd={(atom) => handleAddComponent("atom", atom)}
                 existingAtoms={jsonData.data.components.atom || []}
                 onUpdate={(index, atom) =>
                   handleUpdateComponent("atom", index, atom)
                 }
+                inline
               />
             </div>
-            <div className="col-span-4">
-              <div className="bg-white rounded-lg shadow">
-                <div className="p-4 border-b border-gray-200">
-                  <h3 className="text-lg font-medium">Atoms List</h3>
+
+            {/* Atoms List Section */}
+            <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
+              <div className="p-6 border-b border-border_main_default bg-background_main_container">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-text_main_high">
+                    Atoms Library
+                  </h3>
+                  <div className="flex items-center space-x-4">
+                    {/* Search Input with Icon */}
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <FiSearch className="h-5 w-5 text-text_main_low" />
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="Search atoms..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-64 pl-10 pr-4 py-2 rounded-lg border border-border_main_default bg-background_main_surface text-text_main_high placeholder-text_main_low focus:outline-none focus:ring-2 focus:ring-button_filled_style_3_surface_default focus:border-transparent transition-all"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <div className="space-y-2">
-                    {jsonData.data.components.atom.map((atom, index) => (
-                      <div
-                        key={atom.id}
-                        className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
-                      >
-                        <div>
-                          <span className="text-sm font-medium text-gray-900">
-                            {atom.name}
-                          </span>
-                          <span className="ml-2 text-xs text-gray-500">
-                            {atom.atom_type}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <button
-                            onClick={() => handleEdit("atom", atom)}
-                            className="text-sm text-indigo-600 hover:text-indigo-900"
-                          >
-                            Edit
-                          </button>
-                          <button
-                            onClick={() => {
-                              setJsonData((prev) => ({
-                                ...prev,
-                                data: {
-                                  ...prev.data,
-                                  components: {
-                                    ...prev.data.components,
-                                    atom: prev.data.components.atom.filter(
-                                      (a) => a.id !== atom.id
-                                    ),
+
+                {/* Type Filter Tabs */}
+                <div className="flex items-center space-x-2 bg-background_main_surface p-1 rounded-lg">
+                  {ATOM_FILTERS.map(({ id, label, icon: Icon }) => (
+                    <button
+                      key={id}
+                      onClick={() => setAtomsFilter(id)}
+                      className={`
+                        flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-all
+                        ${
+                          atomsFilter === id
+                            ? "bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default shadow-sm"
+                            : "text-text_main_medium hover:bg-background_main_hover hover:text-text_main_high"
+                        }
+                      `}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span>{label}</span>
+                      {id !== "all" && (
+                        <span className="ml-2 px-2 py-0.5 text-xs rounded-full bg-background_main_container">
+                          {
+                            filteredAtoms.filter(
+                              (atom) => atom.atom_type === id
+                            ).length
+                          }
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-2 bg-background_main_default">
+                <div className="grid grid-cols-4 gap-2">
+                  {filteredAtoms.map((atom) => (
+                    <div
+                      key={atom.id}
+                      className="group bg-background_main_surface rounded-lg border border-border_main_default overflow-hidden hover:border-button_filled_style_3_surface_default hover:shadow-md transition-all"
+                    >
+                      {/* Preview */}
+                      <div className="p-2 flex items-center justify-center min-h-[120px] bg-background_main_container group-hover:bg-background_main_hover transition-colors">
+                        {renderAtomPreview(atom)}
+                      </div>
+
+                      {/* Info */}
+                      <div className="p-4 border-t border-border_main_default">
+                        <div className="flex items-start justify-between">
+                          <div className="space-y-2">
+                            <span className="inline-block px-2 py-1 text-xs font-medium bg-button_filled_style_3_surface_default/10 text-button_filled_style_3_text_default rounded-full">
+                              {atom.atom_type}
+                            </span>
+                            <div className="space-y-1">
+                              <h4 className="text-sm font-medium text-text_main_high">
+                                {atom.name}
+                              </h4>
+                              <p className="text-xs text-text_main_medium font-mono">
+                                ID: {atom.id}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex space-x-1">
+                            <button
+                              onClick={() => handleEdit("atom", atom)}
+                              className="p-2 text-text_main_medium hover:text-button_filled_style_3_text_default rounded-md hover:bg-button_filled_style_3_surface_default/10 transition-colors"
+                            >
+                              <FiEdit2 className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => {
+                                setJsonData((prev) => ({
+                                  ...prev,
+                                  data: {
+                                    ...prev.data,
+                                    components: {
+                                      ...prev.data.components,
+                                      atom: prev.data.components.atom.filter(
+                                        (a) => a.id !== atom.id
+                                      ),
+                                    },
                                   },
-                                },
-                              }));
-                            }}
-                            className="text-sm text-red-600 hover:text-red-900"
-                          >
-                            Delete
-                          </button>
+                                }));
+                              }}
+                              className="p-2 text-text_main_medium hover:text-button_ghost_style_3_text_hover rounded-md hover:bg-button_ghost_style_3_surface_hover transition-colors"
+                            >
+                              <FiTrash2 className="w-4 h-4" />
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -246,8 +617,8 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
 
   return (
     <TokenProvider tokens={jsonData.data.tokens}>
-      <div className="min-h-screen bg-gray-50">
-        <nav className="bg-white shadow-sm">
+      <div className="min-h-screen bg-background_main_surface">
+        <nav className="bg-background_main_surface border-b border-border_main_default">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-end h-16 items-center">
               <div className="flex items-center space-x-4">
@@ -256,9 +627,9 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                     onClick={() => setMode("edit")}
                     className={`px-4 py-2 text-sm font-medium ${
                       mode === "edit"
-                        ? "bg-indigo-600 text-white"
-                        : "bg-white text-gray-700 hover:bg-gray-50"
-                    } border border-gray-300 rounded-l-md`}
+                        ? "bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default"
+                        : "bg-background_main_container text-text_main_medium hover:bg-background_main_hover"
+                    } border border-border_main_default rounded-l-md`}
                   >
                     Edit Mode
                   </button>
@@ -266,24 +637,33 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                     onClick={() => setMode("view")}
                     className={`px-4 py-2 text-sm font-medium ${
                       mode === "view"
-                        ? "bg-indigo-600 text-white"
-                        : "bg-white text-gray-700 hover:bg-gray-50"
-                    } border border-l-0 border-gray-300 rounded-r-md`}
+                        ? "bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default"
+                        : "bg-background_main_container text-text_main_medium hover:bg-background_main_hover"
+                    } border-t border-b border-r border-border_main_default rounded-r-md`}
                   >
                     View Mode
                   </button>
                 </div>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+                <button className="bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default px-4 py-2 rounded-md hover:bg-button_filled_style_3_surface_hover">
                   Import JSON
                 </button>
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+                <button className="bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default px-4 py-2 rounded-md hover:bg-button_filled_style_3_surface_hover">
                   Export JSON
                 </button>
               </div>
             </div>
           </div>
         </nav>
+
         <div className="p-8">{renderContent()}</div>
+
+        {editingAtom && (
+          <EditAtomModal
+            atom={editingAtom}
+            onClose={() => setEditingAtom(null)}
+            onSave={handleUpdateAtom}
+          />
+        )}
       </div>
     </TokenProvider>
   );

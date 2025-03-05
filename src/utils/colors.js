@@ -10,7 +10,9 @@ export const extractColors = () => {
       (key) =>
         key.startsWith("color_") ||
         key.startsWith("background_") ||
-        key.startsWith("button_")
+        key.startsWith("button_") ||
+        key.startsWith("border_") ||
+        key.startsWith("text_")
     )
     .map((key) => ({
       value: key, // Use the key as the value

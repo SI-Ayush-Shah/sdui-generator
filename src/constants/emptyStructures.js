@@ -1,10 +1,24 @@
 export const emptyAtom = {
-  "id": "",
-  "atom_type": "",
-  "text_color": "",
-  "typography": "",
-  "clamp": 1,
-  "gradient": ""
+  id: "",
+  name: "",
+  atom_type: "",
+  background_color: "",
+  border_color: "",
+  border_radius: {
+    bottom_left: "",
+    bottom_right: "",
+    top_left: "",
+    top_right: "",
+  },
+  border_width: "",
+  full_width: false,
+  gradient: "",
+  leading_icon: "",
+  size: "",
+  sub_variant: "only_text",
+  text_color: "",
+  trailing_icon: "",
+  typography: "",
 };
 
 export const emptyMolecule = {
