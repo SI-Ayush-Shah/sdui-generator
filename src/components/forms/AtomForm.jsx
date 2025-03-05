@@ -29,6 +29,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
     sub_variant: initialData?.sub_variant || "only_text",
     background_color: initialData?.background_color || "",
     text_color: initialData?.text_color || "",
+    border_width: parseInt(initialData?.border_width) || "",
     border_radius:
       typeof initialData?.border_radius === "string"
         ? {
@@ -44,13 +45,12 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
             bottom_right: "",
           },
     border_color: initialData?.border_color || "",
-    border_width: initialData?.border_width || "",
     gradient: initialData?.gradient || "",
   }));
 
   const [activeTab, setActiveTab] = useState("basic");
   const colors = extractColors();
-
+  console.log("atomData", atomData);
   // Debug the colors
 
   useEffect(() => {
@@ -306,19 +306,23 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                       />
                     </div>
                   )}
-                  {/* gradient   */}
-                  <div>
-                    <label className="block text-sm font-medium text-text_main_high mb-1">
-                      Gradient
-                    </label>
-                    <SearchableSelect
-                      options={GRADIENT_OPTIONS}
-                      value={atomData.gradient}
-                      onChange={(value) =>
-                        handlePropertyChange("gradient", value)
-                      }
-                    />
-                  </div>
+
+                  {["badge", "button", "img", "text"].includes(
+                    atomData.atom_type
+                  ) && (
+                    <div>
+                      <label className="block text-sm font-medium text-text_main_high mb-1">
+                        Gradient
+                      </label>
+                      <SearchableSelect
+                        options={GRADIENT_OPTIONS}
+                        value={atomData.gradient}
+                        onChange={(value) =>
+                          handlePropertyChange("gradient", value)
+                        }
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -374,18 +378,34 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                         }
                       />
                     </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-text_main_high mb-1">
-                      Border Color
-                    </label>
-                    <SearchableSelect
-                      options={colors}
-                      value={atomData.border_color}
-                      onChange={(value) =>
-                        handlePropertyChange("border_color", value)
-                      }
-                    />
+                    <div>
+                      <label className="block text-sm font-medium text-text_main_high mb-1">
+                        Border Width
+                      </label>
+                      <input
+                        type="number"
+                        className="w-full px-3 py-2 rounded-md border border-border_main_default"
+                        value={atomData.border_width}
+                        onChange={(e) =>
+                          handlePropertyChange(
+                            "border_width",
+                            parseInt(e.target.value)
+                          )
+                        }
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-text_main_high mb-1">
+                        Border Color
+                      </label>
+                      <SearchableSelect
+                        options={colors}
+                        value={atomData.border_color}
+                        onChange={(value) =>
+                          handlePropertyChange("border_color", value)
+                        }
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

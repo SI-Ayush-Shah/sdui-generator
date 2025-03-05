@@ -589,7 +589,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                       className="group bg-background_main_surface rounded-lg border border-border_main_default overflow-hidden hover:border-button_filled_style_3_surface_default hover:shadow-md transition-all"
                     >
                       {/* Preview */}
-                      <div className="p-2 flex items-center justify-center min-h-[120px] bg-background_main_container group-hover:bg-background_main_hover transition-colors">
+                      <div className="p-2 flex items-center justify-center min-h-[120px] bg-color_neu_500 group-hover:bg-background_main_hover transition-colors">
                         {renderAtomPreview(atom)}
                       </div>
 

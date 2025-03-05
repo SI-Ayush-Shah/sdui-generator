@@ -275,7 +275,7 @@
               "left": ""
             },
             "gap": "",
-            "border_width": "1",
+            "border_width": 1,
             "border_radius": "",
             "border_color": "border_main_default",
             "offset": {
@@ -7317,7 +7317,7 @@
               "top_left": "radius_rounded",
               "top_right": "radius_rounded"
             },
-            "border_width": "1",
+            "border_width": 1,
             "gap": "spacing_1",
             "size": "small",
             "shape": "rounded",
@@ -7362,7 +7362,7 @@
               "top_left": "radius_rounded",
               "top_right": "radius_rounded"
             },
-            "border_width": "1",
+            "border_width": 1,
             "gap": "spacing_1",
             "size": "small",
             "shape": "rounded",
@@ -7632,7 +7632,13 @@
           "img": "",
           "border_width": "",
           "gradient": "",
-          "updated_at": "2025-03-05T14:04:45.323Z"
+          "updated_at": "2025-03-05T14:04:45.323Z",
+          "border_radius": {
+            "top_left": "",
+            "top_right": "",
+            "bottom_left": "",
+            "bottom_right": ""
+          }
         },
         {
           "id": "418fea05-1457-49e7-a91c-79d762ded70e",
@@ -7646,7 +7652,7 @@
           "leading_icon": "",
           "trailing_icon": "",
           "img": "",
-          "border_width": "1",
+          "border_width": 1,
           "border_color": "button_outline_style_2_outline_default",
           "gradient": ""
         },
@@ -7656,7 +7662,7 @@
           "background_color": "",
           "border_color": "button_outline_style_3_text_icon_default",
           "border_radius": "",
-          "border_width": "1",
+          "border_width": 1,
           "full_width": false,
           "gradient": "",
           "leading_icon": "",
@@ -7739,7 +7745,7 @@
           "background_color": "",
           "border_color": "button_outline_style_3_outline_default",
           "border_radius": "",
-          "border_width": "1",
+          "border_width": 1,
           "full_width": false,
           "gradient": "",
           "leading_icon": "",
@@ -7779,7 +7785,7 @@
           "trailing_icon": "",
           "img": "",
           "align": "center",
-          "border_width": "1",
+          "border_width": 1,
           "border_color": "button_outline_style_2_outline_default",
           "gradient": ""
         },
@@ -10517,8 +10523,8 @@
   },
   "meta": {
     "status": 200,
-    "timestamp": "2025-03-05T14:04:32.643Z",
-    "request_id": "3626d6d5-7f01-4f7e-b061-dbc96726b62e",
+    "timestamp": "2025-03-05T15:15:48.401Z",
+    "request_id": "7b18d918-8fd3-4175-ae2e-b2ff1b27997c",
     "execution_time_ms": 0,
     "app_version": "1.0.0"
   }
