@@ -1,0 +1,115 @@
+{
+  "id": "bf082ef6-16d0-49ea-ac9f-807d728280b9",
+  "template_type": "photos_mobile",
+  "properties": {
+    "is_full_width": false,
+    "stack": "",
+    "column_span": 0,
+    "row_span": 0,
+    "section_gap": false,
+    "layout_type": ""
+  },
+  "styles": {
+    "background_color": "",
+    "background_image": "",
+    "gap": "spacing_7",
+    "padding": {
+      "top": "spacing_10",
+      "right": "spacing_4",
+      "bottom": "spacing_10",
+      "left": "spacing_4"
+    }
+  },
+  "data": {
+    "title": "",
+    "sub_title": "",
+    "cta": {
+      "view_more": []
+    },
+    "toggle": {},
+    "filters": {},
+    "items": [],
+    "pagination": {
+      "pagination_type": "",
+      "load_more_count": "",
+      "label": "",
+      "api": ""
+    }
+  },
+  "composition": {
+    "header": {
+      "styles": {
+        "background_color": "",
+        "background_image": "",
+        "gap": "",
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        }
+      },
+      "organisms": {
+        "items": [
+          {
+            "component_type": "organism",
+            "id": "8eca5955-fe8f-4130-a346-7d08e8e2a147",
+            "properties": {
+              "column_span": 0,
+              "row_span": 0
+            }
+          }
+        ]
+      }
+    },
+    "body": {
+      "styles": {
+        "background_color": "",
+        "background_image": "",
+        "gap": "",
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        }
+      },
+      "organisms": {
+        "items": [
+          {
+            "component_type": "organism",
+            "id": "4139f418-80a0-467c-9d11-54bda209e1ba",
+            "properties": {
+              "column_span": 0,
+              "row_span": 0
+            }
+          }
+
+        ]
+      }
+    },
+    "footer": {
+      "styles": {
+        "background_color": "",
+        "background_image": "",
+        "gap": "",
+        "padding": {
+          "top": "",
+          "right": "",
+          "bottom": "",
+          "left": ""
+        }
+      },
+      "organisms": {
+        "items": [{
+          "component_type": "organism",
+          "id": "07c4c520-5c84-44c9-8cc0-5d99317d8ef3",
+          "properties": {
+            "column_span": 0,
+            "row_span": 0
+          }
+        }]
+      }
+    }
+  }
+}

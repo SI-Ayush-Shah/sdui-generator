@@ -1,0 +1,43 @@
+{
+  "id": "28abd269-0075-4b8d-95ce-0833e16308af ",
+  "name": "molecule_player_thumbnail",
+  "properties": {
+    "stack": "",
+    "sub_variant": "",
+    "variant": ""
+
+  },
+  "styles": {
+    "background_color": "",
+    "border_color": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "border_width": "",
+    "gap": "",
+    "gradient": "",
+    "offset": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    },
+    "padding": {
+      "top": "",
+      "right": "",
+      "bottom": "",
+      "left": ""
+    }
+  },
+  "atoms": [
+    {
+      "id": "a12682dd-3b14-43da-8364-81c3e3c6eabf",
+      "name": "atom_player_image",
+      "translation_key": "",
+      "visibility": true
+    }
+  ]
+}

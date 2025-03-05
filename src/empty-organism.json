@@ -1,0 +1,41 @@
+{
+  "id": "25f2286c-2d29-40ce-84ff-712dd87d20ea",
+  "name": "organism_extension",
+  "properties": {
+    "stack": "h",
+    "position": ""
+  },
+  "styles": {
+    "background_color": "",
+    "background_img": "",
+    "border_color": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "border_width": "",
+    "gap": "",
+    "gradient": "",
+    "offset": {
+      "bottom": 0,
+      "left": 0,
+      "right": 0,
+      "top": 0
+    },
+    "padding": {
+      "bottom": "spacing_5",
+      "left": "spacing_5",
+      "right": "spacing_5",
+      "top": "spacing_5"
+    }
+  },
+  "composition": [
+    {
+      "component_type": "molecule",
+      "id": "12800c75-bb0a-4ae6-a8db-609e3f2fe0b5",
+      "visibility": true
+  }
+  ]
+}

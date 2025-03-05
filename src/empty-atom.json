@@ -1,0 +1,100 @@
+[
+  {
+    "id": "635bd1c7-10f2-4ba0-92a1-e1e49365cd03",
+    "atom_type": "text",
+    "clamp": 1,
+    "gradient": "",
+    "text_color": "text_prim_high",
+    "typography": "body_md_bold"
+  },
+  {
+    "id": "cba57b42-4ab4-4252-bf9d-aeb4f1f9270a",
+    "atom_type": "button",
+    "background_color": "",
+    "border_color": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "border_width": "",
+    "full_width": false,
+    "gradient": "",
+    "leading_icon": "",
+    "size": "",
+    "sub_variant": "only_text",
+    "text_color": "",
+    "trailing_icon": "",
+    "typography": ""
+  },
+  {
+    "id": "a8c1bd2c-2316-4943-9c49-c4f1d1667bfd",
+    "atom_type": "badge",
+    "background_color": "",
+    "border_color": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "border_width": "",
+    "gradient": "",
+    "leading_icon": "",
+    "no_padding": true,
+    "size": "",
+    "sub_variant": "",
+    "text_color": "text_prim_high",
+    "trailing_icon": "",
+    "typography": "body_md_badge"
+  },
+  {
+    "id": "932d3e2f-a69c-4ee0-b857-bc5094e13955",
+    "atom_type": "image",
+    "appearance": "",
+    "background_color": "",
+    "border_color": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "border_width": "",
+    "gradient": "",
+    "play": false,
+    "ratio": "16:9"
+  },
+  {
+    "id": "",
+    "atom_type": "icon",
+    "gradient": "",
+    "icon": "",
+    "text_color": "",
+    "typography": ""
+  },
+  {
+    "id": "",
+    "atom_type": "tab",
+    "sub_variant": "",
+    "variant": "",
+    "leading_icon": "",
+    "trailing_icon": "",
+    "size": "",
+    "selected_text_color": "",
+    "unselected_text_color": "",
+    "selected_background_color": "",
+    "unselected_background_color": "",
+    "indicator_color": "",
+    "border_color": "",
+    "border_width": "",
+    "border_radius": {
+      "bottom_left": "",
+      "bottom_right": "",
+      "top_left": "",
+      "top_right": ""
+    },
+    "typography": ""
+  }
+]
