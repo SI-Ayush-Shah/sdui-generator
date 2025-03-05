@@ -70,6 +70,18 @@ const BUTTON_SUB_VARIANTS = [
   { value: "only_icon", label: "Only Icon" },
 ];
 
+const RADIUS_OPTIONS = [
+  { value: "radius_none", label: "radius_none" },
+  { value: "radius_xs", label: "radius_xs" },
+  { value: "radius_sm", label: "radius_sm" },
+  { value: "radius_md", label: "radius_md" },
+  { value: "radius_lg", label: "radius_lg" },
+  { value: "radius_xl", label: "radius_xl" },
+  { value: "radius_2xl", label: "radius_2xl" },
+  { value: "radius_3xl", label: "radius_3xl" },
+  { value: "radius_rounded", label: "radius_rounded" },
+];
+
 const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
   const [atom, setAtom] = useState({
     id: "",
@@ -159,57 +171,79 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
     updatePreview(atom.atom_type, newProperties);
   };
 
+  // Add border width validation handler
+  const handleBorderWidthChange = (e) => {
+    const value = e.target.value;
+    // Allow only numbers and empty string
+    if (value === "" || /^\d+$/.test(value)) {
+      setAtom((prev) => ({ ...prev, border_width: value }));
+    }
+  };
+
   const renderButtonProperties = () => (
-    <div className="space-y-4">
+    <div className="space-y-8">
       {/* Sub Variant and Size */}
-      <div className="grid grid-cols-2 gap-4">
-        <SearchableSelect
-          label="Sub Variant"
-          options={BUTTON_SUB_VARIANTS}
-          value={atom.sub_variant}
-          onChange={(value) =>
-            setAtom((prev) => ({ ...prev, sub_variant: value }))
-          }
-        />
-        <SearchableSelect
-          label="Size"
-          options={SIZES.map((size) => ({
-            value: size,
-            label: size,
-          }))}
-          value={atom.size}
-          onChange={(value) => setAtom((prev) => ({ ...prev, size: value }))}
-          placeholder="Select Size"
-        />
-      </div>
-
-      {/* Colors */}
-      <div className="grid grid-cols-2 gap-4">
-        <SearchableSelect
-          label="Background Color"
-          options={colors}
-          value={atom.background_color}
-          onChange={(value) =>
-            setAtom((prev) => ({ ...prev, background_color: value }))
-          }
-          placeholder="Select color"
-          isColor
-        />
-        <SearchableSelect
-          label="Text Color"
-          options={colors}
-          value={atom.text_color}
-          onChange={(value) =>
-            setAtom((prev) => ({ ...prev, text_color: value }))
-          }
-          placeholder="Select color"
-          isColor
-        />
-      </div>
-
-      {/* Border Properties */}
       <div className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <h4 className="text-sm font-medium text-text_main_medium border-b border-border_main_default pb-2">
+          Basic Settings
+        </h4>
+        <div className="grid grid-cols-2 gap-6">
+          <SearchableSelect
+            label="Sub Variant"
+            options={BUTTON_SUB_VARIANTS}
+            value={atom.sub_variant}
+            onChange={(value) =>
+              setAtom((prev) => ({ ...prev, sub_variant: value }))
+            }
+          />
+          <SearchableSelect
+            label="Size"
+            options={SIZES.map((size) => ({
+              value: size,
+              label: size.charAt(0).toUpperCase() + size.slice(1),
+            }))}
+            value={atom.size}
+            onChange={(value) => setAtom((prev) => ({ ...prev, size: value }))}
+            placeholder="Select Size"
+          />
+        </div>
+      </div>
+
+      {/* Colors Section */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-text_main_medium border-b border-border_main_default pb-2">
+          Colors
+        </h4>
+        <div className="grid grid-cols-2 gap-6">
+          <SearchableSelect
+            label="Background Color"
+            options={colors}
+            value={atom.background_color}
+            onChange={(value) =>
+              setAtom((prev) => ({ ...prev, background_color: value }))
+            }
+            placeholder="Select color"
+            isColor
+          />
+          <SearchableSelect
+            label="Text Color"
+            options={colors}
+            value={atom.text_color}
+            onChange={(value) =>
+              setAtom((prev) => ({ ...prev, text_color: value }))
+            }
+            placeholder="Select color"
+            isColor
+          />
+        </div>
+      </div>
+
+      {/* Border Properties Section */}
+      <div className="space-y-4">
+        <h4 className="text-sm font-medium text-text_main_medium border-b border-border_main_default pb-2">
+          Border
+        </h4>
+        <div className="grid grid-cols-2 gap-6">
           <SearchableSelect
             label="Border Color"
             options={colors}
@@ -221,146 +255,115 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
             isColor
           />
           <div>
-            <label className="block text-sm font-medium text-text_main_high">
+            <label className="block text-sm font-medium text-text_main_high mb-2">
               Border Width
             </label>
-            <input
-              type="text"
-              value={atom.border_width}
-              onChange={(e) =>
-                setAtom((prev) => ({ ...prev, border_width: e.target.value }))
-              }
-              className="mt-1 block w-full rounded-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-              placeholder="1px"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                value={atom.border_width}
+                onChange={handleBorderWidthChange}
+                className="block w-full rounded-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default pr-8"
+                placeholder="Enter number"
+              />
+              <span className="absolute inset-y-0 right-3 flex items-center text-text_main_medium text-sm">
+                px
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Border Radius */}
-        <div>
-          <label className="block text-sm font-medium text-text_main_high mb-1">
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-text_main_high mb-3">
             Border Radius
           </label>
-          <div className="grid grid-cols-2 gap-2">
-            <input
-              type="text"
-              value={atom.border_radius.top_left}
-              onChange={(e) =>
-                setAtom((prev) => ({
-                  ...prev,
-                  border_radius: {
-                    ...prev.border_radius,
-                    top_left: e.target.value,
-                  },
-                }))
-              }
-              className="block w-full rounded-tl-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-              placeholder="Top Left"
-            />
-            <input
-              type="text"
-              value={atom.border_radius.top_right}
-              onChange={(e) =>
-                setAtom((prev) => ({
-                  ...prev,
-                  border_radius: {
-                    ...prev.border_radius,
-                    top_right: e.target.value,
-                  },
-                }))
-              }
-              className="block w-full rounded-tr-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-              placeholder="Top Right"
-            />
-            <input
-              type="text"
-              value={atom.border_radius.bottom_left}
-              onChange={(e) =>
-                setAtom((prev) => ({
-                  ...prev,
-                  border_radius: {
-                    ...prev.border_radius,
-                    bottom_left: e.target.value,
-                  },
-                }))
-              }
-              className="block w-full rounded-bl-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-              placeholder="Bottom Left"
-            />
-            <input
-              type="text"
-              value={atom.border_radius.bottom_right}
-              onChange={(e) =>
-                setAtom((prev) => ({
-                  ...prev,
-                  border_radius: {
-                    ...prev.border_radius,
-                    bottom_right: e.target.value,
-                  },
-                }))
-              }
-              className="block w-full rounded-br-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-              placeholder="Bottom Right"
-            />
+          <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="space-y-4">
+              <SearchableSelect
+                label="Top Left"
+                options={RADIUS_OPTIONS}
+                value={atom.border_radius.top_left}
+                onChange={(value) =>
+                  setAtom((prev) => ({
+                    ...prev,
+                    border_radius: {
+                      ...prev.border_radius,
+                      top_left: value,
+                    },
+                  }))
+                }
+                placeholder="Select radius"
+              />
+              <SearchableSelect
+                label="Bottom Left"
+                options={RADIUS_OPTIONS}
+                value={atom.border_radius.bottom_left}
+                onChange={(value) =>
+                  setAtom((prev) => ({
+                    ...prev,
+                    border_radius: {
+                      ...prev.border_radius,
+                      bottom_left: value,
+                    },
+                  }))
+                }
+                placeholder="Select radius"
+              />
+            </div>
+            <div className="space-y-4">
+              <SearchableSelect
+                label="Top Right"
+                options={RADIUS_OPTIONS}
+                value={atom.border_radius.top_right}
+                onChange={(value) =>
+                  setAtom((prev) => ({
+                    ...prev,
+                    border_radius: {
+                      ...prev.border_radius,
+                      top_right: value,
+                    },
+                  }))
+                }
+                placeholder="Select radius"
+              />
+              <SearchableSelect
+                label="Bottom Right"
+                options={RADIUS_OPTIONS}
+                value={atom.border_radius.bottom_right}
+                onChange={(value) =>
+                  setAtom((prev) => ({
+                    ...prev,
+                    border_radius: {
+                      ...prev.border_radius,
+                      bottom_right: value,
+                    },
+                  }))
+                }
+                placeholder="Select radius"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Other Properties */}
-      <div className="flex items-center">
-        <input
-          type="checkbox"
-          id="full_width"
-          checked={atom.full_width}
-          onChange={(e) =>
-            setAtom((prev) => ({ ...prev, full_width: e.target.checked }))
-          }
-          className="h-4 w-4 text-text_main_high focus:ring-button_filled_style_1_surface_default border-border_main_default rounded"
-        />
-        <label
-          htmlFor="full_width"
-          className="ml-2 block text-sm text-text_main_high"
-        >
-          Full Width
+      {/* Full Width Toggle */}
+      <div className="pt-2">
+        <label className="inline-flex items-center space-x-3 cursor-pointer">
+          <input
+            type="checkbox"
+            id="full_width"
+            checked={atom.full_width}
+            onChange={(e) =>
+              setAtom((prev) => ({ ...prev, full_width: e.target.checked }))
+            }
+            className="h-4 w-4 rounded border-border_main_default text-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
+          />
+          <span className="text-sm font-medium text-text_main_high">
+            Full Width
+          </span>
         </label>
       </div>
-
-      {/* Icons (conditionally rendered based on sub_variant) */}
-      {(atom.sub_variant === "leading_icon" ||
-        atom.sub_variant === "icon_text_icon") && (
-        <div>
-          <label className="block text-sm font-medium text-text_main_high">
-            Leading Icon
-          </label>
-          <input
-            type="text"
-            value={atom.leading_icon}
-            onChange={(e) =>
-              setAtom((prev) => ({ ...prev, leading_icon: e.target.value }))
-            }
-            className="mt-1 block w-full rounded-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-            placeholder="Icon name or URL"
-          />
-        </div>
-      )}
-
-      {(atom.sub_variant === "trailing_icon" ||
-        atom.sub_variant === "icon_text_icon") && (
-        <div>
-          <label className="block text-sm font-medium text-text_main_high">
-            Trailing Icon
-          </label>
-          <input
-            type="text"
-            value={atom.trailing_icon}
-            onChange={(e) =>
-              setAtom((prev) => ({ ...prev, trailing_icon: e.target.value }))
-            }
-            className="mt-1 block w-full rounded-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
-            placeholder="Icon name or URL"
-          />
-        </div>
-      )}
     </div>
   );
 
@@ -533,7 +536,7 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
   return (
     <div
       className={`atom-builder ${
-        inline ? "" : "bg-background_main_surface rounded-lg shadow"
+        inline ? "" : "bg-background_main_surface rounded-lg shadow-sm"
       }`}
     >
       <div className="p-6 border-b border-border_main_default">
@@ -547,7 +550,7 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
               {/* Basic Info */}
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-text_main_high">
+                  <label className="block text-sm font-medium text-text_main_high mb-1">
                     Name
                   </label>
                   <input
@@ -556,7 +559,7 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
                     onChange={(e) =>
                       setAtom((prev) => ({ ...prev, name: e.target.value }))
                     }
-                    className="mt-1 block w-full rounded-md border-border_main_default shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
+                    className="mt-1 block w-full rounded-md border-border_main_default bg-background_main_surface shadow-sm focus:border-button_filled_style_1_surface_default focus:ring-button_filled_style_1_surface_default"
                     placeholder="e.g., primary_button, header_text"
                   />
                 </div>
@@ -588,13 +591,13 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
                   onClick={() =>
                     setAtom({ id: "", name: "", atom_type: "", properties: {} })
                   }
-                  className="px-4 py-2 text-sm font-medium text-text_main_high bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_container"
+                  className="px-4 py-2 text-sm font-medium text-text_main_high bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_container active:bg-background_main_container"
                 >
                   Reset
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 text-sm font-medium text-text_prim_high bg-button_filled_style_1_surface_default rounded-md hover:bg-button_filled_style_1_surface_hover"
+                  className="px-4 py-2 text-sm font-medium text-button_filled_style_1_text_default bg-button_filled_style_1_surface_default rounded-md hover:bg-button_filled_style_1_surface_hover active:bg-button_filled_style_1_surface_active"
                 >
                   Save Atom
                 </button>
@@ -608,7 +611,7 @@ const AtomBuilder = ({ onAdd, existingAtoms, onUpdate, inline = false }) => {
               <h3 className="text-sm font-medium text-text_main_high mb-4">
                 Preview
               </h3>
-              <div className="flex items-center justify-center min-h-[200px] border-2 border-dashed border-border_main_default rounded-lg">
+              <div className="flex items-center justify-center min-h-[200px] border-2 border-dashed border-border_main_default rounded-lg bg-background_main_surface">
                 {preview}
               </div>
             </div>

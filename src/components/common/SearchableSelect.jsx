@@ -29,13 +29,29 @@ const SearchableSelect = ({
       }, {})
     : null;
 
+  // Sanitize search term to handle special characters
+  const sanitizeSearchTerm = (term) => {
+    // Remove special characters from search term
+    return term.replace(/[/_\-]/g, "");
+  };
+
+  // Handle input change - allow all characters
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   const filteredOptions = isColor
     ? Object.entries(groupedOptions || {}).reduce(
         (acc, [category, categoryOptions]) => {
           const filtered = categoryOptions.filter((option) => {
-            const searchableText =
-              `${option.label} ${option.value}`.toLowerCase();
-            return searchableText.includes(searchTerm.toLowerCase());
+            // Remove special characters from both search text and option text
+            const searchableText = `${option.label} ${option.value}`
+              .toLowerCase()
+              .replace(/[/_\-]/g, "");
+            const sanitizedSearchTerm = sanitizeSearchTerm(
+              searchTerm.toLowerCase()
+            );
+            return searchableText.includes(sanitizedSearchTerm);
           });
           if (filtered.length > 0) {
             acc[category] = filtered;
@@ -45,11 +61,18 @@ const SearchableSelect = ({
         {}
       )
     : options.filter((option) => {
-        const optionLabel = option.label || option;
-        const optionValue = option.value || option;
+        const optionLabel = (option.label || option)
+          .toLowerCase()
+          .replace(/[/_\-]/g, "");
+        const optionValue = (option.value || option)
+          .toLowerCase()
+          .replace(/[/_\-]/g, "");
+        const sanitizedSearchTerm = sanitizeSearchTerm(
+          searchTerm.toLowerCase()
+        );
         return (
-          optionLabel.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          optionValue.toLowerCase().includes(searchTerm.toLowerCase())
+          optionLabel.includes(sanitizedSearchTerm) ||
+          optionValue.includes(sanitizedSearchTerm)
         );
       });
 
@@ -86,9 +109,9 @@ const SearchableSelect = ({
           {categoryOptions.map((option) => {
             const isSelected = value === option.value;
             return (
-              <div
+              <button
                 key={option.value}
-                className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-button_filled_style_1_surface_default ${
+                className={`cursor-pointer w-full select-none relative py-2 pl-3 pr-9 hover:bg-button_filled_style_1_surface_default ${
                   isSelected
                     ? "bg-button_filled_style_1_surface_default text-button_filled_style_1_text_default"
                     : "text-text_main_high"
@@ -97,7 +120,7 @@ const SearchableSelect = ({
               >
                 <div className="flex items-center">
                   <div
-                    className={`w-4 h-4 rounded mr-2 border border-border_main_default bg-${option.value}`}
+                    className={`shrink-0 w-4 h-4 rounded mr-2 border border-border_main_default bg-${option.value}`}
                   />
                   <span
                     className={`block truncate ${
@@ -122,18 +145,17 @@ const SearchableSelect = ({
                     </svg>
                   </span>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>
       )
     );
   };
-
   return (
     <div className="relative" ref={wrapperRef}>
       {label && (
-        <label className="block text-sm font-medium text-text_main_high mb-1">
+        <label className="block text-sm font-medium text-text_main_high  mb-1">
           {label}
         </label>
       )}
@@ -145,9 +167,11 @@ const SearchableSelect = ({
         {isColor && selectedOption ? (
           <div className="flex items-center">
             <div
-              className={`w-4 h-4 rounded mr-2 border border-border_main_default bg-${selectedOption.value}`}
+              className={`shrink-0 w-4 h-4 rounded mr-2 border border-border_main_default bg-${selectedOption.value}`}
             />
-            <span className="text-text_main_high">{selectedOption.label}</span>
+            <span className="text-text_main_high truncate">
+              {selectedOption.label}
+            </span>
           </div>
         ) : (
           <span className="block truncate text-text_main_high">
@@ -179,10 +203,10 @@ const SearchableSelect = ({
             <input
               ref={searchInputRef}
               type="text"
-              className="w-full border-border_main_default rounded-md shadow-sm focus:ring-button_filled_style_1_surface_default focus:border-button_filled_style_1_surface_default sm:text-sm"
+              className="w-full p-2 border-border_main_default rounded-md shadow-sm focus:ring-button_filled_style_1_surface_default focus:border-button_filled_style_1_surface_default sm:text-sm"
               placeholder={searchPlaceholder}
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
               onClick={(e) => e.stopPropagation()}
             />
           </div>
@@ -206,7 +230,7 @@ const SearchableSelect = ({
                 return (
                   <div
                     key={optionValue}
-                    className={`cursor-pointer select-none relative py-2 pl-3 pr-9 hover:bg-button_filled_style_1_surface_default ${
+                    className={`cursor-pointer shrink-0 select-none relative py-2 pl-3 pr-9 hover:bg-button_filled_style_1_surface_default ${
                       value === optionValue
                         ? "bg-button_filled_style_1_surface_default text-button_filled_style_1_text_default"
                         : "text-text_main_high"
