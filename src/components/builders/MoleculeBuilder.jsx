@@ -144,26 +144,44 @@ const MoleculeBuilder = ({
     const atomToAdd = existingAtoms.find((a) => a.id === atomId);
     if (!atomToAdd) return;
 
-    // Pre-fill the custom name with the atom's original name
-    setCustomAtomName(atomToAdd.name || "");
+    // Pre-fill the custom name based on the atom type and suggested names for this molecule type
+    let suggestedName = "";
+
+    // Look for matching suggested atom name based on atom type
+    if (molecule.name) {
+      const moleculeStructure = getAtomStructureForMolecule(molecule.name);
+      if (moleculeStructure) {
+        // Find a matching suggested atom name that matches this atom's type
+        const suggestedAtomNames = Object.entries(moleculeStructure)
+          .filter(([_, config]) => config.type === atomToAdd.atom_type)
+          .map(([name]) => name);
+
+        if (suggestedAtomNames.length > 0) {
+          suggestedName = suggestedAtomNames[0]; // Use the first matching suggestion
+        }
+      }
+    }
+
+    // If no suggested name found, use the atom's original name or its type as fallback
+    setCustomAtomName(suggestedName || atomToAdd.name || atomToAdd.atom_type);
     setSelectedAtomId(atomId);
     setShowCustomNameModal(true);
   };
 
   // Actual handler to add the atom with the custom name
   const handleAddAtom = (atomId, displayName, translationKey = "") => {
-    // Open a modal to get the custom name for the atom
+    // Find the original atom
     const atomToAdd = existingAtoms.find((a) => a.id === atomId);
     if (!atomToAdd) return;
 
-    // Add the atom with its original name by default, but store it as an object with the atom ID and custom name
+    // Add the atom reference to the molecule with the custom name
     setMolecule((prev) => ({
       ...prev,
       atoms: [
         ...prev.atoms,
         {
           id: atomId,
-          name: displayName || atomToAdd.name || "Unnamed Atom",
+          name: displayName || atomToAdd.atom_type || "Unnamed Atom",
           visibility: true,
           translation_key: translationKey,
         },
@@ -198,7 +216,7 @@ const MoleculeBuilder = ({
       };
 
       // Add the atom to the global list
-      handleAddComponent("atom", newAtom);
+      handleAddComponent("atom", newAtom, false);
 
       // Add it to the molecule with the custom name
       handleAddAtom(newAtom.id, customAtomName, customTranslationKey);
@@ -208,6 +226,48 @@ const MoleculeBuilder = ({
     setSelectedAtomId(null);
     setCustomAtomName("");
     setCustomTranslationKey("");
+  };
+
+  // Create a new atom and immediately add it to the molecule (avoid page refresh)
+  const handleCreateAtom = (atomData) => {
+    // Prevent form submission default behavior that would refresh the page
+    event.preventDefault && event.preventDefault();
+
+    // Generate an ID if not present
+    const newAtom = {
+      ...atomData,
+      id: atomData.id || generateUUID(),
+    };
+
+    // Add the atom to the global store without redirecting or refreshing
+    handleAddComponent("atom", newAtom, false);
+
+    // Pre-select a name for this new atom and show the modal
+    setSelectedAtomId(newAtom.id);
+
+    // If the atom has a name provided, use it as the custom name
+    if (newAtom.name) {
+      setCustomAtomName(newAtom.name);
+    } else {
+      // Otherwise try to suggest a name based on the atom type
+      let suggestedName = "";
+      if (molecule.name) {
+        const moleculeStructure = getAtomStructureForMolecule(molecule.name);
+        if (moleculeStructure) {
+          const matchingNames = Object.entries(moleculeStructure)
+            .filter(([_, config]) => config.type === newAtom.atom_type)
+            .map(([name]) => name);
+
+          if (matchingNames.length > 0) {
+            suggestedName = matchingNames[0];
+          }
+        }
+      }
+      setCustomAtomName(suggestedName || newAtom.atom_type);
+    }
+
+    setShowAtomModal(false);
+    setShowCustomNameModal(true);
   };
 
   // Modify an atom's custom name in the molecule
@@ -256,16 +316,6 @@ const MoleculeBuilder = ({
         [key]: value,
       },
     }));
-  };
-
-  const handleCreateAtom = (atom) => {
-    // First, add the new atom to the global list
-    handleAddComponent("atom", atom);
-
-    // Then add it to the molecule with default name and translation key
-    // This will trigger the custom name modal where the user can set a custom name
-    handleSelectAtom(atom.id);
-    setShowAtomModal(false);
   };
 
   const handleEditMolecule = (moleculeToEdit) => {
@@ -724,18 +774,59 @@ const MoleculeBuilder = ({
                                         Added
                                       </span>
                                     ) : (
-                                      <button
-                                        className="p-1 rounded-full hover:bg-background_main_surface text-text_main_medium hover:text-text_main_high transition-colors"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          setCustomAtomName(atomOption.value);
-                                          setCustomTranslationKey("");
-                                          setSelectedAtomId(null);
-                                          setShowCustomNameModal(true);
-                                        }}
-                                      >
-                                        <FiPlus size={16} />
-                                      </button>
+                                      <div className="flex space-x-2">
+                                        <button
+                                          type="button"
+                                          onClick={() =>
+                                            setCustomAtomName(atomOption.value)
+                                          }
+                                          className="text-xs px-2 py-1 bg-background_main_surface text-text_main_high rounded border border-border_main_default hover:bg-background_main_hover"
+                                        >
+                                          Select
+                                        </button>
+
+                                        {/* Show "Create & Add" button only when no atom is selected */}
+                                        {!selectedAtomId && (
+                                          <button
+                                            type="button"
+                                            onClick={() => {
+                                              // Create a new atom directly with the suggested name and type
+                                              // Create the atom immediately and add it to the molecule
+                                              const newAtom = {
+                                                id: generateUUID(),
+                                                name: `${
+                                                  atomOption.value
+                                                }_${Date.now().toString(36)}`,
+                                                atom_type: atomOption.type,
+                                                styles: {},
+                                                properties: {},
+                                              };
+
+                                              // Add to global atoms
+                                              handleAddComponent(
+                                                "atom",
+                                                newAtom,
+                                                false
+                                              );
+
+                                              // Add to molecule with the suggested name
+                                              handleAddAtom(
+                                                newAtom.id,
+                                                atomOption.value,
+                                                ""
+                                              );
+
+                                              // Close the modal
+                                              setShowCustomNameModal(false);
+                                              setCustomAtomName("");
+                                              setCustomTranslationKey("");
+                                            }}
+                                            className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
+                                          >
+                                            Create & Add
+                                          </button>
+                                        )}
+                                      </div>
                                     )}
                                   </div>
                                 </div>
@@ -1133,7 +1224,174 @@ const MoleculeBuilder = ({
                 : "Create a new atom with this name for the current molecule."}
             </p>
 
-            {/* Show if this is a suggested atom */}
+            {/* Atom Information */}
+            {selectedAtomId && (
+              <div className="mb-4 p-3 bg-background_main_card rounded-md">
+                <p className="text-sm text-text_main_medium">
+                  <span className="font-medium">Original Atom:</span>{" "}
+                  {existingAtoms.find((a) => a.id === selectedAtomId)?.name ||
+                    "Unknown"}
+                </p>
+                <p className="text-sm text-text_main_medium mt-1">
+                  <span className="font-medium">Type:</span>{" "}
+                  {existingAtoms.find((a) => a.id === selectedAtomId)
+                    ?.atom_type || "Unknown"}
+                </p>
+              </div>
+            )}
+
+            {/* Suggested Atom Names */}
+            {molecule.name && (
+              <div className="mb-4">
+                <h5 className="text-sm font-medium text-text_main_high mb-2">
+                  {selectedAtomId
+                    ? "Suggested Names for This Atom Type"
+                    : "Suggested Atoms for This Molecule"}
+                </h5>
+
+                {(() => {
+                  // Find all suggested atom names for this molecule
+                  const moleculeStructure = getAtomStructureForMolecule(
+                    molecule.name
+                  );
+
+                  if (moleculeStructure) {
+                    let suggestedNames = [];
+
+                    // If an atom is selected, filter by its type
+                    if (selectedAtomId) {
+                      const atomType = existingAtoms.find(
+                        (a) => a.id === selectedAtomId
+                      )?.atom_type;
+
+                      if (atomType) {
+                        suggestedNames = Object.entries(moleculeStructure)
+                          .filter(([_, config]) => config.type === atomType)
+                          .map(([name, config]) => ({
+                            name,
+                            description: config.description,
+                            required: config.required,
+                            type: config.type,
+                          }));
+                      }
+                    }
+                    // Otherwise show all suggested atoms
+                    else {
+                      suggestedNames = Object.entries(moleculeStructure).map(
+                        ([name, config]) => ({
+                          name,
+                          description: config.description,
+                          required: config.required,
+                          type: config.type,
+                        })
+                      );
+                    }
+
+                    if (suggestedNames.length > 0) {
+                      return (
+                        <div className="grid grid-cols-1 gap-2 mb-4">
+                          {suggestedNames.map((suggestion) => (
+                            <div
+                              key={suggestion.name}
+                              className={`text-left p-2 rounded border ${
+                                customAtomName === suggestion.name
+                                  ? "bg-background_prim_surface bg-opacity-10 border-background_prim_surface"
+                                  : "bg-background_main_card border-border_main_default"
+                              }`}
+                            >
+                              <div className="flex justify-between items-center">
+                                <div>
+                                  <span className="font-medium text-text_main_high">
+                                    {suggestion.name}
+                                  </span>
+                                  {suggestion.required && (
+                                    <span className="ml-2 text-xs px-2 py-0.5 bg-background_sec_surface text-text_sec_high rounded-full">
+                                      Required
+                                    </span>
+                                  )}
+                                </div>
+
+                                {/* Actions for this suggested atom */}
+                                <div className="flex space-x-2">
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      setCustomAtomName(suggestion.name)
+                                    }
+                                    className="text-xs px-2 py-1 bg-background_main_surface text-text_main_high rounded border border-border_main_default hover:bg-background_main_hover"
+                                  >
+                                    Select
+                                  </button>
+
+                                  {/* Show "Create & Add" button only when no atom is selected */}
+                                  {!selectedAtomId && (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        // Create a new atom directly with the suggested name and type
+                                        // Create the atom immediately and add it to the molecule
+                                        const newAtom = {
+                                          id: generateUUID(),
+                                          name: `${
+                                            suggestion.name
+                                          }_${Date.now().toString(36)}`,
+                                          atom_type: suggestion.type,
+                                          styles: {},
+                                          properties: {},
+                                        };
+
+                                        // Add to global atoms
+                                        handleAddComponent(
+                                          "atom",
+                                          newAtom,
+                                          false
+                                        );
+
+                                        // Add to molecule with the suggested name
+                                        handleAddAtom(
+                                          newAtom.id,
+                                          suggestion.name,
+                                          ""
+                                        );
+
+                                        // Close the modal
+                                        setShowCustomNameModal(false);
+                                        setCustomAtomName("");
+                                        setCustomTranslationKey("");
+                                      }}
+                                      className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
+                                    >
+                                      Create & Add
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                              <p className="text-xs text-text_main_medium mt-1">
+                                {suggestion.description}
+                              </p>
+                              <p className="text-xs text-text_main_medium mt-1">
+                                <span className="font-medium">Type:</span>{" "}
+                                {suggestion.type}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                  }
+
+                  return (
+                    <p className="text-xs text-text_main_medium bg-background_main_card p-3 rounded">
+                      No suggested names found for{" "}
+                      {selectedAtomId ? "this atom type in" : ""}{" "}
+                      {molecule.name}
+                    </p>
+                  );
+                })()}
+              </div>
+            )}
+
+            {/* Show if current name is a suggested atom */}
             {molecule.name && customAtomName && (
               <div className="mb-4">
                 {getAtomStructureForMolecule(molecule.name)?.[
@@ -1178,18 +1436,40 @@ const MoleculeBuilder = ({
               </div>
             )}
 
-            {selectedAtomId && (
-              <div className="mb-4 p-3 bg-background_main_card rounded-md">
-                <p className="text-sm text-text_main_medium">
-                  <span className="font-medium">Original Atom:</span>{" "}
-                  {existingAtoms.find((a) => a.id === selectedAtomId)?.name ||
-                    "Unknown"}
+            {/* Hint about creating a new atom */}
+            {!selectedAtomId && (
+              <div className="mb-4 p-3 bg-background_prim_surface bg-opacity-10 rounded-md border border-background_prim_surface">
+                <div className="flex items-center">
+                  <FiInfo className="text-background_prim_surface mr-2" />
+                  <span className="text-sm font-medium text-text_main_high">
+                    Creating a new atom
+                  </span>
+                </div>
+                <p className="text-xs text-text_main_medium mt-1">
+                  You are creating a new atom with the name "{customAtomName}".
+                  This atom will be added to your atoms library and used in this
+                  molecule.
                 </p>
-                <p className="text-sm text-text_main_medium mt-1">
-                  <span className="font-medium">Type:</span>{" "}
-                  {existingAtoms.find((a) => a.id === selectedAtomId)
-                    ?.atom_type || "Unknown"}
-                </p>
+                {molecule.name &&
+                  customAtomName &&
+                  getAtomStructureForMolecule(molecule.name)?.[
+                    customAtomName
+                  ] && (
+                    <p className="text-xs text-text_main_medium mt-2">
+                      <strong>Type:</strong>{" "}
+                      {
+                        getAtomStructureForMolecule(molecule.name)[
+                          customAtomName
+                        ].type
+                      }
+                      <br />
+                      {
+                        getAtomStructureForMolecule(molecule.name)[
+                          customAtomName
+                        ].description
+                      }
+                    </p>
+                  )}
               </div>
             )}
 

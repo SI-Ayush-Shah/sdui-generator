@@ -101,7 +101,10 @@ const AtomForm = ({
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // Prevent the default form submission behavior which causes page refresh
+    e && e.preventDefault();
+
+    // Pass the atom data to the parent component's submit handler
     onSubmit(atomData);
   };
 

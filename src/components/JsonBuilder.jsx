@@ -99,7 +99,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     // Similar for other types...
   }, [pageId, templateId, organismId, moleculeId, atomId]);
 
-  const handleAddComponent = async (type, component) => {
+  const handleAddComponent = async (type, component, shouldRefresh = true) => {
     try {
       // Check if an atom with this ID already exists
       if (
@@ -117,7 +117,8 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         componentToAdd = componentWithoutData;
       }
 
-      const newData = {
+      // First update local state
+      const updatedData = {
         ...jsonData,
         data: {
           ...jsonData.data,
@@ -128,11 +129,24 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         },
       };
 
-      await updateSduiSchema(newData);
-      setJsonData(newData);
-      toast.success("Component added successfully");
+      // Update the local state immediately
+      setJsonData(updatedData);
+
+      // If shouldRefresh is true, persist to the server and show success/error toasts
+      if (shouldRefresh) {
+        await updateSduiSchema(updatedData);
+        toast.success("Component added successfully");
+      } else {
+        // Still persist to server in background, but don't show toasts or wait for completion
+        updateSduiSchema(updatedData).catch((error) => {
+          console.error("Error saving in background:", error);
+        });
+      }
     } catch (error) {
-      toast.error("Failed to add component");
+      if (shouldRefresh) {
+        toast.error("Failed to add component");
+      }
+      console.error("Error adding component:", error);
     }
   };
 
