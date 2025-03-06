@@ -39,10 +39,21 @@ const NAVIGATION_ITEMS = [
   { id: "atoms", label: "Atoms", icon: "atom" },
 ];
 
+const ATOM_FILTERS = [
+  { id: "all", label: "All Atoms", icon: FiGrid },
+  { id: "button", label: "Buttons", icon: FiMousePointer },
+  { id: "text", label: "Text", icon: FiType },
+  { id: "badge", label: "Badges", icon: FiTag },
+  { id: "image", label: "Images", icon: FiImage },
+];
+
 const JsonBuilder = ({ defaultSection = "pages" }) => {
   const navigate = useNavigate();
   const { pageId, templateId, organismId, moleculeId, atomId } = useParams();
   const [mode, setMode] = useState("edit");
+  const [atomsFilter, setAtomsFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [jsonData, setJsonData] = useState({
     data: {
       components: {
@@ -188,12 +199,76 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     }
   };
 
+  const renderMoleculePreview = (molecule) => {
+    return (
+      <div className="w-full h-full p-4 border border-border_main_default rounded-lg bg-background_main_container">
+        <div className="flex flex-col gap-2">
+          {/* Molecule Type */}
+          <div className="text-xs font-medium text-text_main_high">
+            Type: {molecule.name}
+          </div>
+
+          {/* Atoms Count */}
+          <div className="text-xs text-text_main_medium">
+            Contains: {molecule.atoms.length} atoms
+          </div>
+
+          {/* Style Preview */}
+          {molecule.styles && (
+            <div
+              className="mt-2 p-2 rounded"
+              style={{
+                backgroundColor:
+                  molecule.styles.background_color || "transparent",
+                borderColor: molecule.styles.border_color || "transparent",
+                borderWidth: molecule.styles.border_width
+                  ? `${molecule.styles.border_width}px`
+                  : "0",
+                borderStyle: molecule.styles.border_width ? "solid" : "none",
+                gap: molecule.styles.gap || "0",
+                padding: molecule.styles.padding
+                  ? `${molecule.styles.padding}px`
+                  : "0",
+              }}
+            >
+              <div className="text-xs text-text_main_medium">Style Preview</div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
+  const renderAtomPreview = (atom) => {
+    if (!atom || !atom.atom_type) return null;
+
+    switch (atom.atom_type) {
+      case "button":
+        return <Button {...atom} text="Button Text" />;
+      case "text":
+        return <Text {...atom}>Sample Text</Text>;
+      case "badge":
+        return <Badge {...atom} text="Badge Text" />;
+      case "image":
+        return (
+          <Img
+            src={`https://stg-washington-freedom.sportz.io/static-assets/waf-images/3e/4d/f6/${
+              atom.ratio?.split(":")[0] || "16"
+            }-${atom.ratio?.split(":")[1] || "9"}/W62UAhQg2I.jpg?v=1.04&w=1920`}
+            {...atom}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   const renderContent = () => {
     switch (defaultSection) {
       case "pages":
         return (
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-8">
+            <div className="col-span-12">
               <PageBuilder
                 onAdd={handleAddPage}
                 existingPages={jsonData.pages || []}
@@ -202,58 +277,12 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                 selectedPage={selectedPage}
               />
             </div>
-            <div className="col-span-4">
-              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
-                <div className="p-4 border-b border-border_main_default bg-background_main_container">
-                  <h3 className="text-lg font-medium text-text_main_high">
-                    Pages List
-                  </h3>
-                </div>
-                <div className="p-4 bg-background_main_default">
-                  <div className="space-y-2">
-                    {jsonData.pages?.map((page, index) => (
-                      <div
-                        key={page.id}
-                        className="flex items-center justify-between p-3 bg-background_main_surface rounded-lg"
-                      >
-                        <div>
-                          <span className="text-sm font-medium text-text_main_high">
-                            {page.name}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <button
-                            onClick={() => handleEdit("pages", page)}
-                            className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover"
-                          >
-                            Edit
-                          </button>
-                          <button
-                            onClick={() => {
-                              setJsonData((prev) => ({
-                                ...prev,
-                                pages: prev.pages.filter(
-                                  (p) => p.id !== page.id
-                                ),
-                              }));
-                            }}
-                            className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         );
       case "templates":
         return (
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-8">
+            <div className="col-span-12">
               <TemplateBuilder
                 onAdd={(template) => handleAddComponent("template", template)}
                 handleAddComponent={handleAddComponent}
@@ -265,112 +294,12 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                 }
               />
             </div>
-            <div className="col-span-4">
-              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
-                <div className="p-4 border-b border-border_main_default bg-background_main_container">
-                  <h3 className="text-lg font-medium text-text_main_high">
-                    Templates List
-                  </h3>
-                </div>
-                <div className="p-4 bg-background_main_default">
-                  <div className="space-y-2">
-                    {jsonData.data.components.template.map(
-                      (template, index) => (
-                        <div
-                          key={template.id}
-                          className="flex items-center justify-between p-3 bg-background_main_surface rounded-lg"
-                        >
-                          <div>
-                            <span className="text-sm font-medium text-text_main_high">
-                              {template.name}
-                            </span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <button
-                              onClick={() => handleEdit("template", template)}
-                              className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover"
-                            >
-                              Edit
-                            </button>
-                            <button
-                              onClick={() => {
-                                setJsonData((prev) => ({
-                                  ...prev,
-                                  data: {
-                                    ...prev.data,
-                                    components: {
-                                      ...prev.data.components,
-                                      template:
-                                        prev.data.components.template.filter(
-                                          (t) => t.id !== template.id
-                                        ),
-                                    },
-                                  },
-                                }));
-                              }}
-                              className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         );
       case "molecules":
-        const renderMoleculePreview = (molecule) => {
-          return (
-            <div className="w-full h-full p-4 border border-border_main_default rounded-lg bg-background_main_container">
-              <div className="flex flex-col gap-2">
-                {/* Molecule Type */}
-                <div className="text-xs font-medium text-text_main_high">
-                  Type: {molecule.name}
-                </div>
-
-                {/* Atoms Count */}
-                <div className="text-xs text-text_main_medium">
-                  Contains: {molecule.atoms.length} atoms
-                </div>
-
-                {/* Style Preview */}
-                {molecule.styles && (
-                  <div
-                    className="mt-2 p-2 rounded"
-                    style={{
-                      backgroundColor:
-                        molecule.styles.background_color || "transparent",
-                      borderColor:
-                        molecule.styles.border_color || "transparent",
-                      borderWidth: molecule.styles.border_width
-                        ? `${molecule.styles.border_width}px`
-                        : "0",
-                      borderStyle: molecule.styles.border_width
-                        ? "solid"
-                        : "none",
-                      gap: molecule.styles.gap || "0",
-                      padding: molecule.styles.padding
-                        ? `${molecule.styles.padding}px`
-                        : "0",
-                    }}
-                  >
-                    <div className="text-xs text-text_main_medium">
-                      Style Preview
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        };
-
         return (
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-8">
+            <div className="col-span-12">
               <MoleculeBuilder
                 onAdd={(molecule) => handleAddComponent("molecule", molecule)}
                 handleAddComponent={handleAddComponent}
@@ -381,88 +310,9 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                 }
               />
             </div>
-            <div className="col-span-4">
-              <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
-                <div className="p-4 border-b border-border_main_default bg-background_main_container">
-                  <h3 className="text-lg font-medium text-text_main_high">
-                    Molecules List
-                  </h3>
-                </div>
-                <div className="p-4 bg-background_main_default">
-                  <div className="grid gap-4">
-                    {jsonData.data.components.molecule.map((molecule) => (
-                      <div
-                        key={molecule.id}
-                        className="bg-background_main_surface rounded-lg border border-border_main_default overflow-hidden"
-                      >
-                        {/* Header with Type and ID */}
-                        <div className="p-4 border-b border-border_main_default bg-background_main_container">
-                          <div className="flex justify-between items-center">
-                            <div className="space-y-1">
-                              <span className="inline-block px-2 py-1 text-xs font-medium bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default rounded">
-                                {molecule.name}
-                              </span>
-                              <div className="text-xs text-text_main_medium">
-                                ID: {molecule.id}
-                              </div>
-                            </div>
-                            <div className="flex space-x-2">
-                              <button
-                                onClick={() => handleEdit("molecule", molecule)}
-                                className="text-sm text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default px-3 py-1 rounded-md hover:bg-button_filled_style_3_surface_hover border border-border_main_default"
-                              >
-                                Edit
-                              </button>
-                              <button
-                                onClick={() => {
-                                  setJsonData((prev) => ({
-                                    ...prev,
-                                    data: {
-                                      ...prev.data,
-                                      components: {
-                                        ...prev.data.components,
-                                        molecule:
-                                          prev.data.components.molecule.filter(
-                                            (m) => m.id !== molecule.id
-                                          ),
-                                      },
-                                    },
-                                  }));
-                                }}
-                                className="text-sm text-button_ghost_style_3_text_default hover:text-button_ghost_style_3_text_hover px-3 py-1 rounded-md border border-border_main_default hover:bg-button_ghost_style_3_surface_hover"
-                              >
-                                Delete
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Preview */}
-                        <div className="p-4 bg-background_main_surface">
-                          <div className="flex items-center justify-center min-h-[60px] bg-background_main_container rounded p-4">
-                            {renderMoleculePreview(molecule)}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         );
       case "atoms":
-        const [atomsFilter, setAtomsFilter] = useState("all");
-        const [searchQuery, setSearchQuery] = useState("");
-
-        const ATOM_FILTERS = [
-          { id: "all", label: "All Atoms", icon: FiGrid },
-          { id: "button", label: "Buttons", icon: FiMousePointer },
-          { id: "text", label: "Text", icon: FiType },
-          { id: "badge", label: "Badges", icon: FiTag },
-          { id: "image", label: "Images", icon: FiImage },
-        ];
-
         const filteredAtoms = jsonData.data.components.atom
           .sort((a, b) => {
             const order = ATOM_FILTERS.findIndex((f) => f.id === a.atom_type);
@@ -485,32 +335,6 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
 
             return matchesType && matchesSearch;
           });
-
-        const renderAtomPreview = (atom) => {
-          if (!atom || !atom.atom_type) return null;
-
-          switch (atom.atom_type) {
-            case "button":
-              return <Button {...atom} text="Button Text" />;
-            case "text":
-              return <Text {...atom}>Sample Text</Text>;
-            case "badge":
-              return <Badge {...atom} text="Badge Text" />;
-            case "image":
-              return (
-                <Img
-                  src={`https://stg-washington-freedom.sportz.io/static-assets/waf-images/3e/4d/f6/${
-                    atom.ratio?.split(":")[0] || "16"
-                  }-${
-                    atom.ratio?.split(":")[1] || "9"
-                  }/W62UAhQg2I.jpg?v=1.04&w=1920`}
-                  {...atom}
-                />
-              );
-            default:
-              return null;
-          }
-        };
 
         return (
           <div className="flex flex-col h-full space-y-6">

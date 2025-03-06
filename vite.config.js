@@ -1,67 +1,83 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import fs from "fs";
 import path from "path";
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    {
-      name: "configure-server",
-      configureServer(server) {
-        server.middlewares.use(async (req, res, next) => {
-          if (req.url === "/api/update-schema" && req.method === "POST") {
-            let body = "";
-            req.on("data", (chunk) => {
-              body += chunk;
-            });
+export default defineConfig(({ mode }) => {
+  // Load env file based on `mode` in the current directory
+  const env = loadEnv(mode, process.cwd(), "");
 
-            req.on("end", async () => {
-              try {
-                const data = JSON.parse(body);
-                const schemaPath = path.resolve("./src/sdui-schema.json");
+  // Expose both import.meta.env and process.env
+  const processEnvValues = {};
+  for (const key in env) {
+    if (key.startsWith("VITE_")) {
+      processEnvValues[`process.env.${key}`] = JSON.stringify(env[key]);
+    }
+  }
 
-                // Read existing file to preserve tokens
-                const existingData = await fs.promises.readFile(
-                  schemaPath,
-                  "utf-8"
-                );
-                const existingJson = JSON.parse(existingData);
+  return {
+    plugins: [
+      react(),
+      {
+        name: "configure-server",
+        configureServer(server) {
+          server.middlewares.use(async (req, res, next) => {
+            if (req.url === "/api/update-schema" && req.method === "POST") {
+              let body = "";
+              req.on("data", (chunk) => {
+                body += chunk;
+              });
 
-                // Merge data, preserving tokens
-                const newData = {
-                  ...data,
-                  data: {
-                    ...data.data,
-                    tokens: data.data.tokens || existingJson.data.tokens,
-                  },
-                };
+              req.on("end", async () => {
+                try {
+                  const data = JSON.parse(body);
+                  const schemaPath = path.resolve("./src/sdui-schema.json");
 
-                await fs.promises.writeFile(
-                  schemaPath,
-                  JSON.stringify(newData, null, 2)
-                );
+                  // Read existing file to preserve tokens
+                  const existingData = await fs.promises.readFile(
+                    schemaPath,
+                    "utf-8"
+                  );
+                  const existingJson = JSON.parse(existingData);
 
-                res.setHeader("Content-Type", "application/json");
-                res.end(JSON.stringify({ success: true }));
-              } catch (error) {
-                console.error("Error handling request:", error);
-                res.statusCode = 500;
-                res.setHeader("Content-Type", "application/json");
-                res.end(
-                  JSON.stringify({
-                    error: "Failed to update schema",
-                    details: error.message,
-                  })
-                );
-              }
-            });
-          } else {
-            next();
-          }
-        });
+                  // Merge data, preserving tokens
+                  const newData = {
+                    ...data,
+                    data: {
+                      ...data.data,
+                      tokens: data.data.tokens || existingJson.data.tokens,
+                    },
+                  };
+
+                  await fs.promises.writeFile(
+                    schemaPath,
+                    JSON.stringify(newData, null, 2)
+                  );
+
+                  res.setHeader("Content-Type", "application/json");
+                  res.end(JSON.stringify({ success: true }));
+                } catch (error) {
+                  console.error("Error handling request:", error);
+                  res.statusCode = 500;
+                  res.setHeader("Content-Type", "application/json");
+                  res.end(
+                    JSON.stringify({
+                      error: "Failed to update schema",
+                      details: error.message,
+                    })
+                  );
+                }
+              });
+            } else {
+              next();
+            }
+          });
+        },
       },
+    ],
+    define: {
+      ...processEnvValues,
     },
-  ],
+  };
 });

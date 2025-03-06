@@ -18,45 +18,49 @@ const TABS = [
   { id: "border", label: "Border" },
 ];
 
-const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
-  const [atomData, setAtomData] = useState(() => ({
-    id: initialData?.id || crypto.randomUUID(),
-    name: initialData?.name || "",
-    atom_type: initialData?.atom_type || "button",
-    typography: initialData?.typography || "",
-    size: initialData?.size || "medium",
-    variant: initialData?.variant || "primary",
-    sub_variant: initialData?.sub_variant || "only_text",
-    background_color: initialData?.background_color || "",
-    text_color: initialData?.text_color || "",
-    border_width: parseInt(initialData?.border_width) || "",
-    border_radius:
-      typeof initialData?.border_radius === "string"
-        ? {
-            top_left: initialData.border_radius,
-            top_right: initialData.border_radius,
-            bottom_left: initialData.border_radius,
-            bottom_right: initialData.border_radius,
-          }
-        : initialData?.border_radius || {
-            top_left: "",
-            top_right: "",
-            bottom_left: "",
-            bottom_right: "",
-          },
-    border_color: initialData?.border_color || "",
-    gradient: initialData?.gradient || "",
-  }));
+// Create default empty atom data structure
+const createEmptyAtom = () => ({
+  id: crypto.randomUUID(),
+  name: "",
+  atom_type: "button",
+  typography: "",
+  size: "medium",
+  variant: "primary",
+  sub_variant: "only_text",
+  background_color: "",
+  text_color: "",
+  border_width: "",
+  border_radius: {
+    top_left: "",
+    top_right: "",
+    bottom_left: "",
+    bottom_right: "",
+  },
+  border_color: "",
+  gradient: "",
+});
 
+const AtomForm = ({
+  initialData,
+  onSubmit,
+  onCancel,
+  mode = "create",
+  inline = false,
+  onReset,
+}) => {
+  // Always initialize with a valid object structure to avoid conditional hook calls
+  const [atomData, setAtomData] = useState(initialData || createEmptyAtom());
   const [activeTab, setActiveTab] = useState("basic");
   const colors = extractColors();
-  console.log("atomData", atomData);
-  // Debug the colors
 
+  // Use useEffect to update state when props change
   useEffect(() => {
     if (initialData) {
       const newData = {
         ...initialData,
+        id: initialData.id || crypto.randomUUID(),
+        name: initialData.name || "",
+        atom_type: initialData.atom_type || "button",
         background_color: initialData.background_color || "",
         text_color: initialData.text_color || "",
         border_radius:
@@ -101,8 +105,15 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
     onSubmit(atomData);
   };
 
+  const handleReset = () => {
+    const emptyAtom = createEmptyAtom();
+    setAtomData(emptyAtom);
+    if (onReset) {
+      onReset();
+    }
+  };
+
   const updatePreview = () => {
-    console.log(atomData);
     switch (atomData.atom_type) {
       case "button":
         return <Button {...atomData} text="Button Text" />;
@@ -127,7 +138,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="p-4">
       <div className="grid grid-cols-12 gap-6">
         {/* Left Column */}
         <div className="col-span-8">
@@ -140,9 +151,9 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                 </label>
                 <input
                   type="text"
-                  value={atomData.name}
+                  value={atomData.name || ""}
                   onChange={(e) => handlePropertyChange("name", e.target.value)}
-                  className="w-full px-3 py-2 rounded-md border border-border_main_default"
+                  className="w-full px-3 py-2 border border-border_main_default rounded-md text-text_main_high placeholder-text_main_disable bg-background_main_surface focus:border-background_prim_surface focus:ring-1 focus:ring-background_prim_card transition-colors"
                   placeholder="Enter atom name"
                 />
               </div>
@@ -152,7 +163,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                 </label>
                 <SearchableSelect
                   options={ATOM_TYPES}
-                  value={atomData.atom_type}
+                  value={atomData.atom_type || "button"}
                   onChange={(value) => handlePropertyChange("atom_type", value)}
                   disabled={mode === "edit"}
                 />
@@ -161,14 +172,16 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
 
             {/* Tabs */}
             <div className="border-b border-border_main_default">
-              <nav className="flex space-x-8">
+              <nav className="flex">
                 {TABS.map(({ id, label }) => (
                   <button
                     key={id}
                     type="button"
                     onClick={() => setActiveTab(id)}
-                    className={`py-4 px-1 text-sm font-medium  ${
-                      activeTab === id ? " border-b-2 " : ""
+                    className={`py-3 px-6 text-sm font-medium transition-colors border-b-2 ${
+                      activeTab === id
+                        ? "text-text_main_high border-background_prim_surface"
+                        : "text-text_main_medium hover:text-text_main_high border-transparent hover:border-border_main_default"
                     }`}
                   >
                     {label}
@@ -190,7 +203,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                         </label>
                         <SearchableSelect
                           options={BUTTON_SUB_VARIANTS}
-                          value={atomData.sub_variant}
+                          value={atomData.sub_variant || "only_text"}
                           onChange={(value) =>
                             handlePropertyChange("sub_variant", value)
                           }
@@ -201,8 +214,11 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                           Size
                         </label>
                         <SearchableSelect
-                          options={SIZES}
-                          value={atomData.size}
+                          options={SIZES.map((size) => ({
+                            value: size,
+                            label: size.charAt(0).toUpperCase() + size.slice(1),
+                          }))}
+                          value={atomData.size || "medium"}
                           onChange={(value) =>
                             handlePropertyChange("size", value)
                           }
@@ -218,7 +234,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                         </label>
                         <SearchableSelect
                           options={BUTTON_SUB_VARIANTS}
-                          value={atomData.sub_variant}
+                          value={atomData.sub_variant || "only_text"}
                           onChange={(value) =>
                             handlePropertyChange("sub_variant", value)
                           }
@@ -229,8 +245,11 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                           Size
                         </label>
                         <SearchableSelect
-                          options={SIZES}
-                          value={atomData.size}
+                          options={SIZES.map((size) => ({
+                            value: size,
+                            label: size.charAt(0).toUpperCase() + size.slice(1),
+                          }))}
+                          value={atomData.size || "medium"}
                           onChange={(value) =>
                             handlePropertyChange("size", value)
                           }
@@ -246,8 +265,11 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                           Ratio
                         </label>
                         <SearchableSelect
-                          options={RATIO_OPTIONS}
-                          value={atomData.ratio}
+                          options={RATIO_OPTIONS.map((ratio) => ({
+                            value: ratio,
+                            label: ratio,
+                          }))}
+                          value={atomData.ratio || "16:9"}
                           onChange={(value) =>
                             handlePropertyChange("ratio", value)
                           }
@@ -262,7 +284,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                       </label>
                       <SearchableSelect
                         options={TYPOGRAPHY_OPTIONS}
-                        value={atomData.typography}
+                        value={atomData.typography || ""}
                         onChange={(value) =>
                           handlePropertyChange("typography", value)
                         }
@@ -283,7 +305,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
 
                       <SearchableSelect
                         options={colors}
-                        value={atomData.background_color}
+                        value={atomData.background_color || ""}
                         onChange={(value) =>
                           handlePropertyChange("background_color", value)
                         }
@@ -298,7 +320,7 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                       </label>
                       <SearchableSelect
                         options={colors}
-                        value={atomData.text_color}
+                        value={atomData.text_color || ""}
                         onChange={(value) =>
                           handlePropertyChange("text_color", value)
                         }
@@ -315,8 +337,11 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                         Gradient
                       </label>
                       <SearchableSelect
-                        options={GRADIENT_OPTIONS}
-                        value={atomData.gradient}
+                        options={GRADIENT_OPTIONS.map((gradient) => ({
+                          value: gradient,
+                          label: gradient,
+                        }))}
+                        value={atomData.gradient || ""}
                         onChange={(value) =>
                           handlePropertyChange("gradient", value)
                         }
@@ -329,69 +354,77 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
               {/* Border Tab */}
               <div className={activeTab === "border" ? "block" : "hidden"}>
                 <div className="space-y-6">
+                  <div className="p-4 bg-background_main_card border border-border_main_default rounded-md">
+                    <h3 className="text-sm font-medium text-text_main_high mb-3">
+                      Border Radius
+                    </h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-medium text-text_main_medium mb-1">
+                          Top Left Radius
+                        </label>
+                        <SearchableSelect
+                          options={RADIUS_OPTIONS}
+                          value={atomData.border_radius?.top_left || ""}
+                          onChange={(value) =>
+                            handleBorderRadiusChange("top_left", value)
+                          }
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-text_main_medium mb-1">
+                          Top Right Radius
+                        </label>
+                        <SearchableSelect
+                          options={RADIUS_OPTIONS}
+                          value={atomData.border_radius?.top_right || ""}
+                          onChange={(value) =>
+                            handleBorderRadiusChange("top_right", value)
+                          }
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-text_main_medium mb-1">
+                          Bottom Left Radius
+                        </label>
+                        <SearchableSelect
+                          options={RADIUS_OPTIONS}
+                          value={atomData.border_radius?.bottom_left || ""}
+                          onChange={(value) =>
+                            handleBorderRadiusChange("bottom_left", value)
+                          }
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-medium text-text_main_medium mb-1">
+                          Bottom Right Radius
+                        </label>
+                        <SearchableSelect
+                          options={RADIUS_OPTIONS}
+                          value={atomData.border_radius?.bottom_right || ""}
+                          onChange={(value) =>
+                            handleBorderRadiusChange("bottom_right", value)
+                          }
+                        />
+                      </div>
+                    </div>
+                  </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-text_main_high mb-1">
-                        Top Left Radius
-                      </label>
-                      <SearchableSelect
-                        options={RADIUS_OPTIONS}
-                        value={atomData.border_radius.top_left}
-                        onChange={(value) =>
-                          handleBorderRadiusChange("top_left", value)
-                        }
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-text_main_high mb-1">
-                        Top Right Radius
-                      </label>
-                      <SearchableSelect
-                        options={RADIUS_OPTIONS}
-                        value={atomData.border_radius.top_right}
-                        onChange={(value) =>
-                          handleBorderRadiusChange("top_right", value)
-                        }
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-text_main_high mb-1">
-                        Bottom Left Radius
-                      </label>
-                      <SearchableSelect
-                        options={RADIUS_OPTIONS}
-                        value={atomData.border_radius.bottom_left}
-                        onChange={(value) =>
-                          handleBorderRadiusChange("bottom_left", value)
-                        }
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-text_main_high mb-1">
-                        Bottom Right Radius
-                      </label>
-                      <SearchableSelect
-                        options={RADIUS_OPTIONS}
-                        value={atomData.border_radius.bottom_right}
-                        onChange={(value) =>
-                          handleBorderRadiusChange("bottom_right", value)
-                        }
-                      />
-                    </div>
                     <div>
                       <label className="block text-sm font-medium text-text_main_high mb-1">
                         Border Width
                       </label>
                       <input
                         type="number"
-                        className="w-full px-3 py-2 rounded-md border border-border_main_default"
-                        value={atomData.border_width}
+                        className="w-full px-3 py-2 border border-border_main_default rounded-md text-text_main_high placeholder-text_main_disable bg-background_main_surface focus:border-background_prim_surface focus:ring-1 focus:ring-background_prim_card transition-colors"
+                        value={atomData.border_width || ""}
                         onChange={(e) =>
                           handlePropertyChange(
                             "border_width",
-                            parseInt(e.target.value)
+                            parseInt(e.target.value) || ""
                           )
                         }
+                        placeholder="Border width in px"
                       />
                     </div>
                     <div>
@@ -400,10 +433,11 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
                       </label>
                       <SearchableSelect
                         options={colors}
-                        value={atomData.border_color}
+                        value={atomData.border_color || ""}
                         onChange={(value) =>
                           handlePropertyChange("border_color", value)
                         }
+                        isColor={true}
                       />
                     </div>
                   </div>
@@ -416,11 +450,30 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
         {/* Preview Column */}
         <div className="col-span-4">
           <div className="sticky top-6">
-            <div className="p-4 bg-background_main_container rounded-lg">
-              <h4 className="text-sm font-medium text-text_main_high mb-4">
+            <div className="p-4 bg-background_main_card border border-border_main_default rounded-lg">
+              <h4 className="text-sm font-medium text-text_main_high mb-4 flex items-center">
+                <svg
+                  className="w-4 h-4 mr-1.5 text-text_main_medium"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
                 Preview
               </h4>
-              <div className="flex items-center justify-center min-h-[120px] bg-background_main_surface rounded p-4">
+              <div className="flex items-center justify-center min-h-[120px] bg-background_main_surface border border-border_main_default rounded p-4">
                 {updatePreview()}
               </div>
             </div>
@@ -429,17 +482,26 @@ const AtomForm = ({ initialData, onSubmit, onCancel, mode = "create" }) => {
       </div>
 
       {/* Actions */}
-      <div className="flex justify-end space-x-3 mt-6 pt-4 border-t border-border_main_default">
+      <div className="flex justify-end space-x-3 mt-8 pt-4 border-t border-border_main_default">
+        {onCancel && (
+          <button
+            type="button"
+            onClick={onCancel}
+            className="px-4 py-2 text-sm font-medium text-text_main_medium bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_card transition-colors"
+          >
+            Cancel
+          </button>
+        )}
         <button
           type="button"
-          onClick={onCancel}
-          className="px-4 py-2 text-sm font-medium text-text_main_high bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_hover"
+          onClick={handleReset}
+          className="px-4 py-2 text-sm font-medium text-text_main_medium bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_card transition-colors"
         >
-          Cancel
+          Reset
         </button>
         <button
           type="submit"
-          className="px-4 py-2 text-sm font-medium text-button_filled_style_3_text_default bg-button_filled_style_3_surface_default rounded-md hover:bg-button_filled_style_3_surface_hover"
+          className="px-4 py-2 text-sm font-medium text-button_filled_style_2_text_icon_default bg-button_filled_style_2_surface_default rounded-md hover:bg-button_filled_style_2_surface_hover transition-colors"
         >
           {mode === "create" ? "Create Atom" : "Save Changes"}
         </button>

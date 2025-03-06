@@ -44,11 +44,12 @@ export const RADIUS_OPTIONS = [
   { value: "radius_rounded", label: "radius_rounded" },
 ];
 
-export const TYPOGRAPHY_OPTIONS = [
-  { value: "dp_1_black", label: "dp_1_black" },
-  { value: "dp_1_bold", label: "dp_1_bold" },
-  // ... other typography options
-];
+export const TYPOGRAPHY_OPTIONS = Object.keys(
+  json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"].typography_desktop
+).map((key) => ({
+  value: key,
+  label: key,
+}));
 
 export const SIZES = ["small", "medium", "large"];
 export const RATIO_OPTIONS = [
@@ -62,4 +63,10 @@ export const RATIO_OPTIONS = [
 ];
 export const GRADIENT_OPTIONS = Object.keys(
   json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"].gradient.light
+);
+export const COLOR_OPTIONS = Object.keys(
+  json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"].color.light
+);
+export const SPACING_OPTIONS = Object.keys(
+  json.data.tokens["40b949f1-5800-4025-8395-ed22bd52ccc6"].spacing
 );
