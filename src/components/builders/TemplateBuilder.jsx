@@ -1,71 +1,76 @@
-import React, { useState } from 'react';
-import { emptyTemplate } from '../../constants/emptyStructures';
-import { generateUUID } from '../../utils/uuid';
-import TokenSelect from '../common/TokenSelect';
-import ComponentSelectionModal from '../common/ComponentSelectionModal';
-import OrganismBuilder from './OrganismBuilder';
+import React, { useState } from "react";
+import { emptyTemplate } from "../../constants/emptyStructures";
+import { generateUUID } from "../../utils/uuid";
+import TokenSelect from "../common/TokenSelect";
+import ComponentSelectionModal from "../common/ComponentSelectionModal";
+import OrganismBuilder from "./OrganismBuilder";
 
 const TEMPLATE_TYPES = [
-  { value: 'showcase', label: 'Showcase' },
-  { value: 'squad', label: 'Squad' },
-  { value: 'fixture', label: 'Fixture' },
-  { value: 'article', label: 'Article' },
-  { value: 'multi_template', label: 'Multi Template' },
-  { value: 'standings', label: 'Standings' }
+  { value: "showcase", label: "Showcase" },
+  { value: "squad", label: "Squad" },
+  { value: "fixture", label: "Fixture" },
+  { value: "article", label: "Article" },
+  { value: "multi_template", label: "Multi Template" },
+  { value: "standings", label: "Standings" },
 ];
 
 const LAYOUT_TYPES = [
-  { value: 'vertical_listing', label: 'Vertical Listing' },
-  { value: 'horizontal_listing', label: 'Horizontal Listing' },
-  { value: 'grid', label: 'Grid' },
-  { value: 'carousel_listing', label: 'Carousel' },
-  { value: 'tab_layout', label: 'Tabs' },
-  { value: 'table', label: 'Table' }
+  { value: "vertical_listing", label: "Vertical Listing" },
+  { value: "horizontal_listing", label: "Horizontal Listing" },
+  { value: "grid", label: "Grid" },
+  { value: "carousel_listing", label: "Carousel" },
+  { value: "tab_layout", label: "Tabs" },
+  { value: "table", label: "Table" },
 ];
 
-const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existingOrganisms, existingMolecules, onUpdate }) => {
+const TemplateBuilder = ({
+  onAdd,
+  handleAddComponent,
+  existingTemplates,
+  existingOrganisms,
+  existingMolecules,
+  onUpdate,
+}) => {
   const [template, setTemplate] = useState(emptyTemplate);
   const [showCompositionModal, setShowCompositionModal] = useState(false);
-  const [activeTab, setActiveTab] = useState('basic'); // 'basic', 'styles', 'composition'
+  const [activeTab, setActiveTab] = useState("basic"); // 'basic', 'styles', 'composition'
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAdd({
       ...template,
-      id: generateUUID()
+      id: generateUUID(),
     });
     setTemplate(emptyTemplate);
   };
 
   const handleAddComposition = (organismId) => {
-    setTemplate(prev => ({
+    setTemplate((prev) => ({
       ...prev,
       composition: [
         ...prev.composition,
         {
           visibility: true,
           component_type: "organism",
-          id: organismId
-        }
-      ]
+          id: organismId,
+        },
+      ],
     }));
   };
 
   const handleStyleChange = (key, value, nestedKey = null) => {
-    setTemplate(prev => ({
+    setTemplate((prev) => ({
       ...prev,
       styles: {
         ...prev.styles,
-        [key]: nestedKey 
-          ? { ...prev.styles[key], [nestedKey]: value }
-          : value
-      }
+        [key]: nestedKey ? { ...prev.styles[key], [nestedKey]: value } : value,
+      },
     }));
   };
 
   const handleCreateOrganism = (organism) => {
     // First add the organism
-    handleAddComponent('organism', organism);
+    handleAddComponent("organism", organism);
     // Then add it to the template's composition
     handleAddComposition(organism.id);
     setShowCompositionModal(false);
@@ -74,11 +79,13 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
   // Add template-specific configuration options
   const renderTemplateTypeOptions = () => {
     switch (template.template_type) {
-      case 'multi_template':
+      case "multi_template":
         return (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Child Templates</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Child Templates
+              </label>
               <div className="mt-2 space-y-4">
                 {template.data?.child_templates?.map((childTemplate, index) => (
                   <div key={index} className="border rounded-lg p-4 bg-gray-50">
@@ -89,12 +96,14 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                       <button
                         type="button"
                         onClick={() => {
-                          setTemplate(prev => ({
+                          setTemplate((prev) => ({
                             ...prev,
                             data: {
                               ...prev.data,
-                              child_templates: prev.data.child_templates.filter((_, i) => i !== index)
-                            }
+                              child_templates: prev.data.child_templates.filter(
+                                (_, i) => i !== index
+                              ),
+                            },
                           }));
                         }}
                         className="text-red-600 hover:text-red-800 text-sm"
@@ -103,24 +112,29 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                       </button>
                     </div>
                     <select
-                      value={childTemplate.id || ''}
+                      value={childTemplate.id || ""}
                       onChange={(e) => {
-                        const selectedTemplate = existingTemplates.find(t => t.id === e.target.value);
-                        setTemplate(prev => ({
+                        const selectedTemplate = existingTemplates.find(
+                          (t) => t.id === e.target.value
+                        );
+                        setTemplate((prev) => ({
                           ...prev,
                           data: {
                             ...prev.data,
-                            child_templates: prev.data.child_templates.map((t, i) => 
-                              i === index ? { ...selectedTemplate } : t
-                            )
-                          }
+                            child_templates: prev.data.child_templates.map(
+                              (t, i) =>
+                                i === index ? { ...selectedTemplate } : t
+                            ),
+                          },
                         }));
                       }}
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     >
                       <option value="">Select Template</option>
-                      {existingTemplates.map(t => (
-                        <option key={t.id} value={t.id}>{t.template_type}</option>
+                      {existingTemplates.map((t) => (
+                        <option key={t.id} value={t.id}>
+                          {t.template_type}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -128,15 +142,18 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                 <button
                   type="button"
                   onClick={() => {
-                    setTemplate(prev => ({
+                    setTemplate((prev) => ({
                       ...prev,
                       data: {
                         ...prev.data,
-                        child_templates: [...(prev.data?.child_templates || []), {}]
-                      }
+                        child_templates: [
+                          ...(prev.data?.child_templates || []),
+                          {},
+                        ],
+                      },
                     }));
                   }}
-                  className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                  className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-color_neu_00  hover:bg-gray-50"
                 >
                   Add Child Template
                 </button>
@@ -145,41 +162,51 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
           </div>
         );
 
-      case 'showcase':
+      case "showcase":
         return (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Content Type</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Content Type
+              </label>
               <input
                 type="text"
-                value={template.content_type || ''}
-                onChange={(e) => setTemplate(prev => ({
-                  ...prev,
-                  content_type: e.target.value
-                }))}
+                value={template.content_type || ""}
+                onChange={(e) =>
+                  setTemplate((prev) => ({
+                    ...prev,
+                    content_type: e.target.value,
+                  }))
+                }
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Data Configuration</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Data Configuration
+              </label>
               <div className="mt-2 space-y-4">
                 <input
                   type="text"
-                  value={template.data?.title || ''}
-                  onChange={(e) => setTemplate(prev => ({
-                    ...prev,
-                    data: { ...prev.data, title: e.target.value }
-                  }))}
+                  value={template.data?.title || ""}
+                  onChange={(e) =>
+                    setTemplate((prev) => ({
+                      ...prev,
+                      data: { ...prev.data, title: e.target.value },
+                    }))
+                  }
                   placeholder="Title"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                 />
                 <input
                   type="text"
-                  value={template.data?.sub_title || ''}
-                  onChange={(e) => setTemplate(prev => ({
-                    ...prev,
-                    data: { ...prev.data, sub_title: e.target.value }
-                  }))}
+                  value={template.data?.sub_title || ""}
+                  onChange={(e) =>
+                    setTemplate((prev) => ({
+                      ...prev,
+                      data: { ...prev.data, sub_title: e.target.value },
+                    }))
+                  }
                   placeholder="Subtitle"
                   className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                 />
@@ -188,17 +215,24 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
           </div>
         );
 
-      case 'squad':
+      case "squad":
         return (
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Squad View Type</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Squad View Type
+              </label>
               <select
                 value={template.properties.squad_view_type}
-                onChange={(e) => setTemplate(prev => ({
-                  ...prev,
-                  properties: { ...prev.properties, squad_view_type: e.target.value }
-                }))}
+                onChange={(e) =>
+                  setTemplate((prev) => ({
+                    ...prev,
+                    properties: {
+                      ...prev.properties,
+                      squad_view_type: e.target.value,
+                    },
+                  }))
+                }
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
                 <option value="">Select View Type</option>
@@ -208,36 +242,52 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Show Player Stats</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Show Player Stats
+              </label>
               <div className="mt-2">
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
                     checked={template.properties.show_player_stats}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, show_player_stats: e.target.checked }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          show_player_stats: e.target.checked,
+                        },
+                      }))
+                    }
                     className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Enable player statistics</span>
+                  <span className="ml-2 text-sm text-gray-700">
+                    Enable player statistics
+                  </span>
                 </label>
               </div>
             </div>
           </div>
         );
 
-      case 'fixture':
+      case "fixture":
         return (
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Fixture Type</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Fixture Type
+              </label>
               <select
                 value={template.properties.fixture_type}
-                onChange={(e) => setTemplate(prev => ({
-                  ...prev,
-                  properties: { ...prev.properties, fixture_type: e.target.value }
-                }))}
+                onChange={(e) =>
+                  setTemplate((prev) => ({
+                    ...prev,
+                    properties: {
+                      ...prev.properties,
+                      fixture_type: e.target.value,
+                    },
+                  }))
+                }
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
                 <option value="">Select Fixture Type</option>
@@ -247,36 +297,52 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Show Match Stats</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Show Match Stats
+              </label>
               <div className="mt-2">
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
                     checked={template.properties.show_match_stats}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, show_match_stats: e.target.checked }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          show_match_stats: e.target.checked,
+                        },
+                      }))
+                    }
                     className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Enable match statistics</span>
+                  <span className="ml-2 text-sm text-gray-700">
+                    Enable match statistics
+                  </span>
                 </label>
               </div>
             </div>
           </div>
         );
 
-      case 'standings':
+      case "standings":
         return (
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Standings Type</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Standings Type
+              </label>
               <select
                 value={template.properties.standings_type}
-                onChange={(e) => setTemplate(prev => ({
-                  ...prev,
-                  properties: { ...prev.properties, standings_type: e.target.value }
-                }))}
+                onChange={(e) =>
+                  setTemplate((prev) => ({
+                    ...prev,
+                    properties: {
+                      ...prev.properties,
+                      standings_type: e.target.value,
+                    },
+                  }))
+                }
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               >
                 <option value="">Select Type</option>
@@ -286,21 +352,33 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Display Options</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Display Options
+              </label>
               <div className="mt-2 space-y-2">
-                {['show_form', 'show_goals', 'show_points'].map(option => (
+                {["show_form", "show_goals", "show_points"].map((option) => (
                   <label key={option} className="flex items-center">
                     <input
                       type="checkbox"
                       checked={template.properties[option]}
-                      onChange={(e) => setTemplate(prev => ({
-                        ...prev,
-                        properties: { ...prev.properties, [option]: e.target.checked }
-                      }))}
+                      onChange={(e) =>
+                        setTemplate((prev) => ({
+                          ...prev,
+                          properties: {
+                            ...prev.properties,
+                            [option]: e.target.checked,
+                          },
+                        }))
+                      }
                       className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                     <span className="ml-2 text-sm text-gray-700">
-                      {option.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                      {option
+                        .split("_")
+                        .map(
+                          (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join(" ")}
                     </span>
                   </label>
                 ))}
@@ -329,14 +407,18 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
           {existingTemplates.length > 0 && (
             <select
               onChange={(e) => {
-                const selected = existingTemplates.find(t => t.id === e.target.value);
+                const selected = existingTemplates.find(
+                  (t) => t.id === e.target.value
+                );
                 if (selected) setTemplate(selected);
               }}
               className="text-sm border-gray-300 rounded-md"
             >
               <option value="">Load Template</option>
-              {existingTemplates.map(t => (
-                <option key={t.id} value={t.id}>{t.template_type}</option>
+              {existingTemplates.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.template_type}
+                </option>
               ))}
             </select>
           )}
@@ -344,18 +426,18 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
       </div>
 
       {/* Main Form */}
-      <div className="bg-white rounded-lg shadow">
+      <div className="bg-color_neu_00  rounded-lg shadow">
         {/* Tabs */}
         <div className="border-b border-gray-200">
           <nav className="flex -mb-px">
-            {['basic', 'styles', 'composition'].map((tab) => (
+            {["basic", "styles", "composition"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-6 text-sm font-medium border-b-2 ${
                   activeTab === tab
-                    ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    ? "border-indigo-500 text-indigo-600"
+                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                 }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -366,18 +448,25 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
 
         {/* Content */}
         <form onSubmit={handleSubmit} className="p-6">
-          {activeTab === 'basic' && (
+          {activeTab === "basic" && (
             <div className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Template Type</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Template Type
+                  </label>
                   <select
                     value={template.template_type}
-                    onChange={(e) => setTemplate({...template, template_type: e.target.value})}
+                    onChange={(e) =>
+                      setTemplate({
+                        ...template,
+                        template_type: e.target.value,
+                      })
+                    }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   >
                     <option value="">Select Template Type</option>
-                    {TEMPLATE_TYPES.map(type => (
+                    {TEMPLATE_TYPES.map((type) => (
                       <option key={type.value} value={type.value}>
                         {type.label}
                       </option>
@@ -385,17 +474,24 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Layout Type</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Layout Type
+                  </label>
                   <select
                     value={template.properties.layout_type}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, layout_type: e.target.value }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          layout_type: e.target.value,
+                        },
+                      }))
+                    }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   >
                     <option value="">Select Layout</option>
-                    {LAYOUT_TYPES.map(layout => (
+                    {LAYOUT_TYPES.map((layout) => (
                       <option key={layout.value} value={layout.value}>
                         {layout.label}
                       </option>
@@ -408,65 +504,92 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
               {renderTemplateTypeOptions()}
 
               {/* Layout-specific options */}
-              {template.properties.layout_type === 'grid' && (
+              {template.properties.layout_type === "grid" && (
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Columns</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Columns
+                    </label>
                     <input
                       type="number"
                       min="1"
                       max="12"
-                      value={template.properties.columns || ''}
-                      onChange={(e) => setTemplate(prev => ({
-                        ...prev,
-                        properties: { ...prev.properties, columns: e.target.value }
-                      }))}
+                      value={template.properties.columns || ""}
+                      onChange={(e) =>
+                        setTemplate((prev) => ({
+                          ...prev,
+                          properties: {
+                            ...prev.properties,
+                            columns: e.target.value,
+                          },
+                        }))
+                      }
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Row Gap</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Row Gap
+                    </label>
                     <TokenSelect
                       type="spacing"
                       value={template.properties.row_gap}
-                      onChange={(value) => setTemplate(prev => ({
-                        ...prev,
-                        properties: { ...prev.properties, row_gap: value }
-                      }))}
+                      onChange={(value) =>
+                        setTemplate((prev) => ({
+                          ...prev,
+                          properties: { ...prev.properties, row_gap: value },
+                        }))
+                      }
                     />
                   </div>
                 </div>
               )}
 
-              {template.properties.layout_type === 'carousel_listing' && (
+              {template.properties.layout_type === "carousel_listing" && (
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Items Per View</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Items Per View
+                    </label>
                     <input
                       type="number"
                       min="1"
-                      value={template.properties.items_per_view || ''}
-                      onChange={(e) => setTemplate(prev => ({
-                        ...prev,
-                        properties: { ...prev.properties, items_per_view: e.target.value }
-                      }))}
+                      value={template.properties.items_per_view || ""}
+                      onChange={(e) =>
+                        setTemplate((prev) => ({
+                          ...prev,
+                          properties: {
+                            ...prev.properties,
+                            items_per_view: e.target.value,
+                          },
+                        }))
+                      }
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700">Auto Play</label>
+                    <label className="block text-sm font-medium text-gray-700">
+                      Auto Play
+                    </label>
                     <div className="mt-2">
                       <label className="inline-flex items-center">
                         <input
                           type="checkbox"
                           checked={template.properties.auto_play}
-                          onChange={(e) => setTemplate(prev => ({
-                            ...prev,
-                            properties: { ...prev.properties, auto_play: e.target.checked }
-                          }))}
+                          onChange={(e) =>
+                            setTemplate((prev) => ({
+                              ...prev,
+                              properties: {
+                                ...prev.properties,
+                                auto_play: e.target.checked,
+                              },
+                            }))
+                          }
                           className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
-                        <span className="ml-2 text-sm text-gray-700">Enable auto play</span>
+                        <span className="ml-2 text-sm text-gray-700">
+                          Enable auto play
+                        </span>
                       </label>
                     </div>
                   </div>
@@ -475,13 +598,20 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Stack</label>
+                  <label className="block text-sm font-medium text-gray-700">
+                    Stack
+                  </label>
                   <select
                     value={template.properties.stack}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, stack: e.target.value }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          stack: e.target.value,
+                        },
+                      }))
+                    }
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                   >
                     <option value="">Select Stack</option>
@@ -497,10 +627,15 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                   <input
                     type="checkbox"
                     checked={template.properties.is_full_width}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, is_full_width: e.target.checked }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          is_full_width: e.target.checked,
+                        },
+                      }))
+                    }
                     className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
                   <span className="ml-2 text-sm text-gray-700">Full Width</span>
@@ -509,42 +644,53 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                   <input
                     type="checkbox"
                     checked={template.properties.section_gap}
-                    onChange={(e) => setTemplate(prev => ({
-                      ...prev,
-                      properties: { ...prev.properties, section_gap: e.target.checked }
-                    }))}
+                    onChange={(e) =>
+                      setTemplate((prev) => ({
+                        ...prev,
+                        properties: {
+                          ...prev.properties,
+                          section_gap: e.target.checked,
+                        },
+                      }))
+                    }
                     className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Section Gap</span>
+                  <span className="ml-2 text-sm text-gray-700">
+                    Section Gap
+                  </span>
                 </label>
               </div>
             </div>
           )}
 
-          {activeTab === 'styles' && (
+          {activeTab === "styles" && (
             <div className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <TokenSelect
                   type="colors"
                   value={template.styles.background_color}
-                  onChange={(value) => handleStyleChange('background_color', value)}
+                  onChange={(value) =>
+                    handleStyleChange("background_color", value)
+                  }
                   label="Background Color"
                 />
                 <TokenSelect
                   type="spacing"
                   value={template.styles.gap}
-                  onChange={(value) => handleStyleChange('gap', value)}
+                  onChange={(value) => handleStyleChange("gap", value)}
                   label="Gap"
                 />
               </div>
 
               <div className="grid grid-cols-4 gap-4">
-                {['top', 'right', 'bottom', 'left'].map(direction => (
+                {["top", "right", "bottom", "left"].map((direction) => (
                   <TokenSelect
                     key={direction}
                     type="spacing"
                     value={template.styles.padding[direction]}
-                    onChange={(value) => handleStyleChange('padding', value, direction)}
+                    onChange={(value) =>
+                      handleStyleChange("padding", value, direction)
+                    }
                     label={`Padding ${direction}`}
                   />
                 ))}
@@ -552,7 +698,7 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
             </div>
           )}
 
-          {activeTab === 'composition' && (
+          {activeTab === "composition" && (
             <div className="space-y-6">
               <div className="flex justify-between items-center">
                 <h3 className="text-sm font-medium text-gray-700">Organisms</h3>
@@ -561,8 +707,18 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                   onClick={() => setShowCompositionModal(true)}
                   className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
                 >
-                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  <svg
+                    className="w-4 h-4 mr-1.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 4v16m8-8H4"
+                    />
                   </svg>
                   Add Organism
                 </button>
@@ -570,15 +726,17 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
 
               <div className="space-y-2">
                 {template.composition?.map((item, index) => {
-                  const organism = existingOrganisms.find(org => org.id === item.id);
+                  const organism = existingOrganisms.find(
+                    (org) => org.id === item.id
+                  );
                   return (
-                    <div 
+                    <div
                       key={index}
                       className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                     >
                       <div className="flex items-center">
                         <span className="text-sm font-medium text-gray-900">
-                          {organism?.name || 'Unknown Organism'}
+                          {organism?.name || "Unknown Organism"}
                         </span>
                         <span className="ml-2 text-xs text-gray-500">
                           {item.id}
@@ -587,15 +745,27 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
                       <button
                         type="button"
                         onClick={() => {
-                          setTemplate(prev => ({
+                          setTemplate((prev) => ({
                             ...prev,
-                            composition: prev.composition.filter((_, i) => i !== index)
+                            composition: prev.composition.filter(
+                              (_, i) => i !== index
+                            ),
                           }));
                         }}
                         className="text-gray-400 hover:text-red-500"
                       >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -609,7 +779,7 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
             <button
               type="button"
               onClick={() => setTemplate(emptyTemplate)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+              className="px-4 py-2 text-sm font-medium text-gray-700 bg-color_neu_00  border border-gray-300 rounded-md hover:bg-gray-50"
             >
               Reset
             </button>
@@ -649,4 +819,4 @@ const TemplateBuilder = ({ onAdd, handleAddComponent, existingTemplates, existin
   );
 };
 
-export default TemplateBuilder; 
+export default TemplateBuilder;

@@ -17,12 +17,20 @@ export const processMolecules = (molecules, atomsOutput) => {
     const atomsDataOutput = {};
     if (Array.isArray(atomsData)) {
       atomsData.forEach((atom, index) => {
-        atomsDataOutput[atom.name] = {
-          ...atom,
-          ...atomsOutput[atom.id],
-          order: index,
-          visibility: atom.visibility || false,
-        };
+        // Handle both legacy string references and new object structure with id
+        const atomId = typeof atom === "string" ? atom : atom.id;
+        const atomObj = atomsOutput[atomId];
+
+        if (atomObj) {
+          const key = atom.name || atomObj.name || `atom_${index}`;
+          atomsDataOutput[key] = {
+            ...atomObj,
+            name: atom.name || atomObj.name, // Use name if available
+            order: index,
+            visibility: atom.visibility !== false,
+            translation_key: atom.translation_key || "",
+          };
+        }
       });
     }
     moleculesOutput[molecule].atoms = atomsDataOutput;
@@ -30,17 +38,26 @@ export const processMolecules = (molecules, atomsOutput) => {
 
   return moleculesOutput;
 };
+
 export const processMolecule = (molecule, atomsOutput) => {
   let { atoms } = molecule;
   let atomOutput = {};
   if (Array.isArray(atoms)) {
     atoms.forEach((atom, index) => {
-      atomOutput[atom.name] = {
-        ...atom,
-        ...atomsOutput[atom.id],
-        order: index,
-        visibility: atom.visibility || false,
-      };
+      // Handle both legacy string references and new object structure with id
+      const atomId = typeof atom === "string" ? atom : atom.id;
+      const atomObj = atomsOutput[atomId];
+
+      if (atomObj) {
+        const key = atom.name || atomObj.name || `atom_${index}`;
+        atomOutput[key] = {
+          ...atomObj,
+          name: atom.name || atomObj.name, // Use name if available
+          order: index,
+          visibility: atom.visibility !== false,
+          translation_key: atom.translation_key || "",
+        };
+      }
     });
   }
 

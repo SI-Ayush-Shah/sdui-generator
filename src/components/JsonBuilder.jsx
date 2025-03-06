@@ -110,13 +110,20 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         return;
       }
 
+      // Remove data property from molecules to prevent dummy data storage
+      let componentToAdd = component;
+      if (type === "molecule" && component.data) {
+        const { data, ...componentWithoutData } = component;
+        componentToAdd = componentWithoutData;
+      }
+
       const newData = {
         ...jsonData,
         data: {
           ...jsonData.data,
           components: {
             ...jsonData.data.components,
-            [type]: [...(jsonData.data.components[type] || []), component],
+            [type]: [...(jsonData.data.components[type] || []), componentToAdd],
           },
         },
       };
@@ -130,6 +137,13 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
   };
 
   const handleUpdateComponent = (type, index, component) => {
+    // Remove data property from molecules to prevent dummy data storage
+    let componentToUpdate = component;
+    if (type === "molecule" && component.data) {
+      const { data, ...componentWithoutData } = component;
+      componentToUpdate = componentWithoutData;
+    }
+
     setJsonData((prev) => ({
       ...prev,
       data: {
@@ -137,7 +151,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         components: {
           ...prev.data.components,
           [type]: prev.data.components[type].map((item, i) =>
-            i === index ? component : item
+            i === index ? componentToUpdate : item
           ),
         },
       },
@@ -473,12 +487,61 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     }
   };
 
+  // Clean up all molecules in the schema by removing data properties
+  const cleanupMoleculeData = async () => {
+    try {
+      // Make a deep copy of the current schema
+      const updatedSchema = JSON.parse(JSON.stringify(jsonData));
+
+      // Check if there are molecules with data properties
+      let hasDataProperties = false;
+
+      // Remove data properties from all molecules
+      if (updatedSchema.data?.components?.molecule) {
+        updatedSchema.data.components.molecule =
+          updatedSchema.data.components.molecule.map((molecule) => {
+            if (molecule.data) {
+              hasDataProperties = true;
+              const { data, ...moleculeWithoutData } = molecule;
+              return moleculeWithoutData;
+            }
+            return molecule;
+          });
+
+        if (hasDataProperties) {
+          // Save the updated schema
+          await updateSduiSchema(updatedSchema);
+          setJsonData(updatedSchema);
+          toast.success("Removed data properties from all molecules");
+        } else {
+          toast.info("No molecules with data properties found");
+        }
+      }
+    } catch (error) {
+      console.error("Error cleaning up molecule data:", error);
+      toast.error("Failed to clean up molecule data");
+    }
+  };
+
   return (
     <TokenProvider tokens={jsonData.data.tokens}>
       <div className="min-h-screen bg-background_main_surface">
         <nav className="bg-background_main_surface border-b border-border_main_default">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-end h-16 items-center">
+            <div className="flex justify-between h-16 items-center">
+              {/* Left side - Utility buttons */}
+              <div className="flex items-center space-x-4">
+                {defaultSection === "molecules" && (
+                  <button
+                    onClick={cleanupMoleculeData}
+                    className="px-4 py-2 text-sm font-medium bg-background_main_container text-text_main_medium hover:bg-background_main_hover border border-border_main_default rounded-md"
+                  >
+                    Remove Data Properties
+                  </button>
+                )}
+              </div>
+
+              {/* Right side - Mode selector */}
               <div className="flex items-center space-x-4">
                 <div className="flex rounded-md shadow-sm" role="group">
                   <button
@@ -502,12 +565,6 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
                     View Mode
                   </button>
                 </div>
-                <button className="bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default px-4 py-2 rounded-md hover:bg-button_filled_style_3_surface_hover">
-                  Import JSON
-                </button>
-                <button className="bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default px-4 py-2 rounded-md hover:bg-button_filled_style_3_surface_hover">
-                  Export JSON
-                </button>
               </div>
             </div>
           </div>

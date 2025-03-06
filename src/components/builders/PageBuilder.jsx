@@ -1,27 +1,35 @@
-import React, { useState } from 'react';
-import { generateUUID } from '../../utils/uuid';
+import React, { useState } from "react";
+import { generateUUID } from "../../utils/uuid";
 
-const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, selectedPage }) => {
-  const [page, setPage] = useState(selectedPage || {
-    id: '',
-    page_type: '',
-    device: 'mobile',
-    screen_name: '',
-    force_back: '',
-    theme: {
-      main_theme: '',
-      micro_theme: ''
-    },
-    meta: {
-      language: 'en',
-      keywords: '',
-      meta_desc: '',
-      browser_title: '',
-      canonical_url: '',
-      // ... other meta fields
-    },
-    templates: []
-  });
+const PageBuilder = ({
+  onAdd,
+  existingPages,
+  existingTemplates,
+  onUpdate,
+  selectedPage,
+}) => {
+  const [page, setPage] = useState(
+    selectedPage || {
+      id: "",
+      page_type: "",
+      device: "mobile",
+      screen_name: "",
+      force_back: "",
+      theme: {
+        main_theme: "",
+        micro_theme: "",
+      },
+      meta: {
+        language: "en",
+        keywords: "",
+        meta_desc: "",
+        browser_title: "",
+        canonical_url: "",
+        // ... other meta fields
+      },
+      templates: [],
+    }
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,16 +38,16 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
     } else {
       onAdd({
         ...page,
-        id: generateUUID()
+        id: generateUUID(),
       });
     }
   };
 
   return (
-    <div className="bg-white rounded-lg shadow">
+    <div className="bg-color_neu_00  rounded-lg shadow">
       <div className="p-6 border-b border-gray-200">
         <h2 className="text-lg font-medium text-gray-900">
-          {selectedPage ? 'Edit Page' : 'Create New Page'}
+          {selectedPage ? "Edit Page" : "Create New Page"}
         </h2>
       </div>
 
@@ -47,20 +55,28 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
         {/* Basic Info */}
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Screen Name</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Screen Name
+            </label>
             <input
               type="text"
               value={page.screen_name}
-              onChange={(e) => setPage(prev => ({ ...prev, screen_name: e.target.value }))}
+              onChange={(e) =>
+                setPage((prev) => ({ ...prev, screen_name: e.target.value }))
+              }
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Page Type</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Page Type
+            </label>
             <input
               type="text"
               value={page.page_type}
-              onChange={(e) => setPage(prev => ({ ...prev, page_type: e.target.value }))}
+              onChange={(e) =>
+                setPage((prev) => ({ ...prev, page_type: e.target.value }))
+              }
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             />
           </div>
@@ -68,17 +84,23 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
 
         {/* Meta Information */}
         <div className="space-y-4">
-          <h3 className="text-sm font-medium text-gray-900">Meta Information</h3>
+          <h3 className="text-sm font-medium text-gray-900">
+            Meta Information
+          </h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Browser Title</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Browser Title
+              </label>
               <input
                 type="text"
                 value={page.meta.browser_title}
-                onChange={(e) => setPage(prev => ({
-                  ...prev,
-                  meta: { ...prev.meta, browser_title: e.target.value }
-                }))}
+                onChange={(e) =>
+                  setPage((prev) => ({
+                    ...prev,
+                    meta: { ...prev.meta, browser_title: e.target.value },
+                  }))
+                }
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
@@ -92,20 +114,29 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
             <h3 className="text-sm font-medium text-gray-900">Templates</h3>
             <button
               type="button"
-              onClick={() => {/* Show template selection modal */}}
+              onClick={() => {
+                /* Show template selection modal */
+              }}
               className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
             >
               Add Template
             </button>
           </div>
-          
+
           <div className="space-y-2">
             {page.templates?.map((template, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <span className="text-sm font-medium">{template.template_type}</span>
+              <div
+                key={index}
+                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+              >
+                <span className="text-sm font-medium">
+                  {template.template_type}
+                </span>
                 <button
                   type="button"
-                  onClick={() => {/* Remove template */}}
+                  onClick={() => {
+                    /* Remove template */
+                  }}
                   className="text-red-600 hover:text-red-800"
                 >
                   Remove
@@ -118,8 +149,10 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
         <div className="flex justify-end space-x-3">
           <button
             type="button"
-            onClick={() => {/* Reset form */}}
-            className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+            onClick={() => {
+              /* Reset form */
+            }}
+            className="px-4 py-2 text-sm font-medium text-gray-700 bg-color_neu_00  border border-gray-300 rounded-md hover:bg-gray-50"
           >
             Reset
           </button>
@@ -127,7 +160,7 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
             type="submit"
             className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700"
           >
-            {selectedPage ? 'Update Page' : 'Create Page'}
+            {selectedPage ? "Update Page" : "Create Page"}
           </button>
         </div>
       </form>
@@ -135,4 +168,4 @@ const PageBuilder = ({ onAdd, existingPages, existingTemplates, onUpdate, select
   );
 };
 
-export default PageBuilder; 
+export default PageBuilder;
