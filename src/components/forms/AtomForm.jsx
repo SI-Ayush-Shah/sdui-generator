@@ -161,8 +161,14 @@ const AtomForm = ({
       e.stopPropagation();
     }
 
+    // Generate a new ID if in create mode, otherwise keep the existing ID
+    const finalAtomData = {
+      ...atomData,
+      id: mode === 'create' ? generateUniqueId('atom') : atomData.id
+    };
+
     // Pass the atom data to the parent component's submit handler
-    onSubmit(atomData);
+    onSubmit(finalAtomData);
     
     // Return false to prevent form submission
     return false;

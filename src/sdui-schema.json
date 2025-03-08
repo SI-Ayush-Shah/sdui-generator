@@ -7615,6 +7615,48 @@
               "visibility": false
             }
           ]
+        },
+        {
+          "id": "molecule_58e3f426-55d3-446c-b154-faa988a7fdfb_1741433606252_6370",
+          "name": "molecule_footer_action",
+          "properties": {
+            "stack": "",
+            "sub_variant": "",
+            "variant": ""
+          },
+          "styles": {
+            "background_color": "",
+            "border_color": "",
+            "border_radius": {
+              "bottom_left": "",
+              "bottom_right": "",
+              "top_left": "",
+              "top_right": ""
+            },
+            "border_width": "",
+            "gap": "",
+            "gradient": "",
+            "offset": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "padding": {
+              "top": "",
+              "right": "",
+              "bottom": "",
+              "left": ""
+            }
+          },
+          "atoms": [
+            {
+              "id": "bc7b3177-ba8f-40e5-8311-c468ff2373c6",
+              "name": "button_view_more",
+              "visibility": true,
+              "translation_key": ""
+            }
+          ]
         }
       ],
       "atom": [
@@ -9289,6 +9331,18 @@
           },
           "border_color": "background_invert_card",
           "gradient": "gradient_nue_vert_1_light"
+        },
+        {
+          "id": "atom_88fc13c1-a842-481c-90b5-bf7340112cfb_1741433570368_7619",
+          "atom_type": "text",
+          "background_color": "",
+          "text_color": "",
+          "border_radius": {
+            "top_left": "",
+            "top_right": "",
+            "bottom_left": "",
+            "bottom_right": ""
+          }
         }
       ]
     },
@@ -10543,9 +10597,8 @@
   },
   "meta": {
     "status": 200,
-    "timestamp": "2025-03-08T04:09:41.590Z",
-    "request_id": "301cfb0a-2335-4e53-b604-3e23176e1185",
-    "execution_time_ms": 0,
-    "app_version": "1.0.0"
-  }
+    "timestamp": "2025-03-08T11:32:55.217Z"
+  },
+  "pages": [],
+  "shouldRefresh": true
 }

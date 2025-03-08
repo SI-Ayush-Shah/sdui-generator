@@ -179,13 +179,16 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
           ...jsonData.data,
           components: {
             ...jsonData.data.components,
-            atom: mergeComponents(json.data.components.atom || [], tempAtoms),
-            molecule: mergeComponents(json.data.components.molecule || [], tempMolecules),
-            organism: mergeComponents(json.data.components.organism || [], tempOrganisms),
-            template: mergeComponents(json.data.components.template || [], tempTemplates),
+            atom: mergeComponents(jsonData.data.components.atom || [], tempAtoms),
+            molecule: mergeComponents(jsonData.data.components.molecule || [], tempMolecules),
+            organism: mergeComponents(jsonData.data.components.organism || [], tempOrganisms),
+            template: mergeComponents(jsonData.data.components.template || [], tempTemplates),
           }
         }
       };
+      
+      // Log the data being sent to ensure it's valid
+      console.log('Applying schema update:', updatedSchema);
       
       // Update the schema file
       await updateSduiSchema(updatedSchema, true);
@@ -196,10 +199,13 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
       // Reset pending changes state
       setHasPendingChangesState(false);
       
+      // Update the local state with the new schema to keep UI in sync
+      setJsonData(updatedSchema);
+      
       toast.success("All changes applied successfully");
     } catch (error) {
       console.error("Error applying changes:", error);
-      toast.error("Failed to apply changes");
+      toast.error(`Failed to apply changes: ${error.message}`);
     }
   };
   
