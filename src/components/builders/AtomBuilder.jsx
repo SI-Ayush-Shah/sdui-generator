@@ -22,11 +22,22 @@ const defaultAtomData = {
   gradient: "",
 };
 
-const AtomBuilder = ({ onSubmit, onCancel, existingAtoms, inline = false }) => {
+const AtomBuilder = ({ onAdd, onSubmit, onCancel, existingAtoms, inline = false }) => {
   const [atomData, setAtomData] = useState(defaultAtomData);
 
   const handleClearForm = () => {
     setAtomData(defaultAtomData);
+  };
+
+  // Use onAdd if provided, otherwise fall back to onSubmit
+  const handleFormSubmit = (data) => {
+    if (onAdd) {
+      onAdd(data);
+    } else if (onSubmit) {
+      onSubmit(data);
+    } else {
+      console.warn("Neither onAdd nor onSubmit prop provided to AtomBuilder");
+    }
   };
 
   return (
@@ -73,7 +84,7 @@ const AtomBuilder = ({ onSubmit, onCancel, existingAtoms, inline = false }) => {
 
         <div className={`${inline ? "" : "p-6"}`}>
           <AtomForm
-            onSubmit={onSubmit}
+            onSubmit={handleFormSubmit}
             onCancel={onCancel}
             mode="create"
             inline={inline}

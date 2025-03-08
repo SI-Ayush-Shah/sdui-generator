@@ -38,6 +38,8 @@ const createEmptyAtom = () => ({
   },
   border_color: "",
   gradient: "",
+  full_width: false,
+  no_padding: false,
 });
 
 const AtomForm = ({
@@ -227,6 +229,47 @@ const AtomForm = ({
                           }
                         />
                       </div>
+                      
+                      {/* Toggle switches for button */}
+                      <div className="flex flex-col gap-4 mt-4">
+                        <div className="flex items-center justify-between">
+                          <label className="text-sm font-medium text-text_main_high">
+                            Full Width
+                          </label>
+                          <div className="ml-auto">
+                            <label className="inline-flex items-center cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={atomData.full_width || false}
+                                onChange={(e) =>
+                                  handlePropertyChange("full_width", e.target.checked)
+                                }
+                                className="sr-only peer"
+                              />
+                              <div className="relative w-11 h-6 bg-background_main_container peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-background_prim_surface rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-background_prim_surface"></div>
+                            </label>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <label className="text-sm font-medium text-text_main_high">
+                            No Padding
+                          </label>
+                          <div className="ml-auto">
+                            <label className="inline-flex items-center cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={atomData.no_padding || false}
+                                onChange={(e) =>
+                                  handlePropertyChange("no_padding", e.target.checked)
+                                }
+                                className="sr-only peer"
+                              />
+                              <div className="relative w-11 h-6 bg-background_main_container peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-background_prim_surface rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-background_prim_surface"></div>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </>
                   )}
                   {atomData.atom_type === "badge" && (
@@ -257,6 +300,47 @@ const AtomForm = ({
                             handlePropertyChange("size", value)
                           }
                         />
+                      </div>
+                      
+                      {/* Toggle switches for badge */}
+                      <div className="flex flex-col gap-4 mt-4">
+                        <div className="flex items-center justify-between">
+                          <label className="text-sm font-medium text-text_main_high">
+                            Full Width
+                          </label>
+                          <div className="ml-auto">
+                            <label className="inline-flex items-center cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={atomData.full_width || false}
+                                onChange={(e) =>
+                                  handlePropertyChange("full_width", e.target.checked)
+                                }
+                                className="sr-only peer"
+                              />
+                              <div className="relative w-11 h-6 bg-background_main_container peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-background_prim_surface rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-background_prim_surface"></div>
+                            </label>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <label className="text-sm font-medium text-text_main_high">
+                            No Padding
+                          </label>
+                          <div className="ml-auto">
+                            <label className="inline-flex items-center cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={atomData.no_padding || false}
+                                onChange={(e) =>
+                                  handlePropertyChange("no_padding", e.target.checked)
+                                }
+                                className="sr-only peer"
+                              />
+                              <div className="relative w-11 h-6 bg-background_main_container peer-focus:outline-none peer-focus:ring-1 peer-focus:ring-background_prim_surface rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-background_prim_surface"></div>
+                            </label>
+                          </div>
+                        </div>
                       </div>
                     </>
                   )}

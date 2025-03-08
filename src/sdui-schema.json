@@ -9269,6 +9269,26 @@
           "gradient": "gradients_nue_vert_1",
           "play": false,
           "ratio": "4:3"
+        },
+        {
+          "id": "6942db71-350d-4f35-8a33-4b66f42bff00",
+          "name": "badge",
+          "atom_type": "badge",
+          "typography": "",
+          "size": "medium",
+          "variant": "primary",
+          "sub_variant": "only_text",
+          "background_color": "background_alert_success",
+          "text_color": "background_alert_warning",
+          "border_width": 1,
+          "border_radius": {
+            "top_left": "radius_sm",
+            "top_right": "radius_sm",
+            "bottom_left": "radius_md",
+            "bottom_right": "radius_md"
+          },
+          "border_color": "background_invert_card",
+          "gradient": "gradient_nue_vert_1_light"
         }
       ]
     },
@@ -10523,8 +10543,8 @@
   },
   "meta": {
     "status": 200,
-    "timestamp": "2025-03-05T15:15:48.401Z",
-    "request_id": "7b18d918-8fd3-4175-ae2e-b2ff1b27997c",
+    "timestamp": "2025-03-08T04:09:41.590Z",
+    "request_id": "301cfb0a-2335-4e53-b604-3e23176e1185",
     "execution_time_ms": 0,
     "app_version": "1.0.0"
   }
