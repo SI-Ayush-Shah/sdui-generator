@@ -41,6 +41,7 @@ import {
 import { Button, Text, Badge, Img } from "@sikit/ui";
 import { componentMap } from "../../molecules-mapper/molecules-map.jsx";
 import { processAtoms, processMolecule } from "../../utils/compile.js";
+import AtomForm from "../forms/AtomForm";
 
 // Test environment variables
 const apiUrl = process.env.VITE_API_URL;
@@ -100,6 +101,11 @@ const MoleculeBuilder = ({
   const [showCustomNameModal, setShowCustomNameModal] = useState(false);
   const [customAtomName, setCustomAtomName] = useState("");
   const [customTranslationKey, setCustomTranslationKey] = useState("");
+
+  // State for controlling modals
+  const [showAtomCreationModal, setShowAtomCreationModal] = useState(false);
+  const [selectedAtomType, setSelectedAtomType] = useState(null);
+  const [selectedAtomName, setSelectedAtomName] = useState('');
 
   // Debug log for component map and available molecule names
   useEffect(() => {
@@ -790,36 +796,11 @@ const MoleculeBuilder = ({
                                           <button
                                             type="button"
                                             onClick={() => {
-                                              // Create a new atom directly with the suggested name and type
-                                              // Create the atom immediately and add it to the molecule
-                                              const newAtom = {
-                                                id: generateUUID(),
-                                                name: `${
-                                                  atomOption.value
-                                                }_${Date.now().toString(36)}`,
-                                                atom_type: atomOption.type,
-                                                styles: {},
-                                                properties: {},
-                                              };
-
-                                              // Add to global atoms
-                                              handleAddComponent(
-                                                "atom",
-                                                newAtom,
-                                                false
-                                              );
-
-                                              // Add to molecule with the suggested name
-                                              handleAddAtom(
-                                                newAtom.id,
-                                                atomOption.value,
-                                                ""
-                                              );
-
-                                              // Close the modal
+                                              // Open the atom creation modal with prefilled type
+                                              setSelectedAtomType(atomOption.type);
+                                              setSelectedAtomName(atomOption.value);
+                                              setShowAtomCreationModal(true);
                                               setShowCustomNameModal(false);
-                                              setCustomAtomName("");
-                                              setCustomTranslationKey("");
                                             }}
                                             className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
                                           >
@@ -1328,36 +1309,11 @@ const MoleculeBuilder = ({
                                     <button
                                       type="button"
                                       onClick={() => {
-                                        // Create a new atom directly with the suggested name and type
-                                        // Create the atom immediately and add it to the molecule
-                                        const newAtom = {
-                                          id: generateUUID(),
-                                          name: `${
-                                            suggestion.name
-                                          }_${Date.now().toString(36)}`,
-                                          atom_type: suggestion.type,
-                                          styles: {},
-                                          properties: {},
-                                        };
-
-                                        // Add to global atoms
-                                        handleAddComponent(
-                                          "atom",
-                                          newAtom,
-                                          false
-                                        );
-
-                                        // Add to molecule with the suggested name
-                                        handleAddAtom(
-                                          newAtom.id,
-                                          suggestion.name,
-                                          ""
-                                        );
-
-                                        // Close the modal
+                                        // Open the atom creation modal with prefilled type
+                                        setSelectedAtomType(suggestion.type);
+                                        setSelectedAtomName(suggestion.name);
+                                        setShowAtomCreationModal(true);
                                         setShowCustomNameModal(false);
-                                        setCustomAtomName("");
-                                        setCustomTranslationKey("");
                                       }}
                                       className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
                                     >
@@ -1504,7 +1460,27 @@ const MoleculeBuilder = ({
                 Cancel
               </button>
               <button
-                onClick={handleCustomNameSubmit}
+                onClick={
+                  selectedAtomId
+                    ? handleCustomNameSubmit
+                    : () => {
+                        // Open the atom creation form when creating a new atom
+                        let atomType = ATOM_TYPES.TEXT; // Default type
+                        
+                        // If we have a molecule name, try to determine the type from the structure
+                        if (molecule.name && customAtomName) {
+                          const structure = getAtomStructureForMolecule(molecule.name);
+                          if (structure && structure[customAtomName]) {
+                            atomType = structure[customAtomName].type;
+                          }
+                        }
+                        
+                        setSelectedAtomType(atomType);
+                        setSelectedAtomName(customAtomName);
+                        setShowAtomCreationModal(true);
+                        setShowCustomNameModal(false);
+                      }
+                }
                 disabled={!customAtomName.trim()}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
                   customAtomName.trim()
@@ -1514,6 +1490,78 @@ const MoleculeBuilder = ({
               >
                 {selectedAtomId ? "Add to Molecule" : "Create & Add"}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Atom Creation Modal */}
+      {showAtomCreationModal && (
+        <div className="fixed inset-0 bg-[#000]/50 flex items-center justify-center z-50">
+          <div className="bg-color_neu_00 rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="border-b border-border_main_default bg-background_main_card px-6 py-3 flex justify-between items-center">
+              <h3 className="text-lg font-semibold text-text_main_high">
+                Create New Atom: {selectedAtomName}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setShowAtomCreationModal(false)}
+                className="text-text_main_medium hover:text-text_main_high"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <AtomForm
+                initialData={{
+                  id: generateUUID(),
+                  name: selectedAtomName,
+                  atom_type: selectedAtomType,
+                }}
+                disableTypeSelection={true}
+                onSubmit={(atomData) => {
+                  // Prevent default form submission
+                  event && event.preventDefault && event.preventDefault();
+                  
+                  try {
+                    // Add to global atoms
+                    handleAddComponent("atom", atomData, false);
+                    
+                    // Add to the molecule with the selected name
+                    handleAddAtom(atomData.id, selectedAtomName, '');
+                    
+                    // Close the modal
+                    setShowAtomCreationModal(false);
+                    setSelectedAtomType(null);
+                    setSelectedAtomName('');
+                  } catch (error) {
+                    console.error("Error creating atom:", error);
+                  }
+                  
+                  return false;
+                }}
+                onCancel={() => {
+                  setShowAtomCreationModal(false);
+                  setSelectedAtomType(null);
+                  setSelectedAtomName('');
+                }}
+                mode="create"
+                inline={true}
+              />
             </div>
           </div>
         </div>

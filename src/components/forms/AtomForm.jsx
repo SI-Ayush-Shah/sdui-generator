@@ -62,6 +62,7 @@ const AtomForm = ({
   mode = "create",
   inline = false,
   onReset,
+  disableTypeSelection = false,
 }) => {
   // Initialize state
   const [activeTab, setActiveTab] = useState("basic");
@@ -197,7 +198,7 @@ const AtomForm = ({
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" onSubmit={(e) => e.preventDefault()}>
       <div className="grid grid-cols-12 gap-6">
         {/* Left Column */}
         <div className="col-span-8">
@@ -224,7 +225,7 @@ const AtomForm = ({
                   options={ATOM_TYPES}
                   value={atomData.atom_type || "button"}
                   onChange={(value) => handlePropertyChange("atom_type", value)}
-                  disabled={mode === "edit"}
+                  disabled={disableTypeSelection}
                 />
               </div>
             </div>
@@ -696,7 +697,12 @@ const AtomForm = ({
         </button>
         <button
           type="button"
-          onClick={handleSubmit}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleSubmit();
+            return false;
+          }}
           className="px-4 py-2 text-sm font-medium text-button_filled_style_2_text_icon_default bg-button_filled_style_2_surface_default rounded-md hover:bg-button_filled_style_2_surface_hover transition-colors"
         >
           {mode === "create" ? "Create Atom" : "Save Changes"}

@@ -1,11 +1,16 @@
-export const updateSduiSchema = async (newData) => {
+export const updateSduiSchema = async (newData, shouldRefresh = true) => {
   try {
+    const dataWithFlag = {
+      ...newData,
+      shouldRefresh
+    };
+    
     const response = await fetch('/api/update-schema', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newData),
+      body: JSON.stringify(dataWithFlag),
     });
     
     if (!response.ok) {

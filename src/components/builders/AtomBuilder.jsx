@@ -16,11 +16,17 @@ const AtomBuilder = ({ onAdd, onSubmit, onCancel, existingAtoms, inline = false 
   // Use onAdd if provided, otherwise fall back to onSubmit
   const handleFormSubmit = (data) => {
     try {
-      // First call the appropriate handler
+      // Create a copy of the data to avoid mutating the original
+      const atomData = { ...data };
+      
+      // Set a flag to indicate this update should not trigger a refresh
+      const shouldRefresh = false;
+      
+      // First call the appropriate handler with the shouldRefresh flag
       if (onAdd) {
-        onAdd(data);
+        onAdd(atomData, shouldRefresh);
       } else if (onSubmit) {
-        onSubmit(data);
+        onSubmit(atomData, shouldRefresh);
       } else {
         console.warn("Neither onAdd nor onSubmit prop provided to AtomBuilder");
         return; // Don't navigate if no handler was called

@@ -33,30 +33,77 @@ export default defineConfig(({ mode }) => {
                 try {
                   const data = JSON.parse(body);
                   const schemaPath = path.resolve("./src/sdui-schema.json");
+                  
+                  // Check if this update should avoid triggering a refresh
+                  const shouldRefresh = data.shouldRefresh !== false;
+                  
+                  if (!shouldRefresh) {
+                    // For updates that shouldn't refresh, write to a temporary file instead
+                    // This prevents Vite's HMR from detecting the change and refreshing
+                    const tempPath = path.resolve("./src/sdui-schema-temp.json");
+                    
+                    // Read existing file to preserve tokens
+                    const existingData = await fs.promises.readFile(
+                      schemaPath,
+                      "utf-8"
+                    );
+                    const existingJson = JSON.parse(existingData);
+                    
+                    // Merge data, preserving tokens
+                    const newData = {
+                      ...data,
+                      data: {
+                        ...data.data,
+                        tokens: data.data.tokens || existingJson.data.tokens,
+                      },
+                    };
+                    
+                    // Write to temp file
+                    await fs.promises.writeFile(
+                      tempPath,
+                      JSON.stringify(newData, null, 2)
+                    );
+                    
+                    // After a slight delay, copy the temp file to the actual schema file
+                    // This happens after the response is sent, so it won't affect the current request
+                    setTimeout(async () => {
+                      try {
+                        const tempData = await fs.promises.readFile(tempPath, "utf-8");
+                        await fs.promises.writeFile(schemaPath, tempData);
+                        console.log("Schema updated without triggering refresh");
+                      } catch (err) {
+                        console.error("Error updating schema file:", err);
+                      }
+                    }, 500);
+                    
+                    res.setHeader("Content-Type", "application/json");
+                    res.end(JSON.stringify({ success: true, refreshed: false }));
+                  } else {
+                    // Standard update that allows refresh
+                    // Read existing file to preserve tokens
+                    const existingData = await fs.promises.readFile(
+                      schemaPath,
+                      "utf-8"
+                    );
+                    const existingJson = JSON.parse(existingData);
 
-                  // Read existing file to preserve tokens
-                  const existingData = await fs.promises.readFile(
-                    schemaPath,
-                    "utf-8"
-                  );
-                  const existingJson = JSON.parse(existingData);
+                    // Merge data, preserving tokens
+                    const newData = {
+                      ...data,
+                      data: {
+                        ...data.data,
+                        tokens: data.data.tokens || existingJson.data.tokens,
+                      },
+                    };
 
-                  // Merge data, preserving tokens
-                  const newData = {
-                    ...data,
-                    data: {
-                      ...data.data,
-                      tokens: data.data.tokens || existingJson.data.tokens,
-                    },
-                  };
+                    await fs.promises.writeFile(
+                      schemaPath,
+                      JSON.stringify(newData, null, 2)
+                    );
 
-                  await fs.promises.writeFile(
-                    schemaPath,
-                    JSON.stringify(newData, null, 2)
-                  );
-
-                  res.setHeader("Content-Type", "application/json");
-                  res.end(JSON.stringify({ success: true }));
+                    res.setHeader("Content-Type", "application/json");
+                    res.end(JSON.stringify({ success: true, refreshed: true }));
+                  }
                 } catch (error) {
                   console.error("Error handling request:", error);
                   res.statusCode = 500;

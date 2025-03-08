@@ -138,7 +138,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         toast.success("Component added successfully");
       } else {
         // Still persist to server in background, but don't show toasts or wait for completion
-        updateSduiSchema(updatedData).catch((error) => {
+        updateSduiSchema(updatedData, false).catch((error) => {
           console.error("Error saving in background:", error);
         });
       }
@@ -369,7 +369,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
             {/* Create Atom Section */}
             <div className="bg-background_main_surface rounded-lg shadow-sm border border-border_main_default">
               <AtomBuilder
-                onAdd={(atom) => handleAddComponent("atom", atom)}
+                onAdd={(atom, shouldRefresh = true) => handleAddComponent("atom", atom, shouldRefresh)}
                 existingAtoms={jsonData.data.components.atom || []}
                 onUpdate={(index, atom) =>
                   handleUpdateComponent("atom", index, atom)
