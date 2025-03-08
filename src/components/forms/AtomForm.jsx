@@ -19,28 +19,41 @@ const TABS = [
 ];
 
 // Create default empty atom data structure
-const createEmptyAtom = () => ({
-  id: crypto.randomUUID(),
-  name: "",
-  atom_type: "button",
-  typography: "",
-  size: "medium",
-  variant: "primary",
-  sub_variant: "only_text",
-  background_color: "",
-  text_color: "",
-  border_width: "",
-  border_radius: {
-    top_left: "",
-    top_right: "",
-    bottom_left: "",
-    bottom_right: "",
-  },
-  border_color: "",
-  gradient: "",
-  full_width: false,
-  no_padding: false,
-});
+export const createEmptyAtom = (type = "button") => {
+  const baseAtom = {
+    id: crypto.randomUUID(),
+    name: "",
+    atom_type: type,
+    size: "medium",
+    variant: "primary",
+    sub_variant: "only_text",
+    background_color: "",
+    text_color: "",
+    border_width: "",
+    border_radius: {
+      top_left: "",
+      top_right: "",
+      bottom_left: "",
+      bottom_right: "",
+    },
+    border_color: "",
+    gradient: "",
+    full_width: false,
+    no_padding: false,
+  };
+
+  // Set properties specific to text atoms
+  if (type === "text") {
+    baseAtom.typography = "body_md_regular";
+    baseAtom.text_color = "text_main_high"; // Default text color
+    baseAtom.clamp = 1; // Default line clamp (no clamp)
+    baseAtom.align = "left"; // Default text alignment
+  } else {
+    baseAtom.typography = "";
+  }
+
+  return baseAtom;
+};
 
 const AtomForm = ({
   initialData,
@@ -50,9 +63,14 @@ const AtomForm = ({
   inline = false,
   onReset,
 }) => {
-  // Always initialize with a valid object structure to avoid conditional hook calls
-  const [atomData, setAtomData] = useState(initialData || createEmptyAtom());
+  // Initialize state
   const [activeTab, setActiveTab] = useState("basic");
+  const [showBorderOptions, setShowBorderOptions] = useState(false);
+  const [atomData, setAtomData] = useState(() => {
+    if (initialData) return initialData;
+    // Use the initialData atom_type or default to "button"
+    return createEmptyAtom(initialData?.atom_type);
+  });
   const colors = extractColors();
 
   // Use useEffect to update state when props change
@@ -86,10 +104,41 @@ const AtomForm = ({
   }, [initialData]);
 
   const handlePropertyChange = (property, value) => {
-    setAtomData((prev) => ({
-      ...prev,
-      [property]: value,
-    }));
+    setAtomData((prev) => {
+      // If changing atom type to "text", set default text-specific properties
+      // and remove border-related properties
+      if (property === "atom_type" && value === "text") {
+        const newData = {
+          ...prev,
+          [property]: value,
+          // Remove border-related properties for text atoms
+          border_width: "",
+          border_color: "",
+          border_radius: {
+            top_left: "",
+            top_right: "",
+            bottom_left: "",
+            bottom_right: "",
+          },
+          // Set default text-specific properties if not already set
+          text_color: prev.text_color || "text_main_high",
+          clamp: prev.clamp || 1,
+          align: prev.align || "left"
+        };
+        
+        // Set default typography if it's empty
+        if (!prev.typography) {
+          newData.typography = "body_md_regular";
+        }
+        
+        return newData;
+      }
+      
+      return {
+        ...prev,
+        [property]: value,
+      };
+    });
   };
 
   const handleBorderRadiusChange = (corner, value) => {
@@ -103,19 +152,24 @@ const AtomForm = ({
   };
 
   const handleSubmit = (e) => {
-    // Prevent the default form submission behavior which causes page refresh
-    e && e.preventDefault();
+    // Always prevent the default form submission behavior which causes page refresh
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     // Pass the atom data to the parent component's submit handler
     onSubmit(atomData);
+    
+    // Return false to prevent form submission
+    return false;
   };
 
   const handleReset = () => {
-    const emptyAtom = createEmptyAtom();
+    // Reset to an empty atom of the same type
+    const emptyAtom = createEmptyAtom(atomData.atom_type);
     setAtomData(emptyAtom);
-    if (onReset) {
-      onReset();
-    }
+    if (onReset) onReset(emptyAtom);
   };
 
   const updatePreview = () => {
@@ -143,7 +197,7 @@ const AtomForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4">
+    <div className="p-4">
       <div className="grid grid-cols-12 gap-6">
         {/* Left Column */}
         <div className="col-span-8">
@@ -178,7 +232,7 @@ const AtomForm = ({
             {/* Tabs */}
             <div className="border-b border-border_main_default">
               <nav className="flex">
-                {TABS.map(({ id, label }) => (
+                {TABS.filter(tab => !(tab.id === 'border' && atomData.atom_type === 'text')).map(({ id, label }) => (
                   <button
                     key={id}
                     type="button"
@@ -365,18 +419,56 @@ const AtomForm = ({
                     </>
                   )}
                   {atomData.atom_type === "text" && (
-                    <div>
-                      <label className="block text-sm font-medium text-text_main_high mb-1">
-                        Typography
-                      </label>
-                      <SearchableSelect
-                        options={TYPOGRAPHY_OPTIONS}
-                        value={atomData.typography || ""}
-                        onChange={(value) =>
-                          handlePropertyChange("typography", value)
-                        }
-                      />
-                    </div>
+                    <>
+                      <div>
+                        <label className="block text-sm font-medium text-text_main_high mb-1">
+                          Typography
+                        </label>
+                        <SearchableSelect
+                          options={TYPOGRAPHY_OPTIONS}
+                          value={atomData.typography || ""}
+                          onChange={(value) =>
+                            handlePropertyChange("typography", value)
+                          }
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-text_main_high mb-1">
+                          Line Clamp
+                        </label>
+                        <input
+                          type="number"
+                          min="1"
+                          max="10"
+                          value={atomData.clamp || 1}
+                          onChange={(e) => handlePropertyChange("clamp", parseInt(e.target.value, 10))}
+                          className="w-full px-3 py-2 border border-border_main_default rounded-md text-text_main_high placeholder-text_main_disable bg-background_main_surface focus:border-background_prim_surface focus:ring-1 focus:ring-background_prim_card transition-colors"
+                        />
+                        <p className="text-xs text-text_main_medium mt-1">Number of lines to display (1 for no clamp)</p>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-text_main_high mb-1">
+                          Text Alignment
+                        </label>
+                        <div className="flex space-x-4">
+                          {["left", "center", "right"].map((alignment) => (
+                            <label key={alignment} className="flex items-center">
+                              <input
+                                type="radio"
+                                name="textAlign"
+                                value={alignment}
+                                checked={atomData.align === alignment}
+                                onChange={() => handlePropertyChange("align", alignment)}
+                                className="mr-2"
+                              />
+                              <span className="text-sm text-text_main_high capitalize">{alignment}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    </>
                   )}
                 </div>
               </div>
@@ -401,6 +493,22 @@ const AtomForm = ({
                     </div>
                   )}
                   {["badge", "button"].includes(atomData.atom_type) && (
+                    <div>
+                      <label className="block text-sm font-medium text-text_main_high mb-1">
+                        Text Color
+                      </label>
+                      <SearchableSelect
+                        options={colors}
+                        value={atomData.text_color || ""}
+                        onChange={(value) =>
+                          handlePropertyChange("text_color", value)
+                        }
+                        isColor={true}
+                      />
+                    </div>
+                  )}
+                  
+                  {atomData.atom_type === "text" && (
                     <div>
                       <label className="block text-sm font-medium text-text_main_high mb-1">
                         Text Color
@@ -587,13 +695,14 @@ const AtomForm = ({
           Reset
         </button>
         <button
-          type="submit"
+          type="button"
+          onClick={handleSubmit}
           className="px-4 py-2 text-sm font-medium text-button_filled_style_2_text_icon_default bg-button_filled_style_2_surface_default rounded-md hover:bg-button_filled_style_2_surface_hover transition-colors"
         >
           {mode === "create" ? "Create Atom" : "Save Changes"}
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 

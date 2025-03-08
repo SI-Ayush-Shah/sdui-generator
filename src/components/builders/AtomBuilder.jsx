@@ -1,43 +1,44 @@
 import React, { useState } from "react";
 import AtomForm from "../forms/AtomForm";
+import { useNavigate } from "react-router-dom";
 
-const defaultAtomData = {
-  id: crypto.randomUUID(),
-  name: "",
-  atom_type: "button",
-  typography: "",
-  size: "medium",
-  variant: "primary",
-  sub_variant: "only_text",
-  background_color: "",
-  text_color: "",
-  border_width: "",
-  border_radius: {
-    top_left: "",
-    top_right: "",
-    bottom_left: "",
-    bottom_right: "",
-  },
-  border_color: "",
-  gradient: "",
-};
+// Import createEmptyAtom from AtomForm
+import { createEmptyAtom } from "../forms/AtomForm";
 
 const AtomBuilder = ({ onAdd, onSubmit, onCancel, existingAtoms, inline = false }) => {
-  const [atomData, setAtomData] = useState(defaultAtomData);
+  const [atomData, setAtomData] = useState(createEmptyAtom());
+  const navigate = useNavigate();
 
   const handleClearForm = () => {
-    setAtomData(defaultAtomData);
+    setAtomData(createEmptyAtom());
   };
 
   // Use onAdd if provided, otherwise fall back to onSubmit
   const handleFormSubmit = (data) => {
-    if (onAdd) {
-      onAdd(data);
-    } else if (onSubmit) {
-      onSubmit(data);
-    } else {
-      console.warn("Neither onAdd nor onSubmit prop provided to AtomBuilder");
+    try {
+      // First call the appropriate handler
+      if (onAdd) {
+        onAdd(data);
+      } else if (onSubmit) {
+        onSubmit(data);
+      } else {
+        console.warn("Neither onAdd nor onSubmit prop provided to AtomBuilder");
+        return; // Don't navigate if no handler was called
+      }
+      
+      // Only navigate if we're not in inline mode and a handler was successfully called
+      if (!inline) {
+        // Use setTimeout to ensure this runs after any other synchronous code
+        setTimeout(() => {
+          navigate("/atoms");
+        }, 0);
+      }
+    } catch (error) {
+      console.error("Error in handleFormSubmit:", error);
     }
+    
+    // Return false to prevent any default behavior
+    return false;
   };
 
   return (
