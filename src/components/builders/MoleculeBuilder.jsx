@@ -17,6 +17,7 @@ import {
   SUB_VARIANT_OPTIONS,
   MOLECULE_NAMES,
   MOLECULE_DUMMY_DATA,
+  MOLECULE_PROPERTIES,
 } from "../../constants/moleculeOptions";
 import {
   getAtomOptionsForMolecule,
@@ -746,6 +747,31 @@ const MoleculeBuilder = ({
                       />
                     </div>
                   </div>
+
+                  {/* Additional properties section based on molecule type */}
+                  {molecule.name && MOLECULE_PROPERTIES[molecule.name]?.properties?.group1_count && (
+                    <div className="grid grid-cols-1 gap-6 mt-6">
+                      <div>
+                        <label className="block text-sm font-medium text-text_main_high mb-1">
+                          Group 1 Count
+                          {MOLECULE_PROPERTIES[molecule.name]?.properties?.group1_count?.description && (
+                            <span className="ml-2 text-xs text-text_main_medium">
+                              ({MOLECULE_PROPERTIES[molecule.name].properties.group1_count.description})
+                            </span>
+                          )}
+                        </label>
+                        <input
+                          type="number"
+                          value={molecule.properties?.group1_count || ""}
+                          onChange={(e) =>
+                            handlePropertyChange("group1_count", e.target.value ? parseInt(e.target.value, 10) : "")
+                          }
+                          className="w-full px-3 py-2 border border-border_main_default rounded-md text-text_main_high placeholder-text_main_disable bg-background_main_surface focus:border-background_prim_surface focus:ring-1 focus:ring-background_prim_card transition-colors"
+                          placeholder="Enter count number"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -923,7 +949,7 @@ const MoleculeBuilder = ({
                         className="px-3 py-2 text-sm bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded-md hover:bg-button_filled_style_2_surface_hover"
                         onClick={() => {
                           // First show atom library
-                          setShowAtomLibraryModal(true);
+                                              setShowAtomCreationModal(true);
                         }}
                       >
                         Create & Add
@@ -942,7 +968,7 @@ const MoleculeBuilder = ({
                       </div>
 
                       <div className="bg-background_main_card p-4 rounded-md border border-border_main_default">
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 gap-3">
                           {getAtomOptionsForMolecule(molecule.name).map(
                             (atomOption) => {
                               // Check if this atom is already added
@@ -964,7 +990,7 @@ const MoleculeBuilder = ({
                                   } transition-colors`}
                                 >
                                   <div className="flex items-center justify-between">
-                                    <div>
+                                    <div className="">
                                       <div className="flex items-center">
                                         <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-background_main_surface text-text_main_high mr-2">
                                           {atomOption.type}
@@ -983,7 +1009,7 @@ const MoleculeBuilder = ({
                                         Added
                                       </span>
                                     ) : (
-                                      <div className="flex justify-end space-x-2">
+                                      <div className="flex justify-end shrink-0  space-x-2">
                                         {/* Show "Create & Add" button only when no atom is selected */}
                                         {!selectedAtomId && (
                                           <button
@@ -992,6 +1018,8 @@ const MoleculeBuilder = ({
                                               e.stopPropagation();
                                               // First show atom library modal instead of direct creation
                                               setShowAtomLibraryModal(true);
+                                              setSelectedAtomType(atomOption.type);
+
                                               setSelectedAtomName(atomOption.value);
                                             }}
                                             className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
@@ -1008,7 +1036,7 @@ const MoleculeBuilder = ({
                                               // First show atom library modal instead of direct creation
                                               setShowAtomCreationModal(true);
                                               setSelectedAtomName(atomOption.value);
-
+                                              setSelectedAtomType(atomOption.type);
                                             }}
                                             className="text-xs px-2 py-1 bg-button_filled_style_2_surface_default text-button_filled_style_2_text_icon_default rounded hover:bg-button_filled_style_2_surface_hover"
                                           >
@@ -1714,8 +1742,9 @@ const MoleculeBuilder = ({
                       { value: "", label: "All Types" },
                       ...ATOM_TYPE_OPTIONS.map(type => ({ value: type.value, label: type.label }))
                     ]}
+                    value={selectedAtomType}
                     onChange={(value) => {
-                      // Filter atoms by type logic would go here
+                      setSelectedAtomType(value);
                     }}
                   />
                 </div>
@@ -1746,13 +1775,13 @@ const MoleculeBuilder = ({
                   return acc;
                 }, {});
                 
-                return Object.entries(groupedAtoms).map(([type, atoms]) => (
+                return Object.entries(groupedAtoms).filter(([type, atoms]) => type === selectedAtomType).map(([type, atoms]) => (
                   <div key={type} className="mb-8">
                     <h4 className="text-md font-medium text-text_main_high mb-4 capitalize border-b border-border_main_default pb-2">
                       {type} Atoms ({atoms.length})
                     </h4>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4">
                       {atoms.map((atom) => {
                         // Determine preview content based on atom type
                         let previewContent;
@@ -1760,40 +1789,28 @@ const MoleculeBuilder = ({
                         switch(atom.atom_type) {
                           case 'button':
                             previewContent = (
-                              <div 
-                                className={`py-2 px-3 text-sm inline-flex items-center justify-center rounded ${
-                                  atom.background_color 
-                                    ? `bg-${atom.background_color} text-${atom.text_color || 'white'}`
-                                    : 'bg-button_filled_style_1_surface_default text-button_filled_style_1_text_icon_default'
-                                }`}
-                              >
-                                Button
-                              </div>
+                              <Button {...atom} text={"button"}/>
                             );
                             break;
                             
                           case 'badge':
                             previewContent = (
-                              <div 
-                                className={`py-1 px-2 text-xs inline-flex items-center justify-center rounded-full ${
-                                  atom.background_color 
-                                    ? `bg-${atom.background_color} text-${atom.text_color || 'white'}`
-                                    : 'bg-button_filled_style_3_surface_default text-button_filled_style_3_text_default'
-                                }`}
-                              >
-                                Badge
-                              </div>
+                              <Badge {...atom} text={"button"}/>
+
                             );
                             break;
                             
                           case 'text':
                             previewContent = (
-                              <div className={`text-${atom.text_color || 'text_main_high'} ${atom.typography || 'text-sm'}`}>
-                                Text Sample
-                              </div>
+                              <Text {...atom} text={"button"}>Some text here</Text>
+
                             );
                             break;
-                            
+                          case 'image':
+                            previewContent = (
+                              <Img {...atom}/>
+                            );
+                            break;
                           default:
                             previewContent = (
                               <div className="text-xs text-text_main_medium">

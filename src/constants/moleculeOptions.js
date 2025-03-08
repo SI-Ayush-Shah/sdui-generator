@@ -3,6 +3,7 @@ import {
   RADIUS_OPTIONS,
   TYPOGRAPHY_OPTIONS,
   GRADIENT_OPTIONS,
+  ATOM_TYPES,
 } from "./atomOptions";
 
 // Export atom options that are also applicable to molecules
@@ -95,6 +96,241 @@ export const SUB_VARIANT_OPTIONS = [
   { value: "filled", label: "Filled" },
   { value: "with_icon", label: "With Icon" },
 ];
+
+// Centralized constants for all molecule property configurations
+// These configurations can be used for validation and UI generation
+export const MOLECULE_PROPERTIES = {
+  molecule_section_header: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_footer_action: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_article_extension: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_article_thumbnail: {
+    properties: {
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["video", "image"],
+        default: "video",
+        description: "Select the type of thumbnail to display",
+      },
+      play: {
+        type: "boolean",
+        required: false,
+        description: "Show the play button",
+      },
+    }
+  },
+  molecule_article_description: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+    }
+  },
+  molecule_fixturecard_matchinfo: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+    }
+  },
+  molecule_fixturecard_meta_extension: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_fixturecard_scores_cricket: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+    }
+  },
+  molecule_fixturecard_action_extension: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_fixture_meta_data: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+    }
+  },
+  molecule_player_extension: {
+    properties: {
+      stack: {
+        options: ["vertical", "horizontal"],
+        default: "vertical",
+        description: "Stack the title and view more button vertically or horizontally",
+      },
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+      group1_count: {
+        type: "number",
+        required: false,
+        description: "Number of items in the first group",
+      },
+    }
+  },
+  molecule_player_thumbnail: {
+    properties: {
+      variant: {
+        options: ["1"],
+      },
+      sub_variant: {
+        options: ["left", "center", "right"],
+        default: "left",
+        description: "Align the title and view more button to the left, center, or right",
+      },
+    }
+  }
+};
+
 export const MOLECULE_DUMMY_DATA = {
   molecule_section_header: {
     title: "Section Title",
@@ -653,4 +889,5 @@ export const MOLECULE_DUMMY_DATA = {
       player_surname: "Sharma",
       skill: "BATTER",
     },
-  };
+  }
+
