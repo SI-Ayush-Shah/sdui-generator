@@ -11,6 +11,7 @@ import {
   GRADIENT_OPTIONS,
 } from "../../constants/atomOptions";
 import { extractColors } from "../../utils/colors";
+import { generateUniqueId } from "../../utils/idGenerator";
 
 const TABS = [
   { id: "basic", label: "Basic" },
@@ -20,9 +21,11 @@ const TABS = [
 
 // Create default empty atom data structure
 export const createEmptyAtom = (type = "button") => {
+  // Generate a unique ID using our utility
+  const uniqueId = generateUniqueId('atom');
+  
   const baseAtom = {
-    id: crypto.randomUUID(),
-    name: "",
+    id: uniqueId,
     atom_type: type,
     size: "medium",
     variant: "primary",
@@ -80,7 +83,6 @@ const AtomForm = ({
       const newData = {
         ...initialData,
         id: initialData.id || crypto.randomUUID(),
-        name: initialData.name || "",
         atom_type: initialData.atom_type || "button",
         background_color: initialData.background_color || "",
         text_color: initialData.text_color || "",
@@ -203,31 +205,17 @@ const AtomForm = ({
         {/* Left Column */}
         <div className="col-span-8">
           <div className="space-y-6">
-            {/* Name and Type */}
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-text_main_high mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  value={atomData.name || ""}
-                  onChange={(e) => handlePropertyChange("name", e.target.value)}
-                  className="w-full px-3 py-2 border border-border_main_default rounded-md text-text_main_high placeholder-text_main_disable bg-background_main_surface focus:border-background_prim_surface focus:ring-1 focus:ring-background_prim_card transition-colors"
-                  placeholder="Enter atom name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-text_main_high mb-1">
-                  Type
-                </label>
-                <SearchableSelect
-                  options={ATOM_TYPES}
-                  value={atomData.atom_type || "button"}
-                  onChange={(value) => handlePropertyChange("atom_type", value)}
-                  disabled={disableTypeSelection}
-                />
-              </div>
+            {/* Type */}
+            <div>
+              <label className="block text-sm font-medium text-text_main_high mb-1">
+                Type
+              </label>
+              <SearchableSelect
+                options={ATOM_TYPES}
+                value={atomData.atom_type || "button"}
+                onChange={(value) => handlePropertyChange("atom_type", value)}
+                disabled={disableTypeSelection}
+              />
             </div>
 
             {/* Tabs */}

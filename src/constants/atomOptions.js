@@ -2,26 +2,20 @@ import json from "../sdui-schema.json";
 export const ATOM_TYPES = [
   {
     value: "button",
-    label: "Button",
-    defaultProps: {},
+    label: "Button"
   },
   {
     value: "badge",
-    label: "Badge",
-    defaultProps: {},
+    label: "Badge"
   },
-
   {
     value: "img",
-    label: "Img",
-    defaultProps: {},
+    label: "Img"
   },
-
   {
     value: "text",
-    label: "Text",
-    defaultProps: {},
-  },
+    label: "Text"
+  }
 ];
 
 export const BUTTON_SUB_VARIANTS = [

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   emptyTemplate,
   emptyOrganism,
@@ -30,6 +30,18 @@ import {
 import EditAtomModal from "./modals/EditAtomModal";
 import { updateSduiSchema } from "../utils/fileOperations";
 import { toast } from "react-hot-toast";
+import {
+  getTempComponents,
+  addTempComponent,
+  updateTempComponent,
+  deleteTempComponent,
+  hasPendingChanges,
+  setPendingChanges,
+  clearAllTempData
+} from "../utils/localStorageManager";
+import { componentMap } from "../molecules-mapper/molecules-map.jsx";
+import { processAtoms, processMolecule } from "../utils/compile.js";
+import { PendingChangesProvider } from "../contexts/PendingChangesContext";
 
 const NAVIGATION_ITEMS = [
   { id: "pages", label: "Pages", icon: "document" },
@@ -53,6 +65,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
   const [mode, setMode] = useState("edit");
   const [atomsFilter, setAtomsFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [hasPendingChangesState, setHasPendingChangesState] = useState(false);
 
   const [jsonData, setJsonData] = useState({
     data: {
@@ -68,10 +81,8 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     meta: {
       status: 200,
       timestamp: new Date().toISOString(),
-      request_id: crypto.randomUUID(),
-      execution_time_ms: 0,
-      app_version: "1.0.0",
     },
+    pages: json.pages || [],
   });
 
   const [selectedPage, setSelectedPage] = useState(null);
@@ -99,15 +110,151 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     // Similar for other types...
   }, [pageId, templateId, organismId, moleculeId, atomId]);
 
+  // Combine schema data with temporary data from localStorage
+  useEffect(() => {
+    // On component mount, check localStorage for temporary components
+    const tempAtoms = getTempComponents('ATOMS');
+    const tempMolecules = getTempComponents('MOLECULES');
+    const tempOrganisms = getTempComponents('ORGANISMS');
+    const tempTemplates = getTempComponents('TEMPLATES');
+    
+    // Update the state with temporary components if they exist
+    if (tempAtoms.length || tempMolecules.length || tempOrganisms.length || tempTemplates.length) {
+      setJsonData(prevData => ({
+        ...prevData,
+        data: {
+          ...prevData.data,
+          components: {
+            ...prevData.data.components,
+            atom: mergeComponents(prevData.data.components.atom, tempAtoms),
+            molecule: mergeComponents(prevData.data.components.molecule, tempMolecules),
+            organism: mergeComponents(prevData.data.components.organism, tempOrganisms),
+            template: mergeComponents(prevData.data.components.template, tempTemplates),
+          }
+        }
+      }));
+      
+      // Check if there are pending changes
+      setHasPendingChangesState(hasPendingChanges());
+    }
+  }, []);
+  
+  // Helper function to merge permanent components with temporary ones
+  const mergeComponents = (permanentComponents, tempComponents) => {
+    if (!tempComponents || tempComponents.length === 0) return permanentComponents;
+    
+    // Create a new array with all permanent components
+    const merged = [...permanentComponents];
+    
+    // For each temporary component
+    tempComponents.forEach(tempComponent => {
+      // Check if it already exists in the permanent array
+      const existingIndex = merged.findIndex(comp => comp.id === tempComponent.id);
+      
+      if (existingIndex >= 0) {
+        // Replace the existing component
+        merged[existingIndex] = tempComponent;
+      } else {
+        // Add as a new component
+        merged.push(tempComponent);
+      }
+    });
+    
+    return merged;
+  };
+
+  // Apply all pending changes to the actual schema
+  const applyChanges = async () => {
+    try {
+      // Get all temporary components
+      const tempAtoms = getTempComponents('ATOMS');
+      const tempMolecules = getTempComponents('MOLECULES');
+      const tempOrganisms = getTempComponents('ORGANISMS');
+      const tempTemplates = getTempComponents('TEMPLATES');
+      
+      // Create a new schema with all changes
+      const updatedSchema = {
+        ...jsonData,
+        data: {
+          ...jsonData.data,
+          components: {
+            ...jsonData.data.components,
+            atom: mergeComponents(json.data.components.atom || [], tempAtoms),
+            molecule: mergeComponents(json.data.components.molecule || [], tempMolecules),
+            organism: mergeComponents(json.data.components.organism || [], tempOrganisms),
+            template: mergeComponents(json.data.components.template || [], tempTemplates),
+          }
+        }
+      };
+      
+      // Update the schema file
+      await updateSduiSchema(updatedSchema, true);
+      
+      // Clear all temporary data
+      clearAllTempData();
+      
+      // Reset pending changes state
+      setHasPendingChangesState(false);
+      
+      toast.success("All changes applied successfully");
+    } catch (error) {
+      console.error("Error applying changes:", error);
+      toast.error("Failed to apply changes");
+    }
+  };
+  
+  // Discard all pending changes
+  const discardChanges = () => {
+    // Clear all temporary data
+    clearAllTempData();
+    
+    // Reset pending changes state
+    setHasPendingChangesState(false);
+    
+    // Reset the state to the original data from the schema
+    setJsonData({
+      data: {
+        components: {
+          template: [],
+          organism: json.data.components.organism || [],
+          molecule: json.data.components.molecule || [],
+          atom: json.data.components.atom || [],
+        },
+        tokens: json.data.tokens,
+        version: 1.01,
+      },
+      meta: {
+        status: 200,
+        timestamp: new Date().toISOString(),
+      },
+      pages: json.pages || [],
+    });
+    
+    toast.success("All pending changes discarded");
+    
+    // Reload the page to ensure everything is fresh
+    window.location.reload();
+  };
+
   const handleAddComponent = async (type, component, shouldRefresh = true) => {
     try {
-      // Check if an atom with this ID already exists
-      if (
-        type === "atom" &&
-        jsonData.data.components.atom.some((a) => a.id === component.id)
-      ) {
-        toast.error("An atom with this ID already exists");
-        return;
+      // Check if a component with this ID already exists in both current state and localStorage
+      if (type === "atom") {
+        // Get existing atoms from state
+        const existingStateAtoms = jsonData.data.components.atom || [];
+        
+        // Get existing atoms from localStorage
+        const existingTempAtoms = getTempComponents('ATOMS');
+        
+        // Check if the atom ID exists in either place
+        const atomExists = [...existingStateAtoms, ...existingTempAtoms].some(
+          (a) => a.id === component.id
+        );
+        
+        if (atomExists) {
+          toast.error("An atom with this ID already exists");
+          return;
+        }
       }
 
       // Remove data property from molecules to prevent dummy data storage
@@ -117,7 +264,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         componentToAdd = componentWithoutData;
       }
 
-      // First update local state
+      // Update local state first
       const updatedData = {
         ...jsonData,
         data: {
@@ -132,15 +279,15 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
       // Update the local state immediately
       setJsonData(updatedData);
 
-      // If shouldRefresh is true, persist to the server and show success/error toasts
+      // Add to localStorage instead of updating the schema
+      addTempComponent(type.toUpperCase(), componentToAdd);
+      
+      // Update the pending changes state
+      updatePendingChangesState();
+      
+      // Only show toast if shouldRefresh is true
       if (shouldRefresh) {
-        await updateSduiSchema(updatedData);
         toast.success("Component added successfully");
-      } else {
-        // Still persist to server in background, but don't show toasts or wait for completion
-        updateSduiSchema(updatedData, false).catch((error) => {
-          console.error("Error saving in background:", error);
-        });
       }
     } catch (error) {
       if (shouldRefresh) {
@@ -158,18 +305,32 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
       componentToUpdate = componentWithoutData;
     }
 
-    setJsonData((prev) => ({
-      ...prev,
+    // Update local state
+    const updatedComponents = jsonData.data.components[type].map(
+      (item, i) => (i === index ? componentToUpdate : item)
+    );
+
+    const updatedData = {
+      ...jsonData,
       data: {
-        ...prev.data,
+        ...jsonData.data,
         components: {
-          ...prev.data.components,
-          [type]: prev.data.components[type].map((item, i) =>
-            i === index ? componentToUpdate : item
-          ),
+          ...jsonData.data.components,
+          [type]: updatedComponents,
         },
       },
-    }));
+    };
+
+    // Update local state
+    setJsonData(updatedData);
+
+    // Update in localStorage instead of updating the schema
+    updateTempComponent(type.toUpperCase(), componentToUpdate.id, componentToUpdate);
+    
+    // Update the pending changes state
+    updatePendingChangesState();
+    
+    toast.success("Component updated successfully");
   };
 
   const handleEdit = (type, item) => {
@@ -197,7 +358,12 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
   const handleUpdateAtom = async (updatedAtom) => {
     try {
       // Check if this atom already exists (excluding the one being updated)
-      const duplicateExists = jsonData.data.components.atom.some(
+      // Get existing atoms from both state and localStorage
+      const existingStateAtoms = jsonData.data.components.atom || [];
+      const existingTempAtoms = getTempComponents('ATOMS');
+      
+      // Check all atoms except the one being edited
+      const duplicateExists = [...existingStateAtoms, ...existingTempAtoms].some(
         (a) => a.id === updatedAtom.id && a !== editingAtom
       );
 
@@ -206,6 +372,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         return;
       }
 
+      // Update local state
       const newData = {
         ...jsonData,
         data: {
@@ -219,10 +386,21 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
         },
       };
 
-      await updateSduiSchema(newData);
+      // Update the local state
       setJsonData(newData);
+      
+      // Update in localStorage instead of direct schema update
+      updateTempComponent('ATOMS', updatedAtom.id, updatedAtom);
+      
+      // Update the pending changes state
+      updatePendingChangesState();
+      
+      // Close the editing modal
+      setEditingAtom(null);
+      
       toast.success("Atom updated successfully");
     } catch (error) {
+      console.error("Error updating atom:", error);
       toast.error("Failed to update atom");
     }
   };
@@ -537,14 +715,40 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
     }
   };
 
+  // Define the section config based on the current section
+  const activeSectionConfig = {
+    title: NAVIGATION_ITEMS.find(
+      (item) => item.id === defaultSection
+    )?.title || "Components",
+    actions: null,
+  };
+
+  // Check for pending changes on component mount
+  useEffect(() => {
+    const pendingStatus = hasPendingChanges();
+    setHasPendingChangesState(pendingStatus);
+  }, []);
+
+  // Update the pending changes state whenever we add, update, or remove components
+  const updatePendingChangesState = () => {
+    const pendingStatus = hasPendingChanges();
+    setHasPendingChangesState(pendingStatus);
+  };
+
   return (
-    <TokenProvider tokens={jsonData.data.tokens}>
+    <PendingChangesProvider applyChangesHandler={applyChanges} discardChangesHandler={discardChanges}>
       <div className="min-h-screen bg-background_main_surface">
         <nav className="bg-background_main_surface border-b border-border_main_default">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16 items-center">
               {/* Left side - Utility buttons */}
               <div className="flex items-center space-x-4">
+                {hasPendingChangesState && (
+                  <div className="px-3 py-1 text-sm font-medium text-button_filled_style_1_text_icon_default bg-button_filled_style_1_surface_default rounded-full animate-pulse">
+                    Unsaved Changes
+                  </div>
+                )}
+                
                 {defaultSection === "molecules" && (
                   <button
                     onClick={cleanupMoleculeData}
@@ -557,6 +761,26 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
 
               {/* Right side - Mode selector */}
               <div className="flex items-center space-x-4">
+                {/* Apply Changes and Discard Changes buttons */}
+                <div className="flex space-x-2 mr-4">
+                  {hasPendingChangesState && (
+                    <>
+                      <button
+                        onClick={discardChanges}
+                        className="px-4 py-2 text-sm font-medium text-text_main_medium bg-background_main_container hover:bg-background_main_hover border border-border_main_default rounded-md"
+                      >
+                        Discard Changes
+                      </button>
+                      <button
+                        onClick={applyChanges}
+                        className="px-4 py-2 text-sm font-medium text-button_filled_style_2_text_icon_default bg-button_filled_style_2_surface_default rounded-md hover:bg-button_filled_style_2_surface_hover transition-colors"
+                      >
+                        Apply to Schema
+                      </button>
+                    </>
+                  )}
+                </div>
+                
                 <div className="flex rounded-md shadow-sm" role="group">
                   <button
                     onClick={() => setMode("edit")}
@@ -594,7 +818,7 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
           />
         )}
       </div>
-    </TokenProvider>
+    </PendingChangesProvider>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { usePendingChanges } from '../contexts/PendingChangesContext';
 
 const NAVIGATION_ITEMS = [
   { id: 'pages', label: 'Pages', icon: 'document', path: '/pages' },
@@ -13,6 +14,7 @@ const Layout = ({ jsonData }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentSection = location.pathname.split('/')[1] || 'pages';
+  const { pendingChanges, applyChanges, discardChanges } = usePendingChanges();
 
   const getItemCount = (section) => {
     switch (section) {
@@ -26,13 +28,31 @@ const Layout = ({ jsonData }) => {
 
   return (
     <div className="min-h-screen bg-background_main_default">
-      {/* Top Navigation with title */}
+      {/* Top Navigation with title and Apply Changes button */}
       <nav className="bg-background_main_surface border-b border-border_main_default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <h1 className="text-2xl font-bold text-text_main_high">
               SDUI Schema Builder
             </h1>
+            
+            {/* Show Apply Changes and Discard buttons when there are pending changes */}
+            {pendingChanges && (
+              <div className="flex space-x-4">
+                <button
+                  onClick={discardChanges}
+                  className="px-4 py-2 text-sm font-medium text-text_main_medium bg-background_main_surface border border-border_main_default rounded-md hover:bg-background_main_card transition-colors"
+                >
+                  Discard Changes
+                </button>
+                <button
+                  onClick={applyChanges}
+                  className="px-4 py-2 text-sm font-medium text-button_filled_style_2_text_icon_default bg-button_filled_style_2_surface_default rounded-md hover:bg-button_filled_style_2_surface_hover transition-colors"
+                >
+                  Apply Changes
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>

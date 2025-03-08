@@ -68,10 +68,11 @@ const SearchableSelect = ({
         {}
       )
     : options.filter((option) => {
-        const optionLabel = (option.label || option)
+        // Safely convert to string before calling toLowerCase
+        const optionLabel = String(option.label || option)
           .toLowerCase()
           .replace(/[/_\-]/g, "");
-        const optionValue = (option.value || option)
+        const optionValue = String(option.value || option)
           .toLowerCase()
           .replace(/[/_\-]/g, "");
         const sanitizedSearchTerm = sanitizeSearchTerm(

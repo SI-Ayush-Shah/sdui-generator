@@ -4,6 +4,7 @@ import { router } from "./router";
 import config from "./sdui-schema.json";
 import { generateCssFromJson } from "@sikit/theme";
 import { Toaster } from "react-hot-toast";
+import { PendingChangesProvider } from "./contexts/PendingChangesContext";
 
 const App = () => {
   // Add error handling for token generation
@@ -23,11 +24,20 @@ const App = () => {
     }
   };
 
+  // Create placeholder handlers that will be overridden by the real handlers in JsonBuilder
+  const dummyApplyChanges = () => {};
+  const dummyDiscardChanges = () => {};
+
   return (
     <>
       <style>{generateStyles()}</style>
-      <RouterProvider router={router} />
-      <Toaster position="top-right" />
+      <PendingChangesProvider 
+        applyChangesHandler={dummyApplyChanges} 
+        discardChangesHandler={dummyDiscardChanges}
+      >
+        <RouterProvider router={router} />
+        <Toaster position="top-right" />
+      </PendingChangesProvider>
     </>
   );
 };
