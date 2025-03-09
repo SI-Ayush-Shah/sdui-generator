@@ -65,18 +65,6 @@ const OrganismRenderer = ({
           
           // Render based on component type
           if (component.component_type === 'organism') {
-            // Don't render if we've reached max depth
-            if (currentDepth >= maxDepth) {
-              return (
-                <div 
-                  key={component.id || index} 
-                  className="p-2 bg-background_main_card border border-error_main_surface text-error_main_high text-xs rounded m-1"
-                >
-                  Max nesting depth reached
-                </div>
-              );
-            }
-            
             // Find the nested organism
             const nestedOrganism = existingOrganisms.find(o => o.id === component.id);
             if (!nestedOrganism) {
@@ -92,15 +80,7 @@ const OrganismRenderer = ({
             
             // Render the nested organism with proper styling
             return (
-              <div
-                key={component.id || index}
-                className={`m-1 ${previewOrganism.properties?.stack === 'z' ? 'absolute' : ''}`}
-                style={{
-                  zIndex: previewOrganism.properties?.stack === 'z' ? index + 1 : 'auto',
-                  width: previewOrganism.properties?.stack === 'z' ? '100%' : 'auto',
-                  height: previewOrganism.properties?.stack === 'z' ? '100%' : 'auto',
-                }}
-              >
+             
                 <OrganismRenderer
                   organism={nestedOrganism}
                   processedAtoms={processedAtoms}
@@ -110,7 +90,6 @@ const OrganismRenderer = ({
                   existingOrganismsProp={existingOrganisms}
                   existingMoleculesProp={existingMolecules}
                 />
-              </div>
             );
           } else {
             // Find the molecule

@@ -190,7 +190,7 @@ const OrganismBuilder = ({
               </span>
             )}
           </div>
-          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px] flex items-center justify-center">
+          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px] relative">
             {renderOrganismPreview()}
           </div>
         </div>
