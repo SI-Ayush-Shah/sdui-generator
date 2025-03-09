@@ -515,8 +515,9 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
               <OrganismBuilder
                 onAdd={(organism) => handleAddComponent("organism", organism)}  
                 handleAddComponent={handleAddComponent}
-                existingOrganisms={jsonData.data.components.organism || []}
-                existingMolecules={jsonData.data.components.molecule || []}
+                existingOrganismsProp={jsonData.data.components.organism || []}
+                existingMoleculesProp={jsonData.data.components.molecule || []}
+                existingAtomsProp={jsonData.data.components.atom || []}
                 onUpdate={(index, organism) =>
                   handleUpdateComponent("organism", index, organism)
                 }
@@ -531,8 +532,8 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
               <MoleculeBuilder
                 onAdd={(molecule) => handleAddComponent("molecule", molecule)}
                 handleAddComponent={handleAddComponent}
-                existingMolecules={jsonData.data.components.molecule || []}
-                existingAtoms={jsonData.data.components.atom || []}
+                existingMoleculesProp={jsonData.data.components.molecule || []}
+                existingAtomsProp={jsonData.data.components.atom || []}
                 onUpdate={(index, molecule) =>
                   handleUpdateComponent("molecule", index, molecule)
                 }

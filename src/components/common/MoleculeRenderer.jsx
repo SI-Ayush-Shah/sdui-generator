@@ -2,13 +2,16 @@ import React from 'react';
 import { componentMap } from "../../molecules-mapper/molecules-map.jsx";
 import { MOLECULE_DUMMY_DATA } from "../../constants/moleculeOptions";
 import { processMolecule } from "../../utils/compile.js";
+import { useSelector } from 'react-redux';
+import { selectAllAtoms } from '../../store/slices/atomsSlice';
+import { processAtoms } from '../../utils/compile.js';
 
 /**
  * A reusable component for rendering molecule previews
  * 
  * @param {Object} props
  * @param {Object} props.molecule - The molecule data to render
- * @param {Object} props.processedAtoms - Processed atoms for the molecule
+ * @param {Object} props.processedAtoms - Processed atoms for the molecule (fallback if Redux not available)
  * @param {String} props.className - Additional classes to apply
  * @param {Boolean} props.useDummyData - Whether to use dummy data for preview
  * @param {Object} props.customData - Custom data to use instead of dummy data
@@ -16,11 +19,24 @@ import { processMolecule } from "../../utils/compile.js";
  */
 const MoleculeRenderer = ({ 
   molecule, 
-  processedAtoms, 
+  processedAtoms: processedAtomsProp, 
   className = "", 
   useDummyData = true,
   customData = null 
 }) => {
+  // Get atoms from Redux
+  const atomsFromRedux = useSelector(selectAllAtoms) || [];
+  
+  console.log("MoleculeRenderer - Redux data:", { 
+    atomsFromRedux: atomsFromRedux.length,
+    processedAtomsProp: processedAtomsProp ? Object.keys(processedAtomsProp).length : 0
+  });
+  
+  // Process atoms from Redux if available, otherwise use prop
+  const processedAtoms = atomsFromRedux.length > 0 
+    ? processAtoms(atomsFromRedux)
+    : processedAtomsProp;
+    
   if (!molecule) return null;
 
   // Create a deep copy of the molecule to avoid modifying the original

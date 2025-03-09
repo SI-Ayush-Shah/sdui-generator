@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import SearchableSelect from "../common/SearchableSelect";
 import { generateUniqueId } from "../../utils/idGenerator";
 import { emptyOrganism } from "../../constants/emptyStructures";
@@ -8,6 +9,8 @@ import {
   GRADIENT_OPTIONS,
   SPACING_OPTIONS
 } from "../../constants/atomOptions";
+import { selectAllMolecules } from "../../store/slices/moleculesSlice";
+import { selectAllOrganisms } from "../../store/slices/organismsSlice";
 
 const TABS = [
   { id: "basic", label: "Basic" },
@@ -38,7 +41,7 @@ const COMPONENT_TYPES = [
   { value: "organism", label: "Organism" },
 ];
 
-// Create default empty organism data structure
+// Export the reusable function for creating empty organisms
 export const createEmptyOrganism = () => {
   // Generate a unique ID using our utility
   const uniqueId = generateUniqueId('organism');
@@ -59,9 +62,23 @@ const OrganismForm = ({
   inline = false,
   onReset,
   onChange,
-  existingMolecules = [], // Add existing molecules for selection
-  existingOrganisms = [], // Add existing organisms for selection
+  // Fallback props in case Redux is not available
+  existingMoleculesProp = [],
+  existingOrganismsProp = [],
 }) => {
+  // Get molecules and organisms from Redux store with fallback to props
+  const existingMoleculesFromRedux = useSelector(selectAllMolecules, () => []);
+  const existingOrganismsFromRedux = useSelector(selectAllOrganisms, () => []);
+  
+  // Use Redux data if available, otherwise fall back to props
+  const existingMolecules = existingMoleculesFromRedux.length > 0 
+    ? existingMoleculesFromRedux 
+    : existingMoleculesProp;
+    
+  const existingOrganisms = existingOrganismsFromRedux.length > 0 
+    ? existingOrganismsFromRedux 
+    : existingOrganismsProp;
+
   const [organismData, setOrganismData] = useState(initialData || createEmptyOrganism());
   const [activeTab, setActiveTab] = useState("basic");
   const colors = extractColors();

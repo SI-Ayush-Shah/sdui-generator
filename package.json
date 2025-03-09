@@ -12,6 +12,7 @@
     "co:login": "aws codeartifact login --tool npm --domain si-packages --domain-owner 572143828798 --repository si-artifact-repo-use1 --region us-east-1 --profile sportz"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.1",
     "@sikit/article": "^16.0.58",
     "@sikit/cricket-fixtures": "^17.0.35",
     "@sikit/network-manager": "^7.0.53",
@@ -27,6 +28,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.2.0"
   },
   "devDependencies": {

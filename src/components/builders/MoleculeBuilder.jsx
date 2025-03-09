@@ -47,6 +47,9 @@ import { generateUniqueId } from "../../utils/idGenerator";
 import { toast } from "react-hot-toast";
 import EditAtomModal from "../modals/EditAtomModal";
 import MoleculeRenderer from "../common/MoleculeRenderer";
+import { useSelector, useDispatch } from 'react-redux';
+import { selectAllAtoms, addAtom, updateAtom, removeAtom } from '../../store/slices/atomsSlice';
+import { selectAllMolecules, addMolecule, updateMolecule, removeMolecule } from '../../store/slices/moleculesSlice';
 
 // Test environment variables
 const apiUrl = process.env.VITE_API_URL;
@@ -88,11 +91,27 @@ const getMoleculeCategory = (moleculeName) => {
 const MoleculeBuilder = ({
   onAdd,
   handleAddComponent,
-  existingMolecules,
-  existingAtoms,
+  // Fallback props in case Redux is not available
+  existingMoleculesProp = [],
+  existingAtomsProp = [],
   onUpdate,
   inline = false,
 }) => {
+  const dispatch = useDispatch();
+  
+  // Get atoms and molecules from Redux
+  const existingAtomsFromRedux = useSelector(selectAllAtoms) || [];
+  const existingMoleculesFromRedux = useSelector(selectAllMolecules) || [];
+  
+  // Use Redux data if available, otherwise fall back to props
+  const existingAtoms = existingAtomsFromRedux.length > 0 
+    ? existingAtomsFromRedux 
+    : existingAtomsProp;
+    
+  const existingMolecules = existingMoleculesFromRedux.length > 0 
+    ? existingMoleculesFromRedux 
+    : existingMoleculesProp;
+  
   const [molecule, setMolecule] = useState(emptyMolecule);
   const [showAtomModal, setShowAtomModal] = useState(false);
   const [activeTab, setActiveTab] = useState("basic");
@@ -151,7 +170,13 @@ const MoleculeBuilder = ({
       atoms: molecule.atoms,
     };
 
-    onAdd(moleculeData);
+    // Use Redux dispatch if available, otherwise fall back to props
+    if (existingMoleculesFromRedux.length > 0) {
+      dispatch(addMolecule(moleculeData));
+    } else {
+      onAdd(moleculeData);
+    }
+    
     setMolecule(emptyMolecule);
   };
 
@@ -360,14 +385,19 @@ const MoleculeBuilder = ({
     
     console.log("Generated new atom:", newAtom);
 
-    // Add the atom to the global store without redirecting or refreshing
-    handleAddComponent("atom", newAtom, false);
-    
-    // Also add to the existingAtoms list if it's not already there
-    if (!existingAtoms.some(atom => atom.id === newAtom.id)) {
-      console.log("Adding atom to existingAtoms list");
-      // This is a hack, but we need to update the existingAtoms list in order for handleAddAtom to find it
-      existingAtoms.push(newAtom);
+    // Use Redux if available
+    if (existingAtomsFromRedux.length > 0) {
+      dispatch(addAtom(newAtom));
+    } else {
+      // Add the atom to the global store without redirecting or refreshing (fallback)
+      handleAddComponent("atom", newAtom, false);
+      
+      // Also add to the existingAtoms list if it's not already there
+      if (!existingAtoms.some(atom => atom.id === newAtom.id)) {
+        console.log("Adding atom to existingAtoms list");
+        // This is a hack, but we need to update the existingAtoms list in order for handleAddAtom to find it
+        existingAtoms.push(newAtom);
+      }
     }
 
     // Pre-select a name for this new atom and show the modal
@@ -452,8 +482,13 @@ const MoleculeBuilder = ({
 
   const handleDeleteMolecule = (id) => {
     if (window.confirm("Are you sure you want to delete this molecule?")) {
-      // Call the onUpdate function with the id to delete
-      onUpdate && onUpdate({ type: "delete", id });
+      // Use Redux dispatch if available, otherwise fall back to props
+      if (existingMoleculesFromRedux.length > 0) {
+        dispatch(removeMolecule(id));
+      } else {
+        // Call the onUpdate function with the id to delete
+        onUpdate && onUpdate({ type: "delete", id });
+      }
     }
   };
 
@@ -471,14 +506,19 @@ const MoleculeBuilder = ({
         return;
       }
       
-      // Update the atom in the global atoms list
-      const atomIndex = existingAtoms.findIndex(atom => atom.id === updatedAtom.id);
-      if (atomIndex !== -1) {
-        existingAtoms[atomIndex] = updatedAtom;
+      // Use Redux if available
+      if (existingAtomsFromRedux.length > 0) {
+        dispatch(updateAtom(updatedAtom));
+      } else {
+        // Update the atom in the global atoms list (fallback)
+        const atomIndex = existingAtoms.findIndex(atom => atom.id === updatedAtom.id);
+        if (atomIndex !== -1) {
+          existingAtoms[atomIndex] = updatedAtom;
+        }
+        
+        // Update the global atom list using the handleAddComponent function
+        handleAddComponent("atom", updatedAtom, false);
       }
-      
-      // Update the global atom list using the handleAddComponent function
-      handleAddComponent("atom", updatedAtom, false);
       
       // Close the editing modal
       setEditingAtom(null);
@@ -899,10 +939,10 @@ const MoleculeBuilder = ({
                             value={molecule.styles.padding?.[direction] || ""}
                             onChange={(value) =>
                               handleStyleChange("padding", value, direction)
-                            }
-                          />
-                        </div>
-                      ))}
+                          }
+                        />
+                      </div>
+                    ))}
                     </div>
                   </div>
                 </div>

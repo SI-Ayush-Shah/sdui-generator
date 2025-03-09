@@ -1,10 +1,12 @@
 import React from "react";
 import { RouterProvider } from "react-router-dom";
+import { Provider } from 'react-redux';
 import { router } from "./router";
 import config from "./sdui-schema.json";
 import { generateCssFromJson } from "@sikit/theme";
 import { Toaster } from "react-hot-toast";
 import { PendingChangesProvider } from "./contexts/PendingChangesContext";
+import store from "./store";
 
 const App = () => {
   // Add error handling for token generation
@@ -19,26 +21,35 @@ const App = () => {
       }
       return generateCssFromJson(tokens);
     } catch (error) {
-      console.error("Error generating styles:", error);
+      console.error("Error generating CSS from tokens:", error);
       return "";
     }
   };
+  const cssContent = generateStyles();
 
   // Create placeholder handlers that will be overridden by the real handlers in JsonBuilder
   const dummyApplyChanges = () => {};
   const dummyDiscardChanges = () => {};
 
   return (
-    <>
-      <style>{generateStyles()}</style>
-      <PendingChangesProvider 
-        applyChangesHandler={dummyApplyChanges} 
-        discardChangesHandler={dummyDiscardChanges}
+    <Provider store={store}>
+      <PendingChangesProvider
+        applyChanges={dummyApplyChanges}
+        discardChanges={dummyDiscardChanges}
       >
+        <style>{cssContent}</style>
         <RouterProvider router={router} />
-        <Toaster position="top-right" />
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "var(--color-background_main_card)",
+              color: "var(--color-text_main_high)",
+            },
+          }}
+        />
       </PendingChangesProvider>
-    </>
+    </Provider>
   );
 };
 

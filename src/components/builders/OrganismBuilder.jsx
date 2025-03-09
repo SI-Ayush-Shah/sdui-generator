@@ -1,13 +1,54 @@
-import React, { useState } from 'react';
-import OrganismForm from "../forms/OrganismForm";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { processAtoms } from "../../utils/compile.js";
 import OrganismRenderer from "../common/OrganismRenderer";
-
-// Import createEmptyOrganism from OrganismForm
+import OrganismForm from "../forms/OrganismForm";
 import { createEmptyOrganism } from "../forms/OrganismForm";
 
-const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], existingMolecules = [], existingAtoms = [], inline = false }) => {
+// Import Redux actions and selectors
+import { addOrganism, updateOrganism, selectAllOrganisms } from '../../store/slices/organismsSlice';
+import { selectAllMolecules } from '../../store/slices/moleculesSlice';
+import { selectAllAtoms } from '../../store/slices/atomsSlice';
+
+// Fallback props in case Redux is not ready
+const defaultProps = {
+  existingOrganismsProp: [],
+  existingMoleculesProp: [],
+  existingAtomsProp: [],
+};
+
+const OrganismBuilder = ({ 
+  onCancel, 
+  inline = false,
+  // Fallback props to use if Redux is not available
+  existingOrganismsProp = [],
+  existingMoleculesProp = [],
+  existingAtomsProp = [],
+  onAdd,
+  onUpdate,
+  handleAddComponent
+}) => {
+  // Use Redux state with fallbacks
+  const existingOrganismsFromRedux = useSelector(selectAllOrganisms) || [];
+  const existingMoleculesFromRedux = useSelector(selectAllMolecules) || [];
+  const existingAtomsFromRedux = useSelector(selectAllAtoms) || [];
+  
+  // Use Redux data if available, otherwise fall back to props
+  const existingOrganisms = existingOrganismsFromRedux.length > 0 
+    ? existingOrganismsFromRedux 
+    : existingOrganismsProp;
+    
+  const existingMolecules = existingMoleculesFromRedux.length > 0 
+    ? existingMoleculesFromRedux 
+    : existingMoleculesProp;
+    
+  const existingAtoms = existingAtomsFromRedux.length > 0 
+    ? existingAtomsFromRedux 
+    : existingAtomsProp;
+  
+  const dispatch = useDispatch();
+  
   const [organismData, setOrganismData] = useState(createEmptyOrganism());
   const navigate = useNavigate();
   
@@ -18,31 +59,29 @@ const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], ex
     setOrganismData(createEmptyOrganism());
   };
 
-  // Use onAdd if provided, otherwise fall back to onSubmit
+  // Handle form submission using Redux
   const handleFormSubmit = (data) => {
     try {
       // Create a copy of the data to avoid mutating the original
       const organismData = { ...data };
       
-      // Set a flag to indicate this update should not trigger a refresh
-      const shouldRefresh = false;
-      
-      // First call the appropriate handler with the shouldRefresh flag
-      if (onAdd) {
-        onAdd(organismData, shouldRefresh);
-      } else if (onSubmit) {
-        onSubmit(organismData, shouldRefresh);
+      // Dispatch action to add/update organism in Redux store
+      if (mode === 'create') {
+        dispatch(addOrganism(organismData));
       } else {
-        console.warn("Neither onAdd nor onSubmit prop provided to OrganismBuilder");
-        return; // Don't navigate if no handler was called
+        dispatch(updateOrganism(organismData));
       }
       
-      // Only navigate if we're not in inline mode and a handler was successfully called
+      // Only navigate if we're not in inline mode
       if (!inline) {
-        // Use setTimeout to ensure this runs after any other synchronous code
         setTimeout(() => {
           navigate("/organisms");
         }, 0);
+      }
+      
+      // Reset form if it's a creation
+      if (mode === 'create') {
+        handleClearForm();
       }
     } catch (error) {
       console.error("Error in handleFormSubmit:", error);
@@ -56,6 +95,11 @@ const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], ex
   const handleFormUpdate = (data) => {
     setOrganismData(data);
   };
+
+  // Get mode from URL or props
+  const mode = organismData.id && existingOrganisms.some(o => o.id === organismData.id) 
+    ? 'edit' 
+    : 'create';
 
   // Render organism preview
   const renderOrganismPreview = () => {
@@ -88,10 +132,10 @@ const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], ex
     return (
       <OrganismRenderer
         organism={organismData}
-        existingOrganisms={existingOrganisms}
-        existingMolecules={existingMolecules}
         processedAtoms={processedAtoms}
         className="w-full h-full min-h-[150px]"
+        existingOrganismsProp={existingOrganisms}
+        existingMoleculesProp={existingMolecules}
       />
     );
   };
@@ -146,7 +190,7 @@ const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], ex
               </span>
             )}
           </div>
-          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px]  flex items-center justify-center">
+          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px] flex items-center justify-center">
             {renderOrganismPreview()}
           </div>
         </div>
@@ -167,13 +211,13 @@ const OrganismBuilder = ({ onAdd, onSubmit, onCancel, existingOrganisms = [], ex
               <OrganismForm
                 onSubmit={handleFormSubmit}
                 onCancel={onCancel}
-                mode="create"
+                mode={mode}
                 inline={true}
                 initialData={organismData}
                 onReset={handleClearForm}
                 onChange={handleFormUpdate}
-                existingMolecules={existingMolecules}
-                existingOrganisms={existingOrganisms}
+                existingMoleculesProp={existingMolecules}
+                existingOrganismsProp={existingOrganisms}
               />
             </div>
 

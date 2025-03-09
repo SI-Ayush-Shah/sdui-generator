@@ -59,11 +59,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'new',
-            element: <OrganismBuilder />,
+            element: <OrganismBuilder existingOrganismsProp={[]} existingMoleculesProp={[]} existingAtomsProp={[]} />,
           },
           {
             path: ':organismId',
-            element: <OrganismBuilder />,
+            element: <OrganismBuilder existingOrganismsProp={[]} existingMoleculesProp={[]} existingAtomsProp={[]} />,
           },
         ],
       },
@@ -76,11 +76,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'new',
-            element: <MoleculeBuilder />,
+            element: <MoleculeBuilder existingMoleculesProp={[]} existingAtomsProp={[]} />,
           },
           {
             path: ':moleculeId',
-            element: <MoleculeBuilder />,
+            element: <MoleculeBuilder existingMoleculesProp={[]} existingAtomsProp={[]} />,
           },
         ],
       },
