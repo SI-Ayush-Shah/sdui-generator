@@ -7657,6 +7657,60 @@
               "translation_key": ""
             }
           ]
+        },
+        {
+          "id": "molecule_7317fbd4-dc3d-4cc6-832a-9f5b738d7df9_1741492710719_639",
+          "name": "molecule_section_header",
+          "properties": {
+            "stack": "v",
+            "sub_variant": "center",
+            "variant": ""
+          },
+          "styles": {
+            "background_color": "background_alert_error",
+            "border_color": "",
+            "border_radius": {
+              "bottom_left": "",
+              "bottom_right": "",
+              "top_left": "",
+              "top_right": ""
+            },
+            "border_width": "",
+            "gap": "",
+            "gradient": "",
+            "offset": {
+              "top": 0,
+              "bottom": 0,
+              "left": 0,
+              "right": 0
+            },
+            "padding": {
+              "top": "spacing_1",
+              "right": "",
+              "bottom": "",
+              "left": ""
+            }
+          },
+          "atoms": [
+            {
+              "id": "123",
+              "name": "atom_title",
+              "visibility": true,
+              "translation_key": ""
+            },
+            {
+              "id": "bd28514a-4774-4ec4-9ea5-7388d63f0e6f",
+              "name": "atom_section_title_small",
+              "visibility": true,
+              "translation_key": ""
+            },
+            {
+              "id": "atom_2aeb3a24-fdf4-4d3e-8c32-75593095c201_1741492676395_4779",
+              "name": "button_view_more",
+              "visibility": true,
+              "translation_key": ""
+            }
+          ]
         }
       ],
       "atom": [
@@ -9343,6 +9397,18 @@
             "bottom_left": "",
             "bottom_right": ""
           }
+        },
+        {
+          "id": "atom_2aeb3a24-fdf4-4d3e-8c32-75593095c201_1741492676395_4779",
+          "atom_type": "button",
+          "background_color": "background_alert_success",
+          "text_color": "",
+          "border_radius": {
+            "top_left": "",
+            "top_right": "",
+            "bottom_left": "",
+            "bottom_right": ""
+          }
         }
       ]
     },
@@ -10597,7 +10663,7 @@
   },
   "meta": {
     "status": 200,
-    "timestamp": "2025-03-08T11:32:55.217Z"
+    "timestamp": "2025-03-09T03:56:21.128Z"
   },
   "pages": [],
   "shouldRefresh": true

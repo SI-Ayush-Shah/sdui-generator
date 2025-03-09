@@ -334,6 +334,7 @@ export const MOLECULE_PROPERTIES = {
 export const MOLECULE_DUMMY_DATA = {
   molecule_section_header: {
     title: "Section Title",
+    sub_title: "Sub Title",
     cta: {
         view_more: [
           {

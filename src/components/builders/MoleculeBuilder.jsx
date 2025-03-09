@@ -46,6 +46,7 @@ import AtomForm from "../forms/AtomForm";
 import { generateUniqueId } from "../../utils/idGenerator";
 import { toast } from "react-hot-toast";
 import EditAtomModal from "../modals/EditAtomModal";
+import MoleculeRenderer from "../common/MoleculeRenderer";
 
 // Test environment variables
 const apiUrl = process.env.VITE_API_URL;
@@ -539,46 +540,17 @@ const MoleculeBuilder = ({
     return acc;
   }, {});
 
-  // Modify the renderMoleculePreview function to accept an optional className parameter
+  // Replace the renderMoleculePreview function with MoleculeRenderer
   const renderMoleculePreview = (mol, className = "") => {
     if (!mol) return null;
 
-    // Create a deep copy of the molecule to avoid modifying the original
-    const previewMolecule = JSON.parse(JSON.stringify(mol));
-
-    // Get atoms from molecule
-    const processedMolecule = processMolecule(
-      previewMolecule,
-      prossedExistingAtoms
-    );
-
-    // Check if molecule name exists in componentMap
-    let Molecule = previewMolecule.name
-      ? componentMap[previewMolecule.name]
-      : null;
-
-    // Only add data for preview purposes
-    let previewData = {};
-    if (previewMolecule.name && MOLECULE_DUMMY_DATA[previewMolecule.name]) {
-      previewData = MOLECULE_DUMMY_DATA[previewMolecule.name];
-    }
-
     return (
-      <div
-        className={`p-3 border border-border_main_default rounded-md overflow-hidden ${className}`}
-      >
-        {Molecule ? (
-          <Molecule {...processedMolecule} data={previewData} />
-        ) : (
-          <div className="p-4 bg-background_main_card rounded border border-error_main_surface text-error_main_high">
-            <p className="text-sm font-medium">Component Not Found</p>
-            <p className="text-xs mt-1">
-              No component found for molecule type:{" "}
-              {previewMolecule.name || "undefined"}
-            </p>
-          </div>
-        )}
-      </div>
+      <MoleculeRenderer 
+        molecule={mol}
+        processedAtoms={prossedExistingAtoms}
+        className={className}
+        useDummyData={true}
+      />
     );
   };
 
@@ -633,7 +605,7 @@ const MoleculeBuilder = ({
               </span>
             )}
           </div>
-          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px] max-h-[300px] flex items-center justify-center">
+          <div className="bg-background_main_surface border border-border_main_default rounded-md overflow-hidden min-h-[150px]  flex items-center justify-center">
             {molecule.name ? (
               <div className="w-full h-full flex items-center justify-center p-4">
                 {renderMoleculePreview(molecule, "w-full shadow-sm max-w-lg mx-auto")}
