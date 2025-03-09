@@ -508,6 +508,22 @@ const JsonBuilder = ({ defaultSection = "pages" }) => {
             </div>
           </div>
         );
+      case "organisms":
+        return (
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12">
+              <OrganismBuilder
+                onAdd={(organism) => handleAddComponent("organism", organism)}  
+                handleAddComponent={handleAddComponent}
+                existingOrganisms={jsonData.data.components.organism || []}
+                existingMolecules={jsonData.data.components.molecule || []}
+                onUpdate={(index, organism) =>
+                  handleUpdateComponent("organism", index, organism)
+                }
+              />
+            </div>
+          </div>
+        );
       case "molecules":
         return (
           <div className="grid grid-cols-12 gap-6">

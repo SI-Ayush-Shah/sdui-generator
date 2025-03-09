@@ -2,8 +2,8 @@
   "id": "25f2286c-2d29-40ce-84ff-712dd87d20ea",
   "name": "organism_extension",
   "properties": {
-    "stack": "h",
-    "position": ""
+    "stack": "h | v | z",
+    "position": "top_left | top_right | bottom_left | bottom_right | center"
   },
   "styles": {
     "background_color": "",
