@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Box } from "@sikit/ui";
 import MoleculeRenderer from './MoleculeRenderer';
@@ -29,12 +29,7 @@ const OrganismRenderer = ({
   // Get organisms and molecules from Redux store with fallback to props
   const existingOrganismsFromRedux = useSelector(selectAllOrganisms) || [];
   const existingMoleculesFromRedux = useSelector(selectAllMolecules) || [];
-  console.log("OrganismRenderer - Redux data:", { 
-    existingOrganismsFromRedux: existingOrganismsFromRedux.length, 
-    existingMoleculesFromRedux: existingMoleculesFromRedux.length,
-    existingOrganismsProp: existingOrganismsProp.length,
-    existingMoleculesProp: existingMoleculesProp.length
-  });
+  
   // Use Redux data if available, otherwise fall back to props
   const existingOrganisms = existingOrganismsFromRedux.length > 0 
     ? existingOrganismsFromRedux 
@@ -46,8 +41,10 @@ const OrganismRenderer = ({
 
   if (!organism) return null;
   
-  // Create a deep copy to avoid mutations
-  const previewOrganism = JSON.parse(JSON.stringify(organism));
+  // Create a deep copy using useMemo to avoid unnecessary cloning on re-renders
+  const previewOrganism = useMemo(() => {
+    return JSON.parse(JSON.stringify(organism));
+  }, [organism]);
 
   
   // Add any additional classes
@@ -63,6 +60,9 @@ const OrganismRenderer = ({
           // Skip if component is not visible
           if (component.visibility === false) return null;
           
+          // Generate a stable key for this component
+          const componentKey = component.id || `comp-${index}`;
+          
           // Render based on component type
           if (component.component_type === 'organism') {
             // Find the nested organism
@@ -70,7 +70,7 @@ const OrganismRenderer = ({
             if (!nestedOrganism) {
               return (
                 <div 
-                  key={component.id || index} 
+                  key={componentKey} 
                   className="p-2 bg-background_main_card border border-border_main_default text-text_main_medium text-xs rounded m-1"
                 >
                   Organism not found
@@ -80,7 +80,7 @@ const OrganismRenderer = ({
             
             // Render the nested organism with proper styling
             return (
-             
+              <React.Fragment key={componentKey}>
                 <OrganismRenderer
                   organism={nestedOrganism}
                   processedAtoms={processedAtoms}
@@ -90,6 +90,7 @@ const OrganismRenderer = ({
                   existingOrganismsProp={existingOrganisms}
                   existingMoleculesProp={existingMolecules}
                 />
+              </React.Fragment>
             );
           } else {
             // Find the molecule
@@ -97,7 +98,7 @@ const OrganismRenderer = ({
             if (!molecule) {
               return (
                 <div
-                  key={component.id || index}
+                  key={componentKey}
                   className="bg-background_main_card border border-dashed border-border_main_default rounded-md p-2 m-1 text-text_main_medium text-xs"
                   style={{ 
                     position: previewOrganism.properties?.stack === 'z' ? 'absolute' : 'relative',
@@ -112,20 +113,11 @@ const OrganismRenderer = ({
             
             // Render the molecule with proper styling
             return (
-              <div
-                key={component.id || index}
-                style={{ 
-                  position: previewOrganism.properties?.stack === 'z' ? 'absolute' : 'relative',
-                  zIndex: previewOrganism.properties?.stack === 'z' ? index + 1 : 'auto',
-                  margin: '0.25rem',
-                  maxWidth: '100%',
-                }}
-              >
+              
                 <MoleculeRenderer 
                   molecule={molecule} 
                   processedAtoms={processedAtoms} 
                 />
-              </div>
             );
           }
         })
@@ -139,5 +131,5 @@ const OrganismRenderer = ({
   );
 };
 
-
-export default OrganismRenderer; 
+// Wrap with React.memo to prevent unnecessary re-renders
+export default React.memo(OrganismRenderer); 

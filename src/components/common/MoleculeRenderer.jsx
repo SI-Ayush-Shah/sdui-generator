@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { componentMap } from "../../molecules-mapper/molecules-map.jsx";
 import { MOLECULE_DUMMY_DATA } from "../../constants/moleculeOptions";
 import { processMolecule } from "../../utils/compile.js";
@@ -27,11 +27,6 @@ const MoleculeRenderer = ({
   // Get atoms from Redux
   const atomsFromRedux = useSelector(selectAllAtoms) || [];
   
-  console.log("MoleculeRenderer - Redux data:", { 
-    atomsFromRedux: atomsFromRedux.length,
-    processedAtomsProp: processedAtomsProp ? Object.keys(processedAtomsProp).length : 0
-  });
-  
   // Process atoms from Redux if available, otherwise use prop
   const processedAtoms = atomsFromRedux.length > 0 
     ? processAtoms(atomsFromRedux)
@@ -39,33 +34,36 @@ const MoleculeRenderer = ({
     
   if (!molecule) return null;
 
-  // Create a deep copy of the molecule to avoid modifying the original
-  const previewMolecule = JSON.parse(JSON.stringify(molecule));
+  // Create a deep copy of the molecule and process it with atoms, memoized to avoid unnecessary processing
+  const processedMolecule = useMemo(() => {
+    const previewMolecule = JSON.parse(JSON.stringify(molecule));
+    return processMolecule(previewMolecule, processedAtoms);
+  }, [molecule, processedAtoms]);
 
-  // Process the molecule with atoms
-  const processedMolecule = processMolecule(previewMolecule, processedAtoms);
-console.log("processedMolecule",processedAtoms);
   // Check if molecule name exists in componentMap
-  let MoleculeComponent = previewMolecule.name ? componentMap[previewMolecule.name] : null;
-
-  // Get data for preview
-  let previewData = customData;
-  if (!previewData && useDummyData && previewMolecule.name && MOLECULE_DUMMY_DATA[previewMolecule.name]) {
-    previewData = MOLECULE_DUMMY_DATA[previewMolecule.name];
+  let MoleculeComponent = molecule.name ? componentMap[molecule.name] : null;
+  
+  // If no matching component is found, return a placeholder
+  if (!MoleculeComponent) {
+    return (
+      <div className={`molecule-renderer p-2 bg-background_main_card border border-border_main_default text-text_main_medium text-xs rounded ${className}`}>
+        Unknown Molecule: {molecule.name}
+      </div>
+    );
   }
 
-  return    MoleculeComponent ? (
-        <MoleculeComponent {...processedMolecule} data={previewData} />
-      ) : (
-        <div className="p-3 bg-background_main_card text-text_main_medium text-xs">
-          <p className="font-medium">{previewMolecule.name || "Unnamed Molecule"}</p>
-          <p className="text-text_main_low mt-1">ID: {previewMolecule.id?.substring(0, 8)}</p>
-          {!MoleculeComponent && previewMolecule.name && (
-            <p className="text-error_main_high mt-1">Component not found in componentMap</p>
-          )}
-        </div>
-      )
-  ;
+  // Determine what data to use for the molecule
+  const dataToUse = customData || (useDummyData ? MOLECULE_DUMMY_DATA[molecule.name] || {} : {});
+console.log("dataToUse", dataToUse);
+  // Render the molecule with the appropriate data
+  return (
+      <MoleculeComponent 
+        key={molecule.id}
+        {...processedMolecule} 
+        data={dataToUse}
+      />
+  );
 };
 
-export default MoleculeRenderer; 
+// Wrap with React.memo to prevent unnecessary re-renders
+export default React.memo(MoleculeRenderer); 
